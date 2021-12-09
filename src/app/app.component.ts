@@ -1,10 +1,16 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {LanguageService} from './services/language/language.service';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  template: ` <router-outlet></router-outlet> `,
 })
 export class AppComponent {
-  title = 'AppRestoFront';
+  title = 'ui';
+
+  constructor(private languageService: LanguageService) {}
+
+  changeLanguage(language: string) {
+    this.languageService.setLanguage(language);
+  }
 }

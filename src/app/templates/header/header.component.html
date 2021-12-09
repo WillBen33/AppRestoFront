@@ -1,0 +1,63 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLinkActive="active" routerLink="/home">
+      <img
+        src="assets/logo.svg"
+        height="30"
+        class="d-inline-block align-top"
+        alt="Angular Starters Logo"
+        loading="lazy"
+      />
+      Ui
+    </a>
+    <div class="mr-auto"></div>
+    <button class="navbar-toggler" type="button" (click)="toggleNavbar()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" [ngClass]="{ 'show': navbarOpen }">
+      <ul class="navbar-nav">
+        <a class="nav-item nav-link" routerLinkActive="active" routerLink="/home">Home</a>
+        <a class="nav-item nav-link" routerLinkActive="active" routerLink="/about">About</a>
+        <a class="nav-item nav-link" routerLinkActive="active" routerLink="/contact">Contact</a>
+      </ul>
+      <form class="d-flex">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+               aria-expanded="false">
+              Language
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+              <li>
+                <a class="dropdown-item nav-link" (click)="setLanguage('fr')">
+                  <img
+                    src="assets/fr.png"
+                    height="25"
+                    class="d-inline-block align-top"
+                    alt="Angular Starters Logo"
+                    loading="lazy"
+                  />
+                  &nbsp;
+                  Français
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item nav-link" (click)="setLanguage('en')">
+                  <img
+                    src="assets/en.png"
+                    height="25"
+                    class="d-inline-block align-top"
+                    alt="Angular Starters Logo"
+                    loading="lazy"
+                  />
+                  &nbsp;
+                  English
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </form>
+    </div>
+  </div>
+</nav>
