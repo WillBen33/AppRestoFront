@@ -1,0 +1,11 @@
+export { Adress } from './models/adress';
+export { Profil } from './models/profil';
+export { Role } from './models/role';
+export { User } from './models/user';
+export { Allergen } from './models/allergen';
+export { Category } from './models/category';
+export { Product } from './models/product';
+export { JobOffer } from './models/job-offer';
+export { Commande } from './models/commande';
+export { Invoice } from './models/invoice';
+export { Candidature } from './models/candidature';
