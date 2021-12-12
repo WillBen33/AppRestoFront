@@ -8,11 +8,12 @@ import {CarouselComponent} from "./Shared/carousel/carousel.component";
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatCarouselModule} from '@ngmodule/material-carousel';
+import {MatIconModule} from "@angular/material/icon";
 
 @NgModule({
   declarations: [AboutComponent, ContactComponent, HomeComponent, CarouselComponent],
   imports: [
-    CommonModule, TranslateModule, MatCarouselModule, BrowserAnimationsModule,
+    CommonModule, TranslateModule, MatCarouselModule, BrowserAnimationsModule, MatIconModule,
   ]
 })
 export class PagesModule {
