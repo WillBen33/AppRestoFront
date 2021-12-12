@@ -23,9 +23,9 @@ export class AllergenControllerService extends BaseService {
   }
 
   /**
-   * Path part for operation getById8
+   * Path part for operation getAllergenById
    */
-  static readonly GetById8Path = '/allergens/{id}';
+  static readonly GetAllergenByIdPath = '/allergens/{id}';
 
   /**
    * Get allergen by it's id .
@@ -33,11 +33,11 @@ export class AllergenControllerService extends BaseService {
    *
    *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `getById8()` instead.
+   * To access only the response body, use `getAllergenById()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getById8$Response(params: {
+  getAllergenById$Response(params: {
 
     /**
      * The id of allergen to search
@@ -45,7 +45,7 @@ export class AllergenControllerService extends BaseService {
     id: number;
   }): Observable<StrictHttpResponse<any>> {
 
-    const rb = new RequestBuilder(this.rootUrl, AllergenControllerService.GetById8Path, 'get');
+    const rb = new RequestBuilder(this.rootUrl, AllergenControllerService.GetAllergenByIdPath, 'get');
     if (params) {
       rb.path('id', params.id, {});
     }
@@ -67,11 +67,11 @@ export class AllergenControllerService extends BaseService {
    *
    *
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `getById8$Response()` instead.
+   * To access the full response (for headers, for example), `getAllergenById$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getById8(params: {
+  getAllergenById(params: {
 
     /**
      * The id of allergen to search
@@ -79,7 +79,7 @@ export class AllergenControllerService extends BaseService {
     id: number;
   }): Observable<any> {
 
-    return this.getById8$Response(params).pipe(
+    return this.getAllergenById$Response(params).pipe(
       map((r: StrictHttpResponse<any>) => r.body as any)
     );
   }
@@ -212,9 +212,9 @@ export class AllergenControllerService extends BaseService {
   }
 
   /**
-   * Path part for operation getAll9
+   * Path part for operation getAllAllergens
    */
-  static readonly GetAll9Path = '/allergens';
+  static readonly GetAllAllergensPath = '/allergens';
 
   /**
    * Get the list of all allergens .
@@ -222,14 +222,14 @@ export class AllergenControllerService extends BaseService {
    *
    *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `getAll9()` instead.
+   * To access only the response body, use `getAllAllergens()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getAll9$Response(params?: {
+  getAllAllergens$Response(params?: {
   }): Observable<StrictHttpResponse<any>> {
 
-    const rb = new RequestBuilder(this.rootUrl, AllergenControllerService.GetAll9Path, 'get');
+    const rb = new RequestBuilder(this.rootUrl, AllergenControllerService.GetAllAllergensPath, 'get');
     if (params) {
     }
 
@@ -250,14 +250,14 @@ export class AllergenControllerService extends BaseService {
    *
    *
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `getAll9$Response()` instead.
+   * To access the full response (for headers, for example), `getAllAllergens$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getAll9(params?: {
+  getAllAllergens(params?: {
   }): Observable<any> {
 
-    return this.getAll9$Response(params).pipe(
+    return this.getAllAllergens$Response(params).pipe(
       map((r: StrictHttpResponse<any>) => r.body as any)
     );
   }
@@ -317,9 +317,9 @@ export class AllergenControllerService extends BaseService {
   }
 
   /**
-   * Path part for operation getAllergenNyProduct
+   * Path part for operation getAllergenByProduct
    */
-  static readonly GetAllergenNyProductPath = '/allergens/product/{id}';
+  static readonly GetAllergenByProductPath = '/allergens/product/{id}';
 
   /**
    * Get the list of all allergens Linked to a product .
@@ -327,11 +327,11 @@ export class AllergenControllerService extends BaseService {
    *
    *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `getAllergenNyProduct()` instead.
+   * To access only the response body, use `getAllergenByProduct()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getAllergenNyProduct$Response(params: {
+  getAllergenByProduct$Response(params: {
 
     /**
      * The id of the concerned product
@@ -339,7 +339,7 @@ export class AllergenControllerService extends BaseService {
     id: number;
   }): Observable<StrictHttpResponse<any>> {
 
-    const rb = new RequestBuilder(this.rootUrl, AllergenControllerService.GetAllergenNyProductPath, 'get');
+    const rb = new RequestBuilder(this.rootUrl, AllergenControllerService.GetAllergenByProductPath, 'get');
     if (params) {
       rb.path('id', params.id, {});
     }
@@ -361,11 +361,11 @@ export class AllergenControllerService extends BaseService {
    *
    *
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `getAllergenNyProduct$Response()` instead.
+   * To access the full response (for headers, for example), `getAllergenByProduct$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getAllergenNyProduct(params: {
+  getAllergenByProduct(params: {
 
     /**
      * The id of the concerned product
@@ -373,7 +373,7 @@ export class AllergenControllerService extends BaseService {
     id: number;
   }): Observable<any> {
 
-    return this.getAllergenNyProduct$Response(params).pipe(
+    return this.getAllergenByProduct$Response(params).pipe(
       map((r: StrictHttpResponse<any>) => r.body as any)
     );
   }

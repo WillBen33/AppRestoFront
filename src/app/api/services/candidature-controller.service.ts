@@ -23,9 +23,9 @@ export class CandidatureControllerService extends BaseService {
   }
 
   /**
-   * Path part for operation getAll8
+   * Path part for operation getAllCandidatures
    */
-  static readonly GetAll8Path = '/candidatures';
+  static readonly GetAllCandidaturesPath = '/candidatures';
 
   /**
    * Get the list of all candidatures .
@@ -33,14 +33,14 @@ export class CandidatureControllerService extends BaseService {
    *
    *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `getAll8()` instead.
+   * To access only the response body, use `getAllCandidatures()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getAll8$Response(params?: {
+  getAllCandidatures$Response(params?: {
   }): Observable<StrictHttpResponse<any>> {
 
-    const rb = new RequestBuilder(this.rootUrl, CandidatureControllerService.GetAll8Path, 'get');
+    const rb = new RequestBuilder(this.rootUrl, CandidatureControllerService.GetAllCandidaturesPath, 'get');
     if (params) {
     }
 
@@ -61,14 +61,14 @@ export class CandidatureControllerService extends BaseService {
    *
    *
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `getAll8$Response()` instead.
+   * To access the full response (for headers, for example), `getAllCandidatures$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getAll8(params?: {
+  getAllCandidatures(params?: {
   }): Observable<any> {
 
-    return this.getAll8$Response(params).pipe(
+    return this.getAllCandidatures$Response(params).pipe(
       map((r: StrictHttpResponse<any>) => r.body as any)
     );
   }

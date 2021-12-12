@@ -23,9 +23,9 @@ export class RoleControllerService extends BaseService {
   }
 
   /**
-   * Path part for operation getById1
+   * Path part for operation getRoleById
    */
-  static readonly GetById1Path = '/roles/{id}';
+  static readonly GetRoleByIdPath = '/roles/{id}';
 
   /**
    * Get role by it's id .
@@ -33,11 +33,11 @@ export class RoleControllerService extends BaseService {
    *
    *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `getById1()` instead.
+   * To access only the response body, use `getRoleById()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getById1$Response(params: {
+  getRoleById$Response(params: {
 
     /**
      * The id of role to search
@@ -45,7 +45,7 @@ export class RoleControllerService extends BaseService {
     id: number;
   }): Observable<StrictHttpResponse<any>> {
 
-    const rb = new RequestBuilder(this.rootUrl, RoleControllerService.GetById1Path, 'get');
+    const rb = new RequestBuilder(this.rootUrl, RoleControllerService.GetRoleByIdPath, 'get');
     if (params) {
       rb.path('id', params.id, {});
     }
@@ -67,11 +67,11 @@ export class RoleControllerService extends BaseService {
    *
    *
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `getById1$Response()` instead.
+   * To access the full response (for headers, for example), `getRoleById$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getById1(params: {
+  getRoleById(params: {
 
     /**
      * The id of role to search
@@ -79,7 +79,7 @@ export class RoleControllerService extends BaseService {
     id: number;
   }): Observable<any> {
 
-    return this.getById1$Response(params).pipe(
+    return this.getRoleById$Response(params).pipe(
       map((r: StrictHttpResponse<any>) => r.body as any)
     );
   }
@@ -212,9 +212,9 @@ export class RoleControllerService extends BaseService {
   }
 
   /**
-   * Path part for operation getAll1
+   * Path part for operation getAllRoles
    */
-  static readonly GetAll1Path = '/roles';
+  static readonly GetAllRolesPath = '/roles';
 
   /**
    * Get the list of all roles .
@@ -222,14 +222,14 @@ export class RoleControllerService extends BaseService {
    *
    *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `getAll1()` instead.
+   * To access only the response body, use `getAllRoles()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getAll1$Response(params?: {
+  getAllRoles$Response(params?: {
   }): Observable<StrictHttpResponse<any>> {
 
-    const rb = new RequestBuilder(this.rootUrl, RoleControllerService.GetAll1Path, 'get');
+    const rb = new RequestBuilder(this.rootUrl, RoleControllerService.GetAllRolesPath, 'get');
     if (params) {
     }
 
@@ -250,14 +250,14 @@ export class RoleControllerService extends BaseService {
    *
    *
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `getAll1$Response()` instead.
+   * To access the full response (for headers, for example), `getAllRoles$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getAll1(params?: {
+  getAllRoles(params?: {
   }): Observable<any> {
 
-    return this.getAll1$Response(params).pipe(
+    return this.getAllRoles$Response(params).pipe(
       map((r: StrictHttpResponse<any>) => r.body as any)
     );
   }

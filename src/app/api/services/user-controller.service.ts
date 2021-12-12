@@ -23,9 +23,9 @@ export class UserControllerService extends BaseService {
   }
 
   /**
-   * Path part for operation getById
+   * Path part for operation getUserById
    */
-  static readonly GetByIdPath = '/users/{id}';
+  static readonly GetUserByIdPath = '/users/{id}';
 
   /**
    * Get user by it's id .
@@ -33,11 +33,11 @@ export class UserControllerService extends BaseService {
    *
    *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `getById()` instead.
+   * To access only the response body, use `getUserById()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getById$Response(params: {
+  getUserById$Response(params: {
 
     /**
      * The id of user to search
@@ -45,7 +45,7 @@ export class UserControllerService extends BaseService {
     id: number;
   }): Observable<StrictHttpResponse<any>> {
 
-    const rb = new RequestBuilder(this.rootUrl, UserControllerService.GetByIdPath, 'get');
+    const rb = new RequestBuilder(this.rootUrl, UserControllerService.GetUserByIdPath, 'get');
     if (params) {
       rb.path('id', params.id, {});
     }
@@ -67,11 +67,11 @@ export class UserControllerService extends BaseService {
    *
    *
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `getById$Response()` instead.
+   * To access the full response (for headers, for example), `getUserById$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getById(params: {
+  getUserById(params: {
 
     /**
      * The id of user to search
@@ -79,7 +79,7 @@ export class UserControllerService extends BaseService {
     id: number;
   }): Observable<any> {
 
-    return this.getById$Response(params).pipe(
+    return this.getUserById$Response(params).pipe(
       map((r: StrictHttpResponse<any>) => r.body as any)
     );
   }
@@ -212,9 +212,9 @@ export class UserControllerService extends BaseService {
   }
 
   /**
-   * Path part for operation getAll
+   * Path part for operation getAllUsers
    */
-  static readonly GetAllPath = '/users';
+  static readonly GetAllUsersPath = '/users';
 
   /**
    * Get the list of all users .
@@ -222,14 +222,14 @@ export class UserControllerService extends BaseService {
    *
    *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `getAll()` instead.
+   * To access only the response body, use `getAllUsers()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getAll$Response(params?: {
+  getAllUsers$Response(params?: {
   }): Observable<StrictHttpResponse<any>> {
 
-    const rb = new RequestBuilder(this.rootUrl, UserControllerService.GetAllPath, 'get');
+    const rb = new RequestBuilder(this.rootUrl, UserControllerService.GetAllUsersPath, 'get');
     if (params) {
     }
 
@@ -250,14 +250,14 @@ export class UserControllerService extends BaseService {
    *
    *
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `getAll$Response()` instead.
+   * To access the full response (for headers, for example), `getAllUsers$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getAll(params?: {
+  getAllUsers(params?: {
   }): Observable<any> {
 
-    return this.getAll$Response(params).pipe(
+    return this.getAllUsers$Response(params).pipe(
       map((r: StrictHttpResponse<any>) => r.body as any)
     );
   }

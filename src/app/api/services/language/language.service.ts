@@ -18,19 +18,19 @@ export class LanguageService {
 
   initLanguage() {
     const value = localStorage.getItem(this.keyLanguage);
-    if(value != null) {
+    if (value != null) {
       this._userLanguage = value;
-    }else {
+    } else {
       const browserLanguage = navigator.language.split('-')[0];
       this._userLanguage = 'en';
-      if(this.supportedLanguages.includes(browserLanguage)){
+      if (this.supportedLanguages.includes(browserLanguage)) {
         this._userLanguage = browserLanguage;
         localStorage.setItem(this.keyLanguage, browserLanguage);
       }
     }
   }
 
-  setLanguage(language: string){
+  setLanguage(language: string) {
     this._userLanguage = language;
     localStorage.setItem(this.keyLanguage, this._userLanguage);
     this.translate.use(this._userLanguage);
@@ -40,7 +40,7 @@ export class LanguageService {
     return this._userLanguage;
   }
 
-  getAvailableLanguages(){
+  getAvailableLanguages() {
     return this.supportedLanguages;
   }
 

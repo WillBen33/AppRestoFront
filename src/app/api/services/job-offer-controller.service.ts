@@ -23,9 +23,9 @@ export class JobOfferControllerService extends BaseService {
   }
 
   /**
-   * Path part for operation getById4
+   * Path part for operation getJobOfferById
    */
-  static readonly GetById4Path = '/jobOffers/{id}';
+  static readonly GetJobOfferByIdPath = '/jobOffers/{id}';
 
   /**
    * Get jobOffer by it's id .
@@ -33,11 +33,11 @@ export class JobOfferControllerService extends BaseService {
    *
    *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `getById4()` instead.
+   * To access only the response body, use `getJobOfferById()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getById4$Response(params: {
+  getJobOfferById$Response(params: {
 
     /**
      * The id of jobOffer to search
@@ -45,7 +45,7 @@ export class JobOfferControllerService extends BaseService {
     id: number;
   }): Observable<StrictHttpResponse<any>> {
 
-    const rb = new RequestBuilder(this.rootUrl, JobOfferControllerService.GetById4Path, 'get');
+    const rb = new RequestBuilder(this.rootUrl, JobOfferControllerService.GetJobOfferByIdPath, 'get');
     if (params) {
       rb.path('id', params.id, {});
     }
@@ -67,11 +67,11 @@ export class JobOfferControllerService extends BaseService {
    *
    *
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `getById4$Response()` instead.
+   * To access the full response (for headers, for example), `getJobOfferById$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getById4(params: {
+  getJobOfferById(params: {
 
     /**
      * The id of jobOffer to search
@@ -79,15 +79,15 @@ export class JobOfferControllerService extends BaseService {
     id: number;
   }): Observable<any> {
 
-    return this.getById4$Response(params).pipe(
+    return this.getJobOfferById$Response(params).pipe(
       map((r: StrictHttpResponse<any>) => r.body as any)
     );
   }
 
   /**
-   * Path part for operation updatejobOffer
+   * Path part for operation updateJobOffer
    */
-  static readonly UpdatejobOfferPath = '/jobOffers/{id}';
+  static readonly UpdateJobOfferPath = '/jobOffers/{id}';
 
   /**
    * Update a jobOffer .
@@ -95,11 +95,11 @@ export class JobOfferControllerService extends BaseService {
    *
    *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `updatejobOffer()` instead.
+   * To access only the response body, use `updateJobOffer()` instead.
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  updatejobOffer$Response(params: {
+  updateJobOffer$Response(params: {
 
     /**
      * The id of jobOffer to update
@@ -108,7 +108,7 @@ export class JobOfferControllerService extends BaseService {
     body: JobOffer
   }): Observable<StrictHttpResponse<any>> {
 
-    const rb = new RequestBuilder(this.rootUrl, JobOfferControllerService.UpdatejobOfferPath, 'put');
+    const rb = new RequestBuilder(this.rootUrl, JobOfferControllerService.UpdateJobOfferPath, 'put');
     if (params) {
       rb.path('id', params.id, {});
       rb.body(params.body, 'application/json');
@@ -131,11 +131,11 @@ export class JobOfferControllerService extends BaseService {
    *
    *
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `updatejobOffer$Response()` instead.
+   * To access the full response (for headers, for example), `updateJobOffer$Response()` instead.
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  updatejobOffer(params: {
+  updateJobOffer(params: {
 
     /**
      * The id of jobOffer to update
@@ -144,7 +144,7 @@ export class JobOfferControllerService extends BaseService {
     body: JobOffer
   }): Observable<any> {
 
-    return this.updatejobOffer$Response(params).pipe(
+    return this.updateJobOffer$Response(params).pipe(
       map((r: StrictHttpResponse<any>) => r.body as any)
     );
   }
@@ -212,9 +212,9 @@ export class JobOfferControllerService extends BaseService {
   }
 
   /**
-   * Path part for operation getAll4
+   * Path part for operation getAllJobOffers
    */
-  static readonly GetAll4Path = '/jobOffers';
+  static readonly GetAllJobOffersPath = '/jobOffers';
 
   /**
    * Get the list of all jobOffers .
@@ -222,14 +222,14 @@ export class JobOfferControllerService extends BaseService {
    *
    *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `getAll4()` instead.
+   * To access only the response body, use `getAllJobOffers()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getAll4$Response(params?: {
+  getAllJobOffers$Response(params?: {
   }): Observable<StrictHttpResponse<any>> {
 
-    const rb = new RequestBuilder(this.rootUrl, JobOfferControllerService.GetAll4Path, 'get');
+    const rb = new RequestBuilder(this.rootUrl, JobOfferControllerService.GetAllJobOffersPath, 'get');
     if (params) {
     }
 
@@ -250,22 +250,22 @@ export class JobOfferControllerService extends BaseService {
    *
    *
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `getAll4$Response()` instead.
+   * To access the full response (for headers, for example), `getAllJobOffers$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getAll4(params?: {
+  getAllJobOffers(params?: {
   }): Observable<any> {
 
-    return this.getAll4$Response(params).pipe(
+    return this.getAllJobOffers$Response(params).pipe(
       map((r: StrictHttpResponse<any>) => r.body as any)
     );
   }
 
   /**
-   * Path part for operation addjobOffer
+   * Path part for operation addJobOffer
    */
-  static readonly AddjobOfferPath = '/jobOffers';
+  static readonly AddJobOfferPath = '/jobOffers';
 
   /**
    * Add a new jobOffer .
@@ -273,15 +273,15 @@ export class JobOfferControllerService extends BaseService {
    *
    *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `addjobOffer()` instead.
+   * To access only the response body, use `addJobOffer()` instead.
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  addjobOffer$Response(params: {
+  addJobOffer$Response(params: {
     body: JobOffer
   }): Observable<StrictHttpResponse<any>> {
 
-    const rb = new RequestBuilder(this.rootUrl, JobOfferControllerService.AddjobOfferPath, 'post');
+    const rb = new RequestBuilder(this.rootUrl, JobOfferControllerService.AddJobOfferPath, 'post');
     if (params) {
       rb.body(params.body, 'application/json');
     }
@@ -303,15 +303,15 @@ export class JobOfferControllerService extends BaseService {
    *
    *
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `addjobOffer$Response()` instead.
+   * To access the full response (for headers, for example), `addJobOffer$Response()` instead.
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  addjobOffer(params: {
+  addJobOffer(params: {
     body: JobOffer
   }): Observable<any> {
 
-    return this.addjobOffer$Response(params).pipe(
+    return this.addJobOffer$Response(params).pipe(
       map((r: StrictHttpResponse<any>) => r.body as any)
     );
   }

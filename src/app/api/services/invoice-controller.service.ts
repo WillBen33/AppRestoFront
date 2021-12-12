@@ -23,9 +23,9 @@ export class InvoiceControllerService extends BaseService {
   }
 
   /**
-   * Path part for operation getAll5
+   * Path part for operation getAllInvoices
    */
-  static readonly GetAll5Path = '/invoices';
+  static readonly GetAllInvoicesPath = '/invoices';
 
   /**
    * Get the list of all invoices .
@@ -33,14 +33,14 @@ export class InvoiceControllerService extends BaseService {
    *
    *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `getAll5()` instead.
+   * To access only the response body, use `getAllInvoices()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getAll5$Response(params?: {
+  getAllInvoices$Response(params?: {
   }): Observable<StrictHttpResponse<any>> {
 
-    const rb = new RequestBuilder(this.rootUrl, InvoiceControllerService.GetAll5Path, 'get');
+    const rb = new RequestBuilder(this.rootUrl, InvoiceControllerService.GetAllInvoicesPath, 'get');
     if (params) {
     }
 
@@ -61,14 +61,14 @@ export class InvoiceControllerService extends BaseService {
    *
    *
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `getAll5$Response()` instead.
+   * To access the full response (for headers, for example), `getAllInvoices$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getAll5(params?: {
+  getAllInvoices(params?: {
   }): Observable<any> {
 
-    return this.getAll5$Response(params).pipe(
+    return this.getAllInvoices$Response(params).pipe(
       map((r: StrictHttpResponse<any>) => r.body as any)
     );
   }
@@ -128,9 +128,9 @@ export class InvoiceControllerService extends BaseService {
   }
 
   /**
-   * Path part for operation getById5
+   * Path part for operation getInvoiceById
    */
-  static readonly GetById5Path = '/invoices/{id}';
+  static readonly GetInvoiceByIdPath = '/invoices/{id}';
 
   /**
    * Get invoice by it's id .
@@ -138,11 +138,11 @@ export class InvoiceControllerService extends BaseService {
    *
    *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `getById5()` instead.
+   * To access only the response body, use `getInvoiceById()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getById5$Response(params: {
+  getInvoiceById$Response(params: {
 
     /**
      * The id of the invoice to search
@@ -150,7 +150,7 @@ export class InvoiceControllerService extends BaseService {
     id: number;
   }): Observable<StrictHttpResponse<any>> {
 
-    const rb = new RequestBuilder(this.rootUrl, InvoiceControllerService.GetById5Path, 'get');
+    const rb = new RequestBuilder(this.rootUrl, InvoiceControllerService.GetInvoiceByIdPath, 'get');
     if (params) {
       rb.path('id', params.id, {});
     }
@@ -172,11 +172,11 @@ export class InvoiceControllerService extends BaseService {
    *
    *
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `getById5$Response()` instead.
+   * To access the full response (for headers, for example), `getInvoiceById$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getById5(params: {
+  getInvoiceById(params: {
 
     /**
      * The id of the invoice to search
@@ -184,7 +184,7 @@ export class InvoiceControllerService extends BaseService {
     id: number;
   }): Observable<any> {
 
-    return this.getById5$Response(params).pipe(
+    return this.getInvoiceById$Response(params).pipe(
       map((r: StrictHttpResponse<any>) => r.body as any)
     );
   }

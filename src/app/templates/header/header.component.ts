@@ -10,7 +10,8 @@ export class HeaderComponent implements OnInit {
 
   navbarOpen = false;
 
-  constructor(private languageService: LanguageService) { }
+  constructor(private languageService: LanguageService) {
+  }
 
   ngOnInit(): void {
   }

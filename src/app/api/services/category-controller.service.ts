@@ -23,9 +23,9 @@ export class CategoryControllerService extends BaseService {
   }
 
   /**
-   * Path part for operation getById7
+   * Path part for operation getCategoryById
    */
-  static readonly GetById7Path = '/categories/{id}';
+  static readonly GetCategoryByIdPath = '/categories/{id}';
 
   /**
    * Get category by it's id .
@@ -33,11 +33,11 @@ export class CategoryControllerService extends BaseService {
    *
    *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `getById7()` instead.
+   * To access only the response body, use `getCategoryById()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getById7$Response(params: {
+  getCategoryById$Response(params: {
 
     /**
      * The id of candidature to search
@@ -45,7 +45,7 @@ export class CategoryControllerService extends BaseService {
     id: number;
   }): Observable<StrictHttpResponse<any>> {
 
-    const rb = new RequestBuilder(this.rootUrl, CategoryControllerService.GetById7Path, 'get');
+    const rb = new RequestBuilder(this.rootUrl, CategoryControllerService.GetCategoryByIdPath, 'get');
     if (params) {
       rb.path('id', params.id, {});
     }
@@ -67,11 +67,11 @@ export class CategoryControllerService extends BaseService {
    *
    *
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `getById7$Response()` instead.
+   * To access the full response (for headers, for example), `getCategoryById$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getById7(params: {
+  getCategoryById(params: {
 
     /**
      * The id of candidature to search
@@ -79,7 +79,7 @@ export class CategoryControllerService extends BaseService {
     id: number;
   }): Observable<any> {
 
-    return this.getById7$Response(params).pipe(
+    return this.getCategoryById$Response(params).pipe(
       map((r: StrictHttpResponse<any>) => r.body as any)
     );
   }
@@ -212,9 +212,9 @@ export class CategoryControllerService extends BaseService {
   }
 
   /**
-   * Path part for operation getAll7
+   * Path part for operation getAllCategories
    */
-  static readonly GetAll7Path = '/categories';
+  static readonly GetAllCategoriesPath = '/categories';
 
   /**
    * Get the list of all categories .
@@ -222,14 +222,14 @@ export class CategoryControllerService extends BaseService {
    *
    *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `getAll7()` instead.
+   * To access only the response body, use `getAllCategories()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getAll7$Response(params?: {
+  getAllCategories$Response(params?: {
   }): Observable<StrictHttpResponse<any>> {
 
-    const rb = new RequestBuilder(this.rootUrl, CategoryControllerService.GetAll7Path, 'get');
+    const rb = new RequestBuilder(this.rootUrl, CategoryControllerService.GetAllCategoriesPath, 'get');
     if (params) {
     }
 
@@ -250,14 +250,14 @@ export class CategoryControllerService extends BaseService {
    *
    *
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `getAll7$Response()` instead.
+   * To access the full response (for headers, for example), `getAllCategories$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getAll7(params?: {
+  getAllCategories(params?: {
   }): Observable<any> {
 
-    return this.getAll7$Response(params).pipe(
+    return this.getAllCategories$Response(params).pipe(
       map((r: StrictHttpResponse<any>) => r.body as any)
     );
   }

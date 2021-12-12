@@ -23,21 +23,21 @@ export class ProfilControllerService extends BaseService {
   }
 
   /**
-   * Path part for operation getById2
+   * Path part for operation getProfileById
    */
-  static readonly GetById2Path = '/profils/{id}';
+  static readonly GetProfileByIdPath = '/profils/{id}';
 
   /**
-   * Get profil by it's id .
+   * Get profile by it's id .
    *
    *
    *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `getById2()` instead.
+   * To access only the response body, use `getProfileById()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getById2$Response(params: {
+  getProfileById$Response(params: {
 
     /**
      * The id of profil to search
@@ -45,7 +45,7 @@ export class ProfilControllerService extends BaseService {
     id: number;
   }): Observable<StrictHttpResponse<any>> {
 
-    const rb = new RequestBuilder(this.rootUrl, ProfilControllerService.GetById2Path, 'get');
+    const rb = new RequestBuilder(this.rootUrl, ProfilControllerService.GetProfileByIdPath, 'get');
     if (params) {
       rb.path('id', params.id, {});
     }
@@ -62,16 +62,16 @@ export class ProfilControllerService extends BaseService {
   }
 
   /**
-   * Get profil by it's id .
+   * Get profile by it's id .
    *
    *
    *
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `getById2$Response()` instead.
+   * To access the full response (for headers, for example), `getProfileById$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getById2(params: {
+  getProfileById(params: {
 
     /**
      * The id of profil to search
@@ -79,36 +79,36 @@ export class ProfilControllerService extends BaseService {
     id: number;
   }): Observable<any> {
 
-    return this.getById2$Response(params).pipe(
+    return this.getProfileById$Response(params).pipe(
       map((r: StrictHttpResponse<any>) => r.body as any)
     );
   }
 
   /**
-   * Path part for operation updateProfil
+   * Path part for operation updateProfile
    */
-  static readonly UpdateProfilPath = '/profils/{id}';
+  static readonly UpdateProfilePath = '/profils/{id}';
 
   /**
-   * Update a profil .
+   * Update a profile .
    *
    *
    *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `updateProfil()` instead.
+   * To access only the response body, use `updateProfile()` instead.
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  updateProfil$Response(params: {
+  updateProfile$Response(params: {
 
     /**
-     * The id of profil to update
+     * The id of profile to update
      */
     id: number;
     body: Profil
   }): Observable<StrictHttpResponse<any>> {
 
-    const rb = new RequestBuilder(this.rootUrl, ProfilControllerService.UpdateProfilPath, 'put');
+    const rb = new RequestBuilder(this.rootUrl, ProfilControllerService.UpdateProfilePath, 'put');
     if (params) {
       rb.path('id', params.id, {});
       rb.body(params.body, 'application/json');
@@ -126,53 +126,53 @@ export class ProfilControllerService extends BaseService {
   }
 
   /**
-   * Update a profil .
+   * Update a profile .
    *
    *
    *
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `updateProfil$Response()` instead.
+   * To access the full response (for headers, for example), `updateProfile$Response()` instead.
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  updateProfil(params: {
+  updateProfile(params: {
 
     /**
-     * The id of profil to update
+     * The id of profile to update
      */
     id: number;
     body: Profil
   }): Observable<any> {
 
-    return this.updateProfil$Response(params).pipe(
+    return this.updateProfile$Response(params).pipe(
       map((r: StrictHttpResponse<any>) => r.body as any)
     );
   }
 
   /**
-   * Path part for operation deleteProfilById
+   * Path part for operation deleteProfileById
    */
-  static readonly DeleteProfilByIdPath = '/profils/{id}';
+  static readonly DeleteProfileByIdPath = '/profils/{id}';
 
   /**
-   * Delete a role .
+   * Delete a profile .
    *
    *
    *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `deleteProfilById()` instead.
+   * To access only the response body, use `deleteProfileById()` instead.
    *
    * This method doesn't expect any request body.
    */
-  deleteProfilById$Response(params: {
+  deleteProfileById$Response(params: {
 
     /**
-     * The id of profil to delete
+     * The id of profile to delete
      */
     id: number;
   }): Observable<StrictHttpResponse<void>> {
 
-    const rb = new RequestBuilder(this.rootUrl, ProfilControllerService.DeleteProfilByIdPath, 'delete');
+    const rb = new RequestBuilder(this.rootUrl, ProfilControllerService.DeleteProfileByIdPath, 'delete');
     if (params) {
       rb.path('id', params.id, {});
     }
@@ -189,47 +189,47 @@ export class ProfilControllerService extends BaseService {
   }
 
   /**
-   * Delete a role .
+   * Delete a profile .
    *
    *
    *
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `deleteProfilById$Response()` instead.
+   * To access the full response (for headers, for example), `deleteProfileById$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  deleteProfilById(params: {
+  deleteProfileById(params: {
 
     /**
-     * The id of profil to delete
+     * The id of profile to delete
      */
     id: number;
   }): Observable<void> {
 
-    return this.deleteProfilById$Response(params).pipe(
+    return this.deleteProfileById$Response(params).pipe(
       map((r: StrictHttpResponse<void>) => r.body as void)
     );
   }
 
   /**
-   * Path part for operation getAll2
+   * Path part for operation getAllProfiles
    */
-  static readonly GetAll2Path = '/profils';
+  static readonly GetAllProfilesPath = '/profils';
 
   /**
-   * Get the list of all profils .
+   * Get the list of all profiles .
    *
    *
    *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `getAll2()` instead.
+   * To access only the response body, use `getAllProfiles()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getAll2$Response(params?: {
+  getAllProfiles$Response(params?: {
   }): Observable<StrictHttpResponse<any>> {
 
-    const rb = new RequestBuilder(this.rootUrl, ProfilControllerService.GetAll2Path, 'get');
+    const rb = new RequestBuilder(this.rootUrl, ProfilControllerService.GetAllProfilesPath, 'get');
     if (params) {
     }
 
@@ -245,43 +245,43 @@ export class ProfilControllerService extends BaseService {
   }
 
   /**
-   * Get the list of all profils .
+   * Get the list of all profiles .
    *
    *
    *
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `getAll2$Response()` instead.
+   * To access the full response (for headers, for example), `getAllProfiles$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getAll2(params?: {
+  getAllProfiles(params?: {
   }): Observable<any> {
 
-    return this.getAll2$Response(params).pipe(
+    return this.getAllProfiles$Response(params).pipe(
       map((r: StrictHttpResponse<any>) => r.body as any)
     );
   }
 
   /**
-   * Path part for operation addProfil
+   * Path part for operation addProfile
    */
-  static readonly AddProfilPath = '/profils';
+  static readonly AddProfilePath = '/profils';
 
   /**
-   * Add a new profil .
+   * Add a new profile .
    *
    *
    *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `addProfil()` instead.
+   * To access only the response body, use `addProfile()` instead.
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  addProfil$Response(params: {
+  addProfile$Response(params: {
     body: Profil
   }): Observable<StrictHttpResponse<any>> {
 
-    const rb = new RequestBuilder(this.rootUrl, ProfilControllerService.AddProfilPath, 'post');
+    const rb = new RequestBuilder(this.rootUrl, ProfilControllerService.AddProfilePath, 'post');
     if (params) {
       rb.body(params.body, 'application/json');
     }
@@ -298,20 +298,20 @@ export class ProfilControllerService extends BaseService {
   }
 
   /**
-   * Add a new profil .
+   * Add a new profile .
    *
    *
    *
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `addProfil$Response()` instead.
+   * To access the full response (for headers, for example), `addProfile$Response()` instead.
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  addProfil(params: {
+  addProfile(params: {
     body: Profil
   }): Observable<any> {
 
-    return this.addProfil$Response(params).pipe(
+    return this.addProfile$Response(params).pipe(
       map((r: StrictHttpResponse<any>) => r.body as any)
     );
   }

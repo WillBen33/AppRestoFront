@@ -8,7 +8,8 @@ import {LanguageService} from './api/services/language/language.service';
 export class AppComponent {
   title = 'ui';
 
-  constructor(private languageService: LanguageService) {}
+  constructor(private languageService: LanguageService) {
+  }
 
   changeLanguage(language: string) {
     this.languageService.setLanguage(language);

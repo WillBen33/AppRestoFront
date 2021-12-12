@@ -16,6 +16,7 @@ import {PagesModule} from "../pages/pages.module";
     FooterComponent
   ],
   imports: [CommonModule, RouterModule, TranslateModule, PagesModule],
+  exports: []
 })
 export class TemplatesModule {
 }

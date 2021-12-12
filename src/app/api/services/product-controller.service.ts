@@ -23,9 +23,9 @@ export class ProductControllerService extends BaseService {
   }
 
   /**
-   * Path part for operation getById3
+   * Path part for operation getProductById
    */
-  static readonly GetById3Path = '/products/{id}';
+  static readonly GetProductByIdPath = '/products/{id}';
 
   /**
    * Get product by it's id .
@@ -33,11 +33,11 @@ export class ProductControllerService extends BaseService {
    *
    *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `getById3()` instead.
+   * To access only the response body, use `getProductById()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getById3$Response(params: {
+  getProductById$Response(params: {
 
     /**
      * The id of the product to search
@@ -45,7 +45,7 @@ export class ProductControllerService extends BaseService {
     id: number;
   }): Observable<StrictHttpResponse<any>> {
 
-    const rb = new RequestBuilder(this.rootUrl, ProductControllerService.GetById3Path, 'get');
+    const rb = new RequestBuilder(this.rootUrl, ProductControllerService.GetProductByIdPath, 'get');
     if (params) {
       rb.path('id', params.id, {});
     }
@@ -67,11 +67,11 @@ export class ProductControllerService extends BaseService {
    *
    *
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `getById3$Response()` instead.
+   * To access the full response (for headers, for example), `getProductById$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getById3(params: {
+  getProductById(params: {
 
     /**
      * The id of the product to search
@@ -79,7 +79,7 @@ export class ProductControllerService extends BaseService {
     id: number;
   }): Observable<any> {
 
-    return this.getById3$Response(params).pipe(
+    return this.getProductById$Response(params).pipe(
       map((r: StrictHttpResponse<any>) => r.body as any)
     );
   }
@@ -212,9 +212,9 @@ export class ProductControllerService extends BaseService {
   }
 
   /**
-   * Path part for operation getAll3
+   * Path part for operation getAllProducts
    */
-  static readonly GetAll3Path = '/products';
+  static readonly GetAllProductsPath = '/products';
 
   /**
    * Get the list of all products .
@@ -222,14 +222,14 @@ export class ProductControllerService extends BaseService {
    *
    *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `getAll3()` instead.
+   * To access only the response body, use `getAllProducts()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getAll3$Response(params?: {
+  getAllProducts$Response(params?: {
   }): Observable<StrictHttpResponse<any>> {
 
-    const rb = new RequestBuilder(this.rootUrl, ProductControllerService.GetAll3Path, 'get');
+    const rb = new RequestBuilder(this.rootUrl, ProductControllerService.GetAllProductsPath, 'get');
     if (params) {
     }
 
@@ -250,14 +250,14 @@ export class ProductControllerService extends BaseService {
    *
    *
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `getAll3$Response()` instead.
+   * To access the full response (for headers, for example), `getAllProducts$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getAll3(params?: {
+  getAllProducts(params?: {
   }): Observable<any> {
 
-    return this.getAll3$Response(params).pipe(
+    return this.getAllProducts$Response(params).pipe(
       map((r: StrictHttpResponse<any>) => r.body as any)
     );
   }

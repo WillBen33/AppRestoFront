@@ -11,4 +11,5 @@ import {AboutRoutingModule} from './about-routing.module';
     AboutRoutingModule
   ]
 })
-export class AboutModule { }
+export class AboutModule {
+}

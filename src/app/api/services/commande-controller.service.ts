@@ -23,9 +23,9 @@ export class CommandeControllerService extends BaseService {
   }
 
   /**
-   * Path part for operation getById6
+   * Path part for operation getCommandeById
    */
-  static readonly GetById6Path = '/commandes/{id}';
+  static readonly GetCommandeByIdPath = '/commandes/{id}';
 
   /**
    * Get commande by it's id .
@@ -33,11 +33,11 @@ export class CommandeControllerService extends BaseService {
    *
    *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `getById6()` instead.
+   * To access only the response body, use `getCommandeById()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getById6$Response(params: {
+  getCommandeById$Response(params: {
 
     /**
      * The id of commande to search
@@ -45,7 +45,7 @@ export class CommandeControllerService extends BaseService {
     id: number;
   }): Observable<StrictHttpResponse<any>> {
 
-    const rb = new RequestBuilder(this.rootUrl, CommandeControllerService.GetById6Path, 'get');
+    const rb = new RequestBuilder(this.rootUrl, CommandeControllerService.GetCommandeByIdPath, 'get');
     if (params) {
       rb.path('id', params.id, {});
     }
@@ -67,11 +67,11 @@ export class CommandeControllerService extends BaseService {
    *
    *
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `getById6$Response()` instead.
+   * To access the full response (for headers, for example), `getCommandeById$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getById6(params: {
+  getCommandeById(params: {
 
     /**
      * The id of commande to search
@@ -79,7 +79,7 @@ export class CommandeControllerService extends BaseService {
     id: number;
   }): Observable<any> {
 
-    return this.getById6$Response(params).pipe(
+    return this.getCommandeById$Response(params).pipe(
       map((r: StrictHttpResponse<any>) => r.body as any)
     );
   }
@@ -212,9 +212,9 @@ export class CommandeControllerService extends BaseService {
   }
 
   /**
-   * Path part for operation getAll6
+   * Path part for operation getAllCommandes
    */
-  static readonly GetAll6Path = '/commandes';
+  static readonly GetAllCommandesPath = '/commandes';
 
   /**
    * Get the list of all commandes .
@@ -222,14 +222,14 @@ export class CommandeControllerService extends BaseService {
    *
    *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `getAll6()` instead.
+   * To access only the response body, use `getAllCommandes()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getAll6$Response(params?: {
+  getAllCommandes$Response(params?: {
   }): Observable<StrictHttpResponse<any>> {
 
-    const rb = new RequestBuilder(this.rootUrl, CommandeControllerService.GetAll6Path, 'get');
+    const rb = new RequestBuilder(this.rootUrl, CommandeControllerService.GetAllCommandesPath, 'get');
     if (params) {
     }
 
@@ -250,14 +250,14 @@ export class CommandeControllerService extends BaseService {
    *
    *
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `getAll6$Response()` instead.
+   * To access the full response (for headers, for example), `getAllCommandes$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  getAll6(params?: {
+  getAllCommandes(params?: {
   }): Observable<any> {
 
-    return this.getAll6$Response(params).pipe(
+    return this.getAllCommandes$Response(params).pipe(
       map((r: StrictHttpResponse<any>) => r.body as any)
     );
   }
