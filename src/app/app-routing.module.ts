@@ -14,14 +14,34 @@ const routes: Routes = [
           import('./pages/home/home.module').then((m) => m.HomeModule),
       },
       {
-        path: 'about',
+        path: 'menu',
         loadChildren: () =>
-          import('./pages/about/about.module').then((m) => m.AboutModule),
+          import('./pages/menu/menu.module').then((m) => m.MenuModule),
+      },
+      {
+        path: 'deals',
+        loadChildren: () =>
+          import('./pages/deals/deals.module').then((m) => m.DealsModule),
+      },
+      {
+        path: 'approach',
+        loadChildren: () =>
+          import('./pages/approach/approach.module').then((m) => m.ApproachModule),
+      },
+      {
+        path: 'join',
+        loadChildren: () =>
+          import('./pages/join/join.module').then((m) => m.JoinModule),
       },
       {
         path: 'contact',
         loadChildren: () =>
           import('./pages/contact/contact.module').then((m) => m.ContactModule),
+      },
+      {
+        path: 'account',
+        loadChildren: () =>
+          import('./pages/account/account.module').then((m) => m.AccountModule),
       },
     ],
   },
