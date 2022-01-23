@@ -1,5 +1,75 @@
 {
   "Home": "Accueil",
   "Contact": "Contact",
-  "About": "A propos"
+  "About": "A propos",
+  "Login": {
+    "sign-in": "Se connecter",
+    "withEmail": "Connectez-vous à votre compte à l'aide de votre email pour accéder à votre profil !",
+    "error": {
+      "invalidPasswordOrEmail": "L'adresse email ou le mot de passe est incorrecte! Réessayez à nouveau !"
+    },
+    "success": "Bravo ! Vous êtes connecté!"
+  },
+  "account": {
+    "added": "Votre compte a bien été crée !",
+    "missing": " Vous n'avez pas de compte ? ",
+    "present": "Vous avez déjà un compte ?",
+    "register": {
+      "create": "Créer un compte",
+      "success": "Bravo, Votre inscription est réussie !",
+      "validate": "Nous vous avons envoyé un mail de confirmation à l'adresse renseignée dans le formulaire d'inscription. Veuillez cliquez sur le lien contenu dans ce mail afin de valider votre inscription. Merci, au plaisir de vous revoir !!",
+      "verifyEmail": "Vérification d'email",
+      "emailValidating": "Veuillez patienter Svp. Votre email est en cours de validation !"
+    },
+    "validRegistration": "Validez votre inscription",
+    "isActivated": {
+      "title": "Activation réussie !",
+      "message": "Votre compte est désormais activé, vous pouvez dès à présent vous connecter !"
+    }
+  },
+  "user": {
+    "firstname": "Prénom",
+    "lastname": "Nom",
+    "password": "Mot de passe",
+    "email": "Adresse email",
+    "deliveryAdress": "Adresse de livraison",
+    "billingAdress": "Adresse de facturation",
+    "adress": {
+      "streetNumber": "N° de Rue",
+      "street": "Rue",
+      "zipCode": "Code postal",
+      "department": "Departement",
+      "country": "Pays",
+      "additionalAdress": "Complément d'adresse",
+      "city": "Ville"
+    },
+    "phoneNumber": "N° de téléphone",
+    "rePassword": "Confirmation du mot de passe",
+    "civility": "Civilité"
+  },
+  "error": {
+    "required": {
+      "field": "Le champ {{field}} est requis !",
+      "length": "Le champ {{field}} doit contenir entre {{minLength}} et {{maxLength}} caractères!",
+      "exactLength": "Le champ {{field}} doit avoir exactement {{length}} caractères !"
+    },
+    "password": {
+      "confirm": "Les mots de passes sont différents ! "
+    },
+    "email": {
+      "valid": "Ceci n'est pas une adresse email valide !"
+    },
+    "emailVerification": {
+      "title": "Erreur de validation",
+      "message": "Votre lien de validation n'est plus valide! Veuillez le renouvelez en renseignant votre adresse email dans le formulaire ci-dessous !",
+      "clientSide": "Une erreur est survenue! Veuillez recliquez sur le lien dans le mail de validation !"
+    }
+  },
+  "terms": {
+    "title": "les conditions d'utilisations",
+    "agree": "Accepter"
+  },
+  "billingAdress": {
+    "keep": "Garder la même adresse pour la facturation ?"
+  }
 }

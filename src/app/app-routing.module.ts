@@ -1,9 +1,10 @@
-import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
-import {LayoutComponent} from "./templates/layout/layout.component";
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { LayoutComponent } from "./templates/layout/layout.component";
 
 const routes: Routes = [
-  {path: '', pathMatch: 'full', redirectTo: 'home'},
+  { path: '', pathMatch: 'full', redirectTo: 'home' },
   {
     path: '',
     component: LayoutComponent,
@@ -43,8 +44,18 @@ const routes: Routes = [
         loadChildren: () =>
           import('./pages/account/account.module').then((m) => m.AccountModule),
       },
-    ],
-  },
+      {
+        path: 'auth',
+        loadChildren: () =>
+          import('./pages/auth/auth.module').then(m => m.AuthModule)
+      }
+      ,
+      {
+        path:'**',
+        component: NotFoundComponent
+      }
+    ]
+  }
 ];
 
 @NgModule({

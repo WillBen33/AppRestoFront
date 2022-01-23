@@ -1,0 +1,132 @@
+<div class="row">
+    <div class="col-sm-10 offset-sm-2">
+        <h1 id="title" class="title">{{ "Login.sign-in" | translate }}</h1>
+        <p class="sub-title">{{ "Login.withEmail" | translate }}</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-10 offset-sm-2">
+        <nb-alert *ngIf="showMessages.error && errors?.length && !submitted" outline="danger" role="alert">
+            <p class="alert-title"><b>Oh snap!</b></p>
+            <ul class="alert-message-list">
+                <li *ngFor="let error of errors" class="alert-message">{{"Login.error.invalidPasswordOrEmail" |
+                    translate }}</li>
+            </ul>
+        </nb-alert>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-10 offset-sm-2">
+        <nb-alert *ngIf="showMessages.success && messages?.length && !submitted" outline="success" role="alert">
+            <p class="alert-title"><b>Hooray!</b></p>
+            <ul class="alert-message-list">
+                <li *ngFor="let message of messages" class="alert-message">{{"Login.success" | translate }}</li>
+            </ul>
+        </nb-alert>
+    </div>
+</div>
+
+<form (ngSubmit)="login()" #form="ngForm" aria-labelledby="title">
+
+    <div class="form-control-group">
+        <div class="row mb-3">
+            <div class="col-sm-2 col-form-label">
+                <fa-icon [icon]="['fas', 'envelope']" size="2x"></fa-icon>
+            </div>
+            <div class="col-sm-10">
+                <input nbInput fullWidth [(ngModel)]="user.username" #email="ngModel" name="email" id="input-email"
+                    pattern=".+@.+\..+" placeholder="Email address" fieldSize="large" autofocus
+                    [status]="email.dirty ? (email.invalid  ? 'danger' : 'success') : 'basic'"
+                    [required]="getConfigValue('forms.validation.email.required')"
+                    [attr.aria-invalid]="email.invalid && email.touched ? true : null">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col offset-md-2">
+                <ng-container *ngIf="email.invalid && email.touched">
+                    <p class="caption status-danger" *ngIf="email.errors?.required">
+                        {{"error.required.field" | translate:{'field':
+                        getTranslation('user.email')} }}
+                    </p>
+                    <p class="caption status-danger" *ngIf="email.errors?.pattern">
+                        {{"error.email.valid" | translate}}
+                    </p>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-control-group">
+        <div class="row mb-3">
+            <div class="col-sm-2 col-form-label">
+                <fa-icon [icon]="['fas', 'lock']" size="2x"></fa-icon>
+            </div>
+            <div class="col-sm-10">
+                <input nbInput fullWidth [(ngModel)]="user.password" #password="ngModel" name="password" type="password"
+                    id="input-password" placeholder="Password" fieldSize="large"
+                    [status]="password.dirty ? (password.invalid  ? 'danger' : 'success') : 'basic'"
+                    [required]="getConfigValue('forms.validation.password.required')"
+                    [minlength]="getConfigValue('forms.validation.password.minLength')"
+                    [maxlength]="getConfigValue('forms.validation.password.maxLength')"
+                    [attr.aria-invalid]="password.invalid && password.touched ? true : null">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col offset-md-2 offset-sm-2">
+                <span class="label-with-link">
+                    <a class="forgot-password caption-2" routerLink="../request-password">Forgot Password?</a>
+                </span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col offset-md-2">
+                <ng-container *ngIf="password.invalid && password.touched ">
+                    <p class="caption status-danger" *ngIf="password.errors?.required">
+                        {{"error.required.field" | translate:{'field':
+                        getTranslation('user.password')} }}
+                    </p>
+                    <p class="caption status-danger" *ngIf="password.errors?.minlength || password.errors?.maxlength">
+                        {{"password.error.length" | translate:{'minLength':
+                        getConfigValue('forms.validation.password.minLength'), 'maxLength':
+                        getConfigValue('forms.validation.password.maxLength')} }}
+                    </p>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10 offset-sm-2">
+            <button nbButton fullWidth status="success" size="medium" shape="semi-round"
+                [disabled]="submitted || !form.valid" [class.btn-pulse]="submitted">
+                {{ "Login.sign-in" | translate }}
+            </button>
+        </div>
+    </div>
+
+</form>
+
+<section *ngIf="socialLinks && socialLinks.length > 0" class="links" aria-label="Social sign in">
+    or enter with:
+    <div class="socials">
+        <ng-container *ngFor="let socialLink of socialLinks">
+            <a *ngIf="socialLink.link" [routerLink]="socialLink.link" [attr.target]="socialLink.target"
+                [attr.class]="socialLink.icon" [class.with-icon]="socialLink.icon">
+                <nb-icon *ngIf="socialLink.icon; else title" [icon]="socialLink.icon"></nb-icon>
+                <ng-template #title>{{ socialLink.title }}</ng-template>
+            </a>
+            <a *ngIf="socialLink.url" [attr.href]="socialLink.url" [attr.target]="socialLink.target"
+                [attr.class]="socialLink.icon" [class.with-icon]="socialLink.icon">
+                <nb-icon *ngIf="socialLink.icon; else title" [icon]="socialLink.icon"></nb-icon>
+                <ng-template #title>{{ socialLink.title }}</ng-template>
+            </a>
+        </ng-container>
+    </div>
+</section>
+
+<section class="another-action" aria-label="Register">
+    {{"account.missing" | translate}} <a class="text-link" routerLink="../register">{{"account.register" |
+        translate}}</a>
+</section>
