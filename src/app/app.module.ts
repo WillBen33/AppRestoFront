@@ -9,7 +9,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { NbThemeModule, NbToastrModule } from '@nebular/theme';
+import { NbThemeModule, NbToastrConfig, NbToastrModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { NbAuthJWTToken, NbAuthModule, NbPasswordAuthStrategy } from '@nebular/auth';
 import { AppHttpInterceptorService } from './services/auth/app-http-interceptor.service';
@@ -76,11 +76,11 @@ export function createTranslateLoader(httpClient: HttpClient) {
             method: 'post',
           },
           requestPass: {
-            endpoint: '/auth/request-pass',
+            endpoint: '/auth/request-password',
             method: 'post',
           },
           resetPass: {
-            endpoint: '/auth/reset-pass',
+            endpoint: '/auth/reset-password',
             method: 'post',
           },
           validation:

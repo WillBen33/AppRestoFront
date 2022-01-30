@@ -1,11 +1,11 @@
-import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NbToastrService } from '@nebular/theme';
 import { TranslateService } from '@ngx-translate/core';
-import { catchError, filter, switchMap, take, tap } from 'rxjs/operators';
+import { throwError } from 'rxjs';
+import { catchError, filter, switchMap, take } from 'rxjs/operators';
 import { AuthenticationControllerService } from 'src/app/api/services';
-import { StrictHttpResponse } from 'src/app/api/strict-http-response';
 
 @Component({
   selector: 'app-email-verification',
@@ -14,6 +14,8 @@ import { StrictHttpResponse } from 'src/app/api/strict-http-response';
 })
 export class EmailVerificationComponent implements OnInit {
 
+  inputEmail: string = '';
+  refresh: boolean = false;
   constructor(private authService: AuthenticationControllerService,
     private activateRoute: ActivatedRoute,
     private router: Router,
@@ -25,40 +27,54 @@ export class EmailVerificationComponent implements OnInit {
       take(1),
       filter(params => params['token'] != null),
       switchMap(params => this.authService.verifyUserEmail$Response({ token: params['token'] })),
-    ).subscribe((response) => {
-      this.handleResponse(response);
-    })
+      catchError(err => this.handleError(err))
+    ).subscribe(() => this.handleResponse())
   }
 
-  handleResponse(response: StrictHttpResponse<any>) {
-    if (response.status === 0) {
+  handleResponse() {
+    this.toastrService.success(
+      this.translateService.instant("account.isActivated.message"),
+      this.translateService.instant("account.isActivated.title"),
+      {
+        duration: 20000,
+        status: "success"
+      });
+    this.router.navigate(['auth/sign-in']);
+  }
+
+  handleError(error: HttpErrorResponse) {
+    if (error.status === 0) {
       this.toastrService.warning(
-        this.translateService.instant("error.emailValidation.clientSide"),
-        this.translateService.instant("error.emailValidation.title"),
+        this.translateService.instant("error.emailVerification.clientSide"),
+        this.translateService.instant("error.emailVerification.title"),
         {
           duration: 40000,
         }
       )
     } else {
-      if (response.status === 401) {
-        this.toastrService.danger(
-          this.translateService.instant("error.emailValidation.message"),
-          this.translateService.instant("error.emailValidation.title"),
-          {
-            duration: 40000,
-          }
-        )
-      } else {
-        this.toastrService.success(
-          this.translateService.instant("account.isActivated.message"),
-          this.translateService.instant("account.isActivated.title"),
-          {
-            duration: 20000,
-            status: "success"
-          });
-        this.router.navigate(['auth/sign-in']);
-      }
+      this.toastrService.danger(
+        this.translateService.instant("error.emailVerification.message"),
+        this.translateService.instant("error.emailVerification.title"),
+        {
+          duration: 40000,
+        }
+      )
+      this.refresh = true;
     }
+    return throwError(
+      'Something bad happened; please try again later.');
   }
 
+
+  refreshVerificationEmail() {
+    this.authService.refreshVerificationEmail({ email: this.inputEmail }).subscribe(() => {
+      this.toastrService.success(
+        this.translateService.instant("account.register.validate"),
+        this.translateService.instant("account.register.verifyEmail"),
+        {
+          duration: 40000,
+        }
+      );
+    })
+  }
 }

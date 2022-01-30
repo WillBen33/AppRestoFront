@@ -1,12 +1,47 @@
-<nb-card accent="info"  [nbSpinner]="true"
-             nbSpinnerStatus="info"
-             nbSpinnerSize="medium"
-             nbSpinnerMessage="">
-      <nb-card-header>{{'account.register.verifyEmail' | translate}}!</nb-card-header>
-      <nb-card-body>
-        <p>
-         {{'account.register.emailValidating' | translate}}
-        </p>
+<nb-card accent="info" [nbSpinner]="!refresh" nbSpinnerStatus="info" nbSpinnerSize="medium" nbSpinnerMessage="">
+  <nb-card-header>{{'account.register.verifyEmail' | translate}}!</nb-card-header>
+  <p class="text-center" *ngIf="!refresh">
+    {{'error.lost' | translate}}
+  </p>
+  <nb-card-body>
+    <form (ngSubmit)="refreshVerificationEmail()" #form="ngForm" *ngIf="refresh">
+      <div class="form-control-group">
+        <div class="row mb-3">
+          <div class="col-sm-2 col-form-label">
+            <fa-icon [icon]="['fas', 'envelope']" size="2x"></fa-icon>
+          </div>
+          <div class="col-sm-10">
+            <input nbInput fullWidth [(ngModel)]="inputEmail" #email="ngModel" name="email" id="input-email"
+              pattern=".+@.+\..+" placeholder='{{"user.email" | translate }}' fieldSize="large"
+              [status]="email.dirty ? (email.invalid  ? 'danger' : 'success') : ''"
+              [required]="true"
+              [attr.aria-invalid]="email.invalid && email.touched ? true : null">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col offset-md-2">
+            <ng-container *ngIf="email.invalid && email.touched">
+              <p class="caption status-danger" *ngIf="email.errors?.required">
+                {{"error.required.field" | translate:{'field':
+                [['user.email' | translate]]} }}
+              </p>
+              <p class="caption status-danger" *ngIf="email.errors?.pattern">
+                {{"error.email.valid" | translate}}
+              </p>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-10 offset-sm-2">
+          <button nbButton fullWidth status="success" [disabled]="!form.valid"
+            shape="semi-round">
+            {{"button.send" | translate}}
+          </button>
+        </div>
+      </div>
+    </form>
 
-      </nb-card-body>
-    </nb-card>
+  </nb-card-body>
+</nb-card>
+

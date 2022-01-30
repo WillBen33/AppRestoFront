@@ -13,6 +13,8 @@ import { NgxRegisterComponent } from './ngx-register/ngx-register.component';
 import { IgxDividerModule } from 'igniteui-angular';
 import { SuccessRegisterComponent } from './success-register/success-register.component';
 import { EmailVerificationComponent } from './email-verification/email-verification.component';
+import { NgxRequestPasswordComponent } from './ngx-request-password/ngx-request-password.component';
+import { NgxResetPasswordComponent } from './ngx-reset-password/ngx-reset-password.component';
 
 
 @NgModule({
@@ -21,6 +23,8 @@ import { EmailVerificationComponent } from './email-verification/email-verificat
     NgxRegisterComponent,
     SuccessRegisterComponent,
     EmailVerificationComponent,
+    NgxRequestPasswordComponent,
+    NgxResetPasswordComponent,
   ],
   imports: [
     CommonModule,

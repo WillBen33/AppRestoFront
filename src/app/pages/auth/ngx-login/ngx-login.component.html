@@ -37,7 +37,7 @@
             </div>
             <div class="col-sm-10">
                 <input nbInput fullWidth [(ngModel)]="user.username" #email="ngModel" name="email" id="input-email"
-                    pattern=".+@.+\..+" placeholder="Email address" fieldSize="large" autofocus
+                    pattern=".+@.+\..+" placeholder='{{"user.email" | translate }}' fieldSize="large" autofocus
                     [status]="email.dirty ? (email.invalid  ? 'danger' : 'success') : 'basic'"
                     [required]="getConfigValue('forms.validation.email.required')"
                     [attr.aria-invalid]="email.invalid && email.touched ? true : null">
@@ -65,7 +65,7 @@
             </div>
             <div class="col-sm-10">
                 <input nbInput fullWidth [(ngModel)]="user.password" #password="ngModel" name="password" type="password"
-                    id="input-password" placeholder="Password" fieldSize="large"
+                    id="input-password" placeholder='{{"user.password" | translate }}' fieldSize="large"
                     [status]="password.dirty ? (password.invalid  ? 'danger' : 'success') : 'basic'"
                     [required]="getConfigValue('forms.validation.password.required')"
                     [minlength]="getConfigValue('forms.validation.password.minLength')"
@@ -76,7 +76,7 @@
         <div class="row">
             <div class="col offset-md-2 offset-sm-2">
                 <span class="label-with-link">
-                    <a class="forgot-password caption-2" routerLink="../request-password">Forgot Password?</a>
+                    <a class="forgot-password caption-2" routerLink="../request-password">{{'button.forgotten-password' | translate}}</a>
                 </span>
             </div>
         </div>
@@ -127,6 +127,6 @@
 </section>
 
 <section class="another-action" aria-label="Register">
-    {{"account.missing" | translate}} <a class="text-link" routerLink="../register">{{"account.register" |
+    {{"account.missing" | translate}} <a class="text-link" routerLink="../register">{{"account.register.create" |
         translate}}</a>
 </section>

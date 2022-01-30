@@ -44,7 +44,7 @@
         <ng-container *ngIf="civility.invalid && civility.touched">
           <p class="error-message caption status-danger" *ngIf="civility.errors?.required">
             {{"error.required.field" | translate:{'field':
-            getTranslation('user.civility')} }}
+            [['user.civility' | translate]]}  }}
           </p>
         </ng-container>
       </div>
@@ -64,7 +64,7 @@
         <ng-container *ngIf="firstname.invalid && firstname.touched">
           <p class="error-message caption status-danger" *ngIf="firstname.errors?.required">
             {{"error.required.field" | translate:{'field':
-            getTranslation('user.firstname')} }}
+            [['user.firstname' | translate ]]} }}
           </p>
         </ng-container>
       </div>
@@ -84,7 +84,7 @@
         <ng-container *ngIf="lastname.invalid && lastname.touched">
           <p class="error-message caption status-danger" *ngIf="lastname.errors?.required">
             {{"error.required.field" | translate:{'field':
-            getTranslation('user.lastname')} }}
+            [['user.lastname' | translate]]} }}
           </p>
         </ng-container>
       </div>
@@ -110,7 +110,7 @@
         <ng-container *ngIf="deliveryAdressStreet.invalid && deliveryAdressStreet.touched">
           <p class="error-message caption status-danger" *ngIf="deliveryAdressStreet.errors?.required">
             {{"error.required.field" | translate:{'field':
-            getTranslation('user.adress.street')} }}
+            [['user.adress.street' | translate]]} }}
           </p>
         </ng-container>
       </div>
@@ -131,7 +131,7 @@
         <ng-container *ngIf="deliveryAdressStreetNumber.invalid && deliveryAdressStreetNumber.touched">
           <p class="error-message caption status-danger" *ngIf="deliveryAdressStreetNumber.errors?.required">
             {{"error.required.field" | translate:{'field':
-            getTranslation('user.adress.streetNumber')} }}
+            [['user.adress.streetNumber' | translate ]]} }}
           </p>
         </ng-container>
       </div>
@@ -163,7 +163,7 @@
         <ng-container *ngIf="deliveryAdressZipCode.invalid && deliveryAdressZipCode.touched">
           <p class="error-message caption status-danger" *ngIf="deliveryAdressZipCode.errors?.required">
             {{"error.required.field" | translate:{'field':
-            getTranslation('user.adress.zipCode')} }}
+            [['user.adress.zipCode' | translate ]]} }}
           </p>
         </ng-container>
       </div>
@@ -172,9 +172,8 @@
     <div class="row mb-2">
       <div class="col offset-md-2">
         <input nbInput [(ngModel)]="user.deliveryAdress.city" #deliveryAdressCity="ngModel"
-          id="input-deliveryAdressCity" name="deliveryAdressCity"
-          placeholder='{{"user.adress.city" | translate }}' fullWidth
-          [status]="deliveryAdressCity.dirty ? (deliveryAdressCity.invalid  ? 'danger' : 'success') : ''"
+          id="input-deliveryAdressCity" name="deliveryAdressCity" placeholder='{{"user.adress.city" | translate }}'
+          fullWidth [status]="deliveryAdressCity.dirty ? (deliveryAdressCity.invalid  ? 'danger' : 'success') : ''"
           [required]="true"
           [attr.aria-invalid]="deliveryAdressCity.invalid && deliveryAdressCity.touched ? true : null">
       </div>
@@ -184,7 +183,7 @@
         <ng-container *ngIf="deliveryAdressCity.invalid && deliveryAdressCity.touched">
           <p class="error-message caption status-danger" *ngIf="deliveryAdressCity.errors?.required">
             {{"error.required.field" | translate:{'field':
-            getTranslation('user.adress.country')} }}
+            [['user.adress.country' | translate ]]} }}
           </p>
 
         </ng-container>
@@ -209,7 +208,7 @@
         <ng-container *ngIf="deliveryAdressCountry.invalid && deliveryAdressCountry.touched">
           <p class="error-message caption status-danger" *ngIf="deliveryAdressCountry.errors?.required">
             {{"error.required.field" | translate:{'field':
-            getTranslation('user.adress.country')} }}
+            [['user.adress.country' | translate]]} }}
           </p>
 
         </ng-container>
@@ -224,9 +223,8 @@
       </div>
       <div class="col-sm-10">
         <input nbInput [(ngModel)]="user.billingAdress.street" #billingAdressStreet="ngModel"
-          id="input-billingAdressStreet" name="billingAdressStreet"
-          placeholder='{{"user.adress.street" | translate }}' fullWidth
-          [status]="billingAdressStreet.dirty ? (billingAdressStreet.invalid  ? 'danger' : 'success') : ''"
+          id="input-billingAdressStreet" name="billingAdressStreet" placeholder='{{"user.adress.street" | translate }}'
+          fullWidth [status]="billingAdressStreet.dirty ? (billingAdressStreet.invalid  ? 'danger' : 'success') : ''"
           [required]="true"
           [attr.aria-invalid]="billingAdressStreet.invalid && billingAdressStreet.touched ? true : null">
       </div>
@@ -236,7 +234,7 @@
         <ng-container *ngIf="billingAdressStreet.invalid && billingAdressStreet.touched">
           <p class="error-message caption status-danger" *ngIf="billingAdressStreet.errors?.required">
             {{"error.required.field" | translate:{'field':
-            getTranslation('user.adress.street')} }}
+            [['user.adress.street' | translate ]]} }}
           </p>
         </ng-container>
       </div>
@@ -257,7 +255,7 @@
         <ng-container *ngIf="billingAdressStreetNumber.invalid && billingAdressStreetNumber.touched">
           <p class="error-message caption status-danger" *ngIf="billingAdressStreetNumber.errors?.required">
             {{"error.required.field" | translate:{'field':
-            getTranslation('user.adress.streetNumber')} }}
+            [['user.adress.streetNumber' | translate ]]} }}
           </p>
         </ng-container>
       </div>
@@ -289,7 +287,7 @@
         <ng-container *ngIf="billingAdressZipCode.invalid && billingAdressZipCode.touched">
           <p class="error-message caption status-danger" *ngIf="billingAdressZipCode.errors?.required">
             {{"error.required.field" | translate:{'field':
-            getTranslation('user.adress.zipCode')} }}
+            [['user.adress.zipCode' | translate ]] } }}
           </p>
         </ng-container>
       </div>
@@ -297,12 +295,10 @@
 
     <div class="row mb-2">
       <div class="col offset-md-2">
-        <input nbInput [(ngModel)]="user.deliveryAdress.city" #billingAdressCity="ngModel"
-          id="input-billingAdressCity" name="billingAdressCity"
-          placeholder='{{"user.adress.city" | translate }}' fullWidth
+        <input nbInput [(ngModel)]="user.deliveryAdress.city" #billingAdressCity="ngModel" id="input-billingAdressCity"
+          name="billingAdressCity" placeholder='{{"user.adress.city" | translate }}' fullWidth
           [status]="billingAdressCity.dirty ? (billingAdressCity.invalid  ? 'danger' : 'success') : ''"
-          [required]="true"
-          [attr.aria-invalid]="billingAdressCity.invalid && billingAdressCity.touched ? true : null">
+          [required]="true" [attr.aria-invalid]="billingAdressCity.invalid && billingAdressCity.touched ? true : null">
       </div>
     </div>
     <div class="row">
@@ -310,13 +306,13 @@
         <ng-container *ngIf="billingAdressCity.invalid && billingAdressCity.touched">
           <p class="error-message caption status-danger" *ngIf="billingAdressCity.errors?.required">
             {{"error.required.field" | translate:{'field':
-            getTranslation('user.adress.country')} }}
+            [['user.adress.country' | translate ]]} }}
           </p>
 
         </ng-container>
       </div>
     </div>
-    
+
     <div class="row">
       <div class="col offset-md-2">
         <input nbInput [(ngModel)]="user.billingAdress.country" #billingAdressCountry="ngModel"
@@ -333,7 +329,7 @@
         <ng-container *ngIf="billingAdressCountry.invalid && billingAdressCountry.touched">
           <p class="error-message caption status-danger" *ngIf="billingAdressCountry.errors?.required">
             {{"error.required.field" | translate:{'field':
-            getTranslation('user.adress.country')} }}
+            [['user.adress.country' | translate ]]} }}
           </p>
 
         </ng-container>
@@ -342,7 +338,7 @@
   </div>
 
 
- 
+
 
 
 
@@ -364,10 +360,10 @@
         <ng-container *ngIf="phoneNumber.invalid && phoneNumber.touched">
           <p class="error-message caption status-danger" *ngIf="phoneNumber.errors?.required">
             {{"error.required.field" | translate:{'field':
-            getTranslation('user.phoneNumber')} }}
+            [['user.phoneNumber' | translate ]] } }}
           </p>
           <p class="caption status-danger" *ngIf="phoneNumber.errors?.minlength || phoneNumber.errors?.maxlength">
-            {{"error.required.exactLength" | translate:{'field':getTranslation('user.phoneNumber'),'length':10} }}
+            {{"error.required.exactLength" | translate:{'field':[['user.phoneNumber' | translate]],'length':10} }}
           </p>
         </ng-container>
       </div>
@@ -392,7 +388,7 @@
         <ng-container *ngIf="email.invalid && email.touched">
           <p class="caption status-danger" *ngIf="email.errors?.required">
             {{"error.required.field" | translate:{'field':
-            getTranslation('user.email')} }}
+            [['user.email' | translate ]]} }}
           </p>
           <p class="caption status-danger" *ngIf="email.errors?.pattern">
             {{"error.email.valid" | translate}}
@@ -422,7 +418,7 @@
         <ng-container *ngIf="password.invalid && password.touched ">
           <p class="caption status-danger" *ngIf="password.errors?.required">
             {{"error.required.field" | translate:{'field':
-            getTranslation('user.password')} }}
+            [['user.password' | translate ]]} }}
           </p>
           <p class="caption status-danger" *ngIf="password.errors?.minlength || password.errors?.maxlength">
             {{"password.error.length" | translate:{'minLength':
@@ -443,9 +439,11 @@
       </div>
       <div class="col-sm-10">
         <input nbInput [(ngModel)]="user.confirmPassword" #rePass="ngModel" type="password" id="input-re-password"
-          name="rePass" placeholder='{{"user.password" | translate }}' fullWidth
+          name="rePass" placeholder='{{"user.rePassword" | translate }}' fullWidth
           [status]="rePass.dirty ? (rePass.invalid || password.value != rePass.value  ? 'danger' : 'success') : ''"
           [required]="getConfigValue('forms.validation.password.required')"
+          [minlength]="getConfigValue('forms.validation.password.minLength')"
+          [maxlength]="getConfigValue('forms.validation.password.maxLength')"
           [attr.aria-invalid]="rePass.invalid && rePass.touched ? true : null">
       </div>
     </div>
@@ -454,7 +452,7 @@
         <ng-container *ngIf="rePass.invalid && rePass.touched">
           <p class="error-message caption status-danger" *ngIf="rePass.errors?.required">
             {{"error.required.field" | translate:{'field':
-            getTranslation('user.rePassword')} }}
+            [['user.rePassword' | translate]]} }}
           </p>
           <p class="error-message caption status-danger"
             *ngIf="password.value != rePass.value && !rePass.errors?.required">
@@ -472,14 +470,26 @@
   </div>
 
   <div class="form-control-group accept-group">
-    <nb-checkbox name="terms" [(ngModel)]="user.terms" [required]="true">
+    <nb-checkbox name="terms" #terms="ngModel" (checkedChange)="updateTerms()" [(ngModel)]="user.terms"
+      [required]="true">
       {{"terms.agree" | translate}} <a href="#" target="_blank"><strong>{{"terms.title" | translate}}</strong></a>
     </nb-checkbox>
   </div>
+    <div class="row">
+      <div class="col offset-md-2">
+        <ng-container *ngIf="(form.valid === true && terms.value === false)">
+          <p class="error-message caption status-danger">
+            {{"error.required.cgu" | translate }}
+          </p>
+        </ng-container>
+      </div>
+    </div>
+  
   <div class="row">
     <div class="col-sm-10 offset-sm-2">
-      <button nbButton fullWidth status="success" [disabled]="submitted || !form.valid" [class.btn-pulse]="submitted"
-        shape="semi-round">
+      <button nbButton fullWidth status="success"
+        [disabled]="submitted || (form.valid === true && terms.value === false) || terms.value === false"
+        [class.btn-pulse]="submitted" shape="semi-round">
         {{"account.validRegistration" | translate}}
       </button>
     </div>

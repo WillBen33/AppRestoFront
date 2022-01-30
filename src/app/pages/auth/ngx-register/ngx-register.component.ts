@@ -11,7 +11,7 @@ import { ProfilControllerService } from 'src/app/api/services';
   styleUrls: ['./ngx-register.component.scss']
 })
 export class NgxRegisterComponent extends NbRegisterComponent implements OnInit {
-
+  
   user: any = {
     billingAdress: {
       city: '',
@@ -86,6 +86,11 @@ export class NgxRegisterComponent extends NbRegisterComponent implements OnInit 
         department: ''
       }
     }
+  }
+
+  updateTerms()
+  {
+    
   }
 
 }
