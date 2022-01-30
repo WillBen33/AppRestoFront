@@ -1,0 +1,22 @@
+hr{
+  width: 50%;
+  border: 3px solid black;
+  margin: 5rem auto;
+}
+
+.input-group-text{
+  border: none;
+  background-color: transparent;
+  width: 3rem;
+}
+
+.form-control{
+  border: none;
+  border-bottom: 1px solid black;
+}
+
+re-captcha.is-invalid > div {
+  border: 1px solid #dc3545 !important;
+  border-radius: 0.2rem;
+  text-align:center;
+}

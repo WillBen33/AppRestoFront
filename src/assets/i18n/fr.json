@@ -1,6 +1,10 @@
 {
   "Home": "Accueil",
-  "Contact": "Contact",
+  "contact": {
+    "contact-us": "Nous contacter",
+    "contact-us-text": "Vous souhaitez nous contacter ? Vous pouvez  nous écrire en remplissant le formulaire ci-dessous.",
+    "recaptcha-error": "Vous devez valider le captcha"
+  },
   "About": "A propos",
   "Login": {
     "sign-in": "Se connecter",
