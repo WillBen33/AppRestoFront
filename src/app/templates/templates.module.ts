@@ -7,6 +7,7 @@ import {NavigationComponent} from "./navigation/navigation.component";
 import {LayoutComponent} from './layout/layout.component';
 import {TranslateModule} from "@ngx-translate/core";
 import {PagesModule} from "../pages/pages.module";
+import { NbLayoutModule, NbUserModule } from '@nebular/theme';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,7 @@ import {PagesModule} from "../pages/pages.module";
     NavigationComponent,
     FooterComponent
   ],
-  imports: [CommonModule, RouterModule, TranslateModule, PagesModule],
+  imports: [CommonModule, RouterModule, TranslateModule, PagesModule,NbLayoutModule, NbUserModule],
   exports: []
 })
 export class TemplatesModule {

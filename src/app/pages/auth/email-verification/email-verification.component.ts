@@ -45,16 +45,16 @@ export class EmailVerificationComponent implements OnInit {
   handleError(error: HttpErrorResponse) {
     if (error.status === 0) {
       this.toastrService.warning(
-        this.translateService.instant("error.emailVerification.clientSide"),
-        this.translateService.instant("error.emailVerification.title"),
+        this.translateService.instant("error.clientSide"),
+        this.translateService.instant("error.email.title"),
         {
           duration: 40000,
         }
       )
     } else {
       this.toastrService.danger(
-        this.translateService.instant("error.emailVerification.message"),
-        this.translateService.instant("error.emailVerification.title"),
+        this.translateService.instant("error.email.message"),
+        this.translateService.instant("error.email.title"),
         {
           duration: 40000,
         }

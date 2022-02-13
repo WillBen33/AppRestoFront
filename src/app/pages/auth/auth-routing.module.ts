@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { NbAuthComponent, NbLoginComponent, NbRequestPasswordComponent } from '@nebular/auth';
+import { NbAuthComponent } from '@nebular/auth';
 import { EmailVerificationComponent } from './email-verification/email-verification.component';
 import { NgxLoginComponent } from './ngx-login/ngx-login.component';
 import { NgxRegisterComponent } from './ngx-register/ngx-register.component';

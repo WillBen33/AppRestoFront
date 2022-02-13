@@ -5,7 +5,7 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { NbAuthModule } from '@nebular/auth';
-import { NbAlertModule, NbInputModule, NbButtonModule, NbCheckboxModule, NbIconModule, NbLayoutModule, NbSelectModule, NbCardModule, NbSpinnerModule } from '@nebular/theme';
+import { NbAlertModule, NbInputModule, NbButtonModule, NbCheckboxModule, NbIconModule, NbLayoutModule, NbSelectModule, NbCardModule, NbSpinnerModule, NbFormFieldModule, NbDialogModule } from '@nebular/theme';
 import { NgxLoginComponent } from './ngx-login/ngx-login.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -15,6 +15,7 @@ import { SuccessRegisterComponent } from './success-register/success-register.co
 import { EmailVerificationComponent } from './email-verification/email-verification.component';
 import { NgxRequestPasswordComponent } from './ngx-request-password/ngx-request-password.component';
 import { NgxResetPasswordComponent } from './ngx-reset-password/ngx-reset-password.component';
+import { SharedModule } from '../Shared/shared.module';
 
 
 @NgModule({
@@ -43,7 +44,10 @@ import { NgxResetPasswordComponent } from './ngx-reset-password/ngx-reset-passwo
     FontAwesomeModule,
     IgxDividerModule,
     NbCardModule,
-    NbSpinnerModule
+    NbSpinnerModule,
+    NbFormFieldModule,
+    NbDialogModule.forChild(),
+    SharedModule
   ]
 })
 export class AuthModule { }

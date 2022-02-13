@@ -26,14 +26,12 @@
       "title": "Activation réussie !",
       "message": "Votre compte est désormais activé, vous pouvez dès à présent vous connecter !"
     },
-    "request-password":
-    {
+    "request-password": {
       "instruction": "Veuillez renseigner votre email et nous vous enverrons un lien pour renouveller votre mot de passe !",
-      "title" : "Mot de passe oublié..."
+      "title": "Mot de passe oublié..."
     },
-    "reset-password":
-    {
-      "instruction":"Renseigner votre nouveau mot de passe !",
+    "reset-password": {
+      "instruction": "Renseigner votre nouveau mot de passe !",
       "title": "Renouvelez votre mot de passe"
     }
   },
@@ -61,28 +59,41 @@
   "error": {
     "required": {
       "field": "Le champ {{field}} est requis !",
-      "length": "Le champ {{field}} doit contenir entre {{minLength}} et {{maxLength}} caractères!",
+      "length": "Le champ {{field}} doit contenir entre {{minLength}} et {{maxLength}} caractères !",
       "exactLength": "Le champ {{field}} doit avoir exactement {{length}} caractères !",
-      "cgu": "Vous devez acceptez les conditions générales d'utilisation du logiciel avant de créer votre compte !"
+      "cgu": "Vous devez acceptez les conditions générales d'utilisation du logiciel avant de créer votre compte !",
+      "numberPattern": "Le champ {{field}} ne doit contenir que des chiffres et doit avoir une longueur de {{length}} !"
     },
     "password": {
-      "confirm": "Les mots de passes sont différents ! "
+      "confirm": "Les mots de passes sont différents !",
+      "pattern": {
+        "title": "Attention ! Le mot de passe doit contenir au minimum:",
+        "lowercase": "Une lettre minuscule",
+        "uppercase": "Une lettre majuscule",
+        "digit": "Un chiffre",
+        "symbol": "Un caractère spécial parmis les suivantes : *. ! @ # $ % ^ & ( ) { } [ ] : ; < > , . ? ~ _ + - = \\ |"
+      }
     },
     "email": {
-      "valid": "Ceci n'est pas une adresse email valide !"
-    },
-    "emailVerification": {
+      "valid": "Ceci n'est pas une adresse email valide !",
       "title": "Erreur de validation",
       "message": "Votre lien de validation n'est plus valide! Veuillez le renouvelez en renseignant votre adresse email dans le formulaire ci-dessous !",
-      "clientSide": "Une erreur est survenue! Veuillez recliquez sur le lien dans le mail de validation !"
+      "clientSide": "Une erreur est survenue! Veuillez recliquez sur le lien dans le mail de validation !",
+      "duplicateEmailDlg" : "Un compte est déjà associé à cet email ! Voulez-vous vous connecter ? Sinon veuillez renseigner un autre.",
+      "duplicateEmailMsg": "Un compte est déjà associé à cet email ! Veuillez renseigner un autre svp !"
     },
-    "reset-password":
-    {
+    "reset-password": {
       "title": "Erreur de validation",
-      "message" : " Votre lien de renouvellement n'est plus valide! Veuillez le renouveler en renseignant votre adresse email dans le formulaire ci-dessous !",
+      "message": " Votre lien de renouvellement n'est plus valide! Veuillez le renouveler en renseignant votre adresse email dans le formulaire ci-dessous !",
       "clientSide": "Une erreur est survenue! Veuillez recliquez sur le lien dans le mail de renouvellement !"
     },
-    "lost":"Oops ! Vous vous êtes peut-être perdue !"
+    "lost": "Oops ! Vous vous êtes peut-être perdue !",
+    "phoneNumber":
+    {
+      "duplicatePhoneNumber": " Un compte est déjà associé à ce numéro de téléphone. Veuillez renseigner un autre svp !",
+      "title": "Numéro de téléphone existant"
+    },
+    "clientSide": "Une erreur est survenue; Veuillez rééssayer svp !"
   },
   "terms": {
     "title": "les conditions d'utilisations",
@@ -94,6 +105,13 @@
   "button": {
     "send": "Envoyer",
     "password-request": "Renouveler votre mot de passe ",
-    "forgotten-password": "Mot de passe oublié ?"
+    "forgotten-password": "Mot de passe oublié ?",
+    "home": "Retour à l'accueil",
+    "cancel": "Annuler",
+    "continue": "Continuer"
+  },
+  "404Notfound": {
+    "title": "Erreur 404 ! Page non trouvé !",
+    "message": "La page que vous cherchez n'exsite pas !"
   }
 }

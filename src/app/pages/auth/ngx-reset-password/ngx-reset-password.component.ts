@@ -6,7 +6,6 @@ import { NbToastrService } from '@nebular/theme';
 import { TranslateService } from '@ngx-translate/core';
 import { throwError } from 'rxjs';
 import { take, switchMap, catchError, filter } from 'rxjs/operators';
-import { User } from 'src/app/api/models';
 import { AuthenticationControllerService } from 'src/app/api/services';
 
 @Component({

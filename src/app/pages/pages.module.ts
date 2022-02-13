@@ -4,7 +4,7 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from "./contact/contact.component";
 import { HomeComponent } from "./home/home.component";
 import { TranslateModule } from "@ngx-translate/core";
-import { CarouselComponent } from "./Shared/carousel/carousel.component";
+import { CarouselComponent } from "./Shared/components/carousel/carousel.component";
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCarouselModule } from '@ngmodule/material-carousel';

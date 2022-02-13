@@ -3,9 +3,10 @@ import { Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { Observable } from 'rxjs';
 
-@Injectable()
-
-export class AppHttpInterceptorService implements HttpInterceptor {
+@Injectable({
+  providedIn: 'root'
+})
+export class XsrfTokenInterceptorService  implements HttpInterceptor{
 
   constructor(public cookieService: CookieService) { }
   private xsrfTokenMethods:Array<string> = ["POST","DELETE","PUT"];

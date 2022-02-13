@@ -37,7 +37,7 @@
             </div>
             <div class="col-sm-10">
                 <input nbInput fullWidth [(ngModel)]="user.username" #email="ngModel" name="email" id="input-email"
-                    pattern=".+@.+\..+" placeholder='{{"user.email" | translate }}' fieldSize="large" autofocus
+                    pattern=".+@.+\..+" placeholder='{{"user.email" | translate }}' fieldSize="large"
                     [status]="email.dirty ? (email.invalid  ? 'danger' : 'success') : 'basic'"
                     [required]="getConfigValue('forms.validation.email.required')"
                     [attr.aria-invalid]="email.invalid && email.touched ? true : null">
@@ -89,7 +89,7 @@
                         getTranslation('user.password')} }}
                     </p>
                     <p class="caption status-danger" *ngIf="password.errors?.minlength || password.errors?.maxlength">
-                        {{"password.error.length" | translate:{'minLength':
+                        {{"error.required.length" | translate:{'field': [['user.password' |translate ]],'minLength':
                         getConfigValue('forms.validation.password.minLength'), 'maxLength':
                         getConfigValue('forms.validation.password.maxLength')} }}
                     </p>

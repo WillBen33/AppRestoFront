@@ -1,7 +1,5 @@
-import { HttpClient } from '@angular/common/http';
 import {Component, OnInit} from '@angular/core';
-import { NbIconLibraries } from '@nebular/theme';
-import { take } from 'rxjs/operators';
+import { AuthenticationControllerService } from './api/services';
 import {LanguageService} from './services/language/language.service';
 
 @Component({
@@ -11,13 +9,11 @@ import {LanguageService} from './services/language/language.service';
   `,
 })
 export class AppComponent  implements OnInit{
-  title = 'ui';
-  apiBaseUrl:string = "http://localhost:8081/restaurant";
-  constructor(private languageService: LanguageService, private httpClient: HttpClient) {
+  constructor(private languageService: LanguageService, private authService: AuthenticationControllerService) {
   }
 
   ngOnInit(): void {
-    this.httpClient.get(`${this.apiBaseUrl}/users/1`).pipe(take(1)).subscribe();
+    this.authService.getXsrfCookie().subscribe();
   }
 
   changeLanguage(language: string) {
