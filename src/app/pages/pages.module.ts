@@ -16,8 +16,12 @@ import { RouterModule } from "@angular/router";
 import { JoinComponent } from './join/join.component';
 import { AccountComponent } from './account/account.component';
 import { NgbNavModule } from "@ng-bootstrap/ng-bootstrap";
-import { NbButtonModule, NbCardModule, NbLayoutModule } from '@nebular/theme';
+import {NbAlertModule, NbButtonModule, NbCardModule, NbInputModule, NbLayoutModule} from '@nebular/theme';
 import { NotFoundComponent } from './not-found/not-found.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { RECAPTCHA_SETTINGS, RecaptchaFormsModule, RecaptchaModule, RecaptchaSettings } from 'ng-recaptcha';
+import {environment} from "../../environments/environment";
+
 
 @NgModule({
   declarations: [AboutComponent, ContactComponent, HomeComponent, CarouselComponent, MenuComponent, DealsComponent, ApproachComponent, JoinComponent, AccountComponent, NotFoundComponent],
@@ -25,8 +29,17 @@ import { NotFoundComponent } from './not-found/not-found.component';
     CommonModule, TranslateModule, MatCarouselModule, BrowserAnimationsModule, MatIconModule, RouterModule, NgbNavModule,
     NbCardModule,
     NbButtonModule,
-    NbLayoutModule
-  ]
+    NbLayoutModule, ReactiveFormsModule, FormsModule, NbAlertModule, NbInputModule, RecaptchaModule,
+    RecaptchaFormsModule
+  ],
+  providers: [
+    {
+      provide: RECAPTCHA_SETTINGS,
+      useValue: {
+        siteKey: environment.recaptcha.siteKey,
+      } as RecaptchaSettings,
+    },
+  ],
 })
 export class PagesModule {
 }
