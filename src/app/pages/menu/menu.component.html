@@ -6,11 +6,11 @@
     <button class="btn btn-primary btn-lg" type="button">Example button</button>
   </div>
 
-  <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
-    <li *ngFor="let category of categories" [ngbNavItem]="category.id" (click)="getProductsByCategory(category.id)">
+  <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs justify-content-center">
+    <li *ngFor="let category of categories" [ngbNavItem]="category.id" (click)="getFilteredProducts(category.id)">
       <a ngbNavLink>{{category.name}}</a>
       <ng-template ngbNavContent>
-        <div class="row">
+        <div class="row justify-content-center">
           <div class="card" style="width: 18rem;" *ngFor="let product of products">
             <img src="https://via.placeholder.com/300x200/0000FF" class="card-img-top" alt="img-1">
             <div class="card-body">
@@ -25,5 +25,3 @@
     <div [ngbNavOutlet]="nav" class="mt-2"></div>
   </ul>
 </div>
-
-
