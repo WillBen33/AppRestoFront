@@ -14,38 +14,40 @@ export class MenuComponent implements OnInit {
 
   public categories: Category[] = [];
   public products: Product[] = [];
-  // public categoryId: number;
 
   constructor(private productService: ProductControllerService,
               private categoryService: CategoryControllerService) { }
 
-  ngOnInit(): void {
-    this.getPizzas();
+  public ngOnInit(): void {
     this.getCategories();
+    this.getProducts();
   }
 
-  getPizzas(): Product[] {
+  public getProducts(): Product[] {
     this.productService.getAllProducts().subscribe(data => {
       this.products = data;
-      console.log(this.products);
     })
     return this.products;
   }
 
-  getCategories(): Category[] {
+  public getCategories(): Category[] {
     this.categoryService.getAllCategories().subscribe(data => {
       this.categories = data;
-      console.log(this.categories);
     })
     return this.categories;
   }
 
-  getProductsByCategory(categoryId: any) {
-    this.productService.getProductByCategory(categoryId).subscribe(data => {
-      this.products = data;
-      console.log(this.products);
-    })
-    console.log(categoryId);
+  public getFilteredProducts(categoryId: number): Product[] {
+    if (categoryId != 1){
+      this.productService.getProductByCategory({id: categoryId}).subscribe(data => {
+        this.products = data;
+      })
+      return this.products;
+    }else {
+      this.productService.getAllProducts().subscribe(data => {
+        this.products = data;
+      })
+      return this.products;
+    }
   }
-
 }

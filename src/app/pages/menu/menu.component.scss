@@ -1,24 +1,27 @@
 
-#product_area{
-  position:relative;
+#product_area {
+  position: relative;
   padding-top: 0;
 }
 
+.mix {
+  display: none;
+}
 
-.mix{
+.product_item .mix {
   display: none;
 }
-.product_item .mix{
-  display: none;
-}
+
 .product_filter {
   margin-bottom: 10px;
 }
+
 .product_filter ul {
   margin: 0px 0 40px;
   padding: 0;
   list-style: none;
 }
+
 .product_filter ul li {
   font-weight: 400;
   text-transform: uppercase;
@@ -30,42 +33,47 @@
   transition: .5s;
   letter-spacing: 1px;
   border-radius: 20px;
-  margin:0px;
-  color:#777;
+  margin: 0px;
+  color: #777;
   line-height: 1;
 }
+
 .product_filter .filter.active {
   color: #33d286;
   border-color: #33d286;
 }
 
-.single_product{
+.single_product {
   text-align: center;
   overflow: hidden;
   margin-bottom: 30px;
-  border: 1px solid rgba(0,0,0,0.02);
+  border: 1px solid rgba(0, 0, 0, 0.02);
   padding-bottom: 20px;
   background: #fff;
   transition: .5s;
 }
-.single_product:hover{
-  box-shadow: 5px 5px 25px rgba(0,0,0,0.03);
+
+.single_product:hover {
+  box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.03);
 }
-.product_image{
+
+.product_image {
   overflow: hidden;
   position: relative;
 }
-.product_image img{
+
+.product_image img {
   width: 100%;
   height: auto;
   transition: all 1.5s ease 0s;
 
 }
 
-.single_product:hover img{
+.single_product:hover img {
   transform: scale(1.2);
 }
-.single_product .box-content{
+
+.single_product .box-content {
   width: 100%;
   padding: 17px 10px;
   background: #fff;
@@ -79,10 +87,12 @@
   background: rgba(51, 210, 134, .9);
 
 }
-.single_product:hover .box-content{
+
+.single_product:hover .box-content {
   bottom: 0;
   opacity: 1;
 }
+
 .box-content a {
   display: inline-block;
   color: #333;
@@ -94,8 +104,9 @@
   border: 1px solid #fff;
   border-radius: 50%;
   margin: 0 7px;
-  transition:.5s;
+  transition: .5s;
 }
+
 .box-content a:hover {
   color: #33d286;
   border-color: #fff;
@@ -106,14 +117,16 @@
   text-transform: uppercase;
   font-size: 13px;
 }
+
 .product_btm_text h4 {
   text-transform: capitalize;
   margin-top: 17px;
   margin-bottom: 6px;
   font-size: 17px;
 }
+
 .product_btm_text h4,
-.product_btm_text h4 a{
+.product_btm_text h4 a {
   color: #333;
 }
 
@@ -128,14 +141,17 @@
   right: 15px;
   border-radius: 2px;
 }
-.single_product span.price{
+
+.single_product span.price {
   color: #33d286;
   font-size: 16px;
 }
-.no-padding{
+
+.no-padding {
   padding: 0;
 }
-.p_rating{
+
+.p_rating {
   color: #fec42d;
   cursor: pointer;
 }
