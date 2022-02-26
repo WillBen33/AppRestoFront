@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DialogMessageComponent } from './components/dialog-message/dialog-message.component';
-import { NbButtonModule, NbCardModule } from '@nebular/theme';
+import {NbAlertModule, NbButtonModule, NbCardModule, NbLayoutModule} from '@nebular/theme';
 import { TranslateModule } from '@ngx-translate/core';
 import { ExistPhoneNumberDirective } from './directives/exist-phone-number/exist-phone-number.directive';
 import { ExistEmailDirective } from './directives/existEmail/exist-email.directive';
@@ -19,15 +19,17 @@ import {MatButtonModule} from "@angular/material/button";
     ExistEmailDirective,
     ShoppingCartComponent
   ],
-    imports: [
-        CommonModule,
-        NbCardModule,
-        NbButtonModule,
-        TranslateModule.forChild(),
-        NgbDatepickerModule,
-        MatIconModule,
-        MatButtonModule
-    ],
+  imports: [
+    CommonModule,
+    NbCardModule,
+    NbButtonModule,
+    TranslateModule.forChild(),
+    NgbDatepickerModule,
+    MatIconModule,
+    MatButtonModule,
+    NbLayoutModule,
+    NbAlertModule
+  ],
     exports: [DialogMessageComponent, ExistPhoneNumberDirective, ExistEmailDirective, ShoppingCartComponent]
 })
 export class SharedModule { }

@@ -2,6 +2,14 @@
   "Home": "Accueil",
   "menu": {
     "page-title": "Menu",
+    "page-description": "Découvrez notre carte et composez votre menu.",
+    "add-item-success": "Vous avez ajouté un produit à votre panier"
+  "contact": {
+    "contact-us": "Nous contacter",
+    "contact-us-text": "Vous souhaitez nous contacter ? Vous pouvez  nous écrire en remplissant le formulaire ci-dessous.",
+    "recaptcha-error": "Vous devez valider le captcha"
+  "menu": {
+    "page-title": "Menu",
     "page-description": "Découvrez notre carte et composez votre menu."
   },
   "Contact": "Contact",

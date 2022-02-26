@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {ModalDismissReasons, NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {Product} from "../../../../api/models/product";
 import {count} from "rxjs/operators";
+import {NbToastrService} from "@nebular/theme";
 
 @Component({
   selector: 'app-shopping-cart',
@@ -10,14 +11,17 @@ import {count} from "rxjs/operators";
 })
 export class ShoppingCartComponent implements OnInit {
 
-  closeResult = '';
+  public closeResult = '';
+
+  public emptyCart: boolean = false;
 
   @Input()
   public shoppingCart: Product[] = [];
 
   public reducedArray: Product[]= [];
 
-  constructor(private modalService: NgbModal) {}
+  constructor(private modalService: NgbModal,
+              private toastrService: NbToastrService) {}
 
   public ngOnInit(): void {}
 
@@ -58,5 +62,10 @@ export class ShoppingCartComponent implements OnInit {
 
     // Retourne le nouveau tableau avec les nouvelles valeurs à afficher
     return this.reducedArray;
+  }
+
+  cleanCart() {
+    sessionStorage.removeItem("shoppingCart");
+    return this.shoppingCart;
   }
 }
