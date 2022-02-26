@@ -1,9 +1,23 @@
-<ng-template #content let-modal>
-  <div class="modal-header">
+
+<nb-layout>
+
+
+
+  <nb-layout-column>
+  <ng-template #content let-modal>
+
+
+
+
+
+    <div class="modal-header">
     <h4 class="modal-title" id="modal-basic-title">Votre panier</h4>
     <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
   </div>
   <div class="modal-body">
+    <nb-alert outline="success" role="alert" *ngIf="emptyCart"></nb-alert>
+    <!--      <nb-alert outline="warning" role="alert" *ngIf="invalidForm"></nb-alert>-->
+    <!--      <nb-alert outline="danger" role="alert" *ngIf="!invalidForm"></nb-alert>-->
     <!-- TODO: Ajouter le calcul des prix et ne remonter qu'un seul exemplaire d'item avec un compteur -->
     <form>
       <div class="mb-3">
@@ -37,7 +51,7 @@
     </form>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Vider le panier</button>
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close(cleanCart())">Vider le panier</button>
     <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Payer</button>
   </div>
 </ng-template>
@@ -45,5 +59,6 @@
 <button class="float" (click)="open(content)">
   <mat-icon>shopping_cart</mat-icon>
 </button>
-
+  </nb-layout-column>
+</nb-layout>
 
