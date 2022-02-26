@@ -1,5 +1,9 @@
 {
   "Home": "Accueil",
+  "menu": {
+    "page-title": "Menu",
+    "page-description": "Découvrez notre carte et composez votre menu."
+  },
   "Contact": "Contact",
   "About": "A propos",
   "Login": {
