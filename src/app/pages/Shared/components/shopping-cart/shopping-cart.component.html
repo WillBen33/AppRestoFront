@@ -1,0 +1,49 @@
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Votre panier</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <!-- TODO: Ajouter le calcul des prix et ne remonter qu'un seul exemplaire d'item avec un compteur -->
+    <form>
+      <div class="mb-3">
+        <table class="table">
+          <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Produit</th>
+            <th scope="col">Quantité</th>
+            <th scope="col">Sous-total</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let item of shoppingCart">
+            <td></td>
+            <td>{{item.libelle}}</td>
+            <td></td>
+            <td>{{item.price}}</td>
+          </tr>
+          </tbody>
+          <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col">Total</th>
+            <th scope="col">100$</th>
+          </tr>
+          </thead>
+        </table>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Vider le panier</button>
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Payer</button>
+  </div>
+</ng-template>
+
+<button class="float" (click)="open(content)">
+  <mat-icon>shopping_cart</mat-icon>
+</button>
+
+

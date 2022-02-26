@@ -1,27 +1,36 @@
 <div class="p-5 mb-4 bg-light rounded-3 container">
   <div class="container py-5">
-    <h1 class="display-5 fw-bold">Menu</h1>
-    <p class="col-md-8 fs-4">Using a series of utilities, you can create this jumbotron, just like the one in previous
-      versions of Bootstrap. Check out the examples below for how you can remix and restyle it to your liking.</p>
-    <button class="btn btn-primary btn-lg" type="button">Example button</button>
+    <h1 class="display-5 fw-bold">{{ "menu.page-title" | translate }}</h1>
+    <p class="col-md-8 fs-4">{{ "menu.page-description" | translate }}</p>
   </div>
 
-  <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs justify-content-center">
+  <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs nav-pills nav-justified justify-content-center">
     <li *ngFor="let category of categories" [ngbNavItem]="category.id" (click)="getFilteredProducts(category.id)">
       <a ngbNavLink>{{category.name}}</a>
+      <hr>
       <ng-template ngbNavContent>
         <div class="row justify-content-center">
-          <div class="card" style="width: 18rem;" *ngFor="let product of products">
+          <div class="card" *ngFor="let product of products">
             <img src="https://via.placeholder.com/300x200/0000FF" class="card-img-top" alt="img-1">
             <div class="card-body">
               <h5 class="card-title">{{product.libelle}}</h5>
               <p class="card-text">{{product.description}}</p>
-              <a href="#" class="btn btn-primary">{{product.price}}</a>
+              <div class="row justify-content-space">
+                <div class="col">
+                  <strong><p class="card-text">{{product.price + " $"}}</p></strong>
+                </div>
+                <div class="col">
+                  <button (click)="addToCart(product)" mat-raised-button color="primary">
+                    <mat-icon>add_shopping_cart</mat-icon>
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </ng-template>
     </li>
-    <div [ngbNavOutlet]="nav" class="mt-2"></div>
+    <div [ngbNavOutlet]="nav" class="mt-2 col-12"></div>
   </ul>
 </div>
+<app-shopping-cart [shoppingCart]="shoppingCart"></app-shopping-cart>

@@ -15,9 +15,11 @@ import { ApproachComponent } from './approach/approach.component';
 import { RouterModule } from "@angular/router";
 import { JoinComponent } from './join/join.component';
 import { AccountComponent } from './account/account.component';
-import { NgbNavModule } from "@ng-bootstrap/ng-bootstrap";
+import {NgbDatepickerModule, NgbNavModule} from "@ng-bootstrap/ng-bootstrap";
 import { NbButtonModule, NbCardModule, NbLayoutModule } from '@nebular/theme';
 import { NotFoundComponent } from './not-found/not-found.component';
+import {MatButtonModule} from "@angular/material/button";
+import {SharedModule} from "./Shared/shared.module";
 
 @NgModule({
   declarations: [AboutComponent, ContactComponent, HomeComponent, CarouselComponent, MenuComponent, DealsComponent, ApproachComponent, JoinComponent, AccountComponent, NotFoundComponent],
@@ -25,7 +27,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     CommonModule, TranslateModule, MatCarouselModule, BrowserAnimationsModule, MatIconModule, RouterModule, NgbNavModule,
     NbCardModule,
     NbButtonModule,
-    NbLayoutModule
+    NbLayoutModule, MatButtonModule, NgbDatepickerModule, SharedModule
   ]
 })
 export class PagesModule {

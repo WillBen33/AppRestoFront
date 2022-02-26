@@ -15,6 +15,8 @@ export class MenuComponent implements OnInit {
   public categories: Category[] = [];
   public products: Product[] = [];
 
+  public shoppingCart: Product[] = [];
+
   constructor(private productService: ProductControllerService,
               private categoryService: CategoryControllerService) { }
 
@@ -37,6 +39,8 @@ export class MenuComponent implements OnInit {
     return this.categories;
   }
 
+  //TODO: améliorer le filtre par nom
+  //TODO: ajouter les sous categories
   public getFilteredProducts(categoryId: number): Product[] {
     if (categoryId != 1){
       this.productService.getProductByCategory({id: categoryId}).subscribe(data => {
@@ -49,5 +53,11 @@ export class MenuComponent implements OnInit {
       })
       return this.products;
     }
+  }
+
+  addToCart(product: Product) {
+    this.shoppingCart.push(product);
+    sessionStorage.setItem("shoppingCart", JSON.stringify(this.shoppingCart));
+    return this.shoppingCart;
   }
 }
