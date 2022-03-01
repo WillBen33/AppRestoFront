@@ -44,7 +44,7 @@ const routes: Routes = [
         path: 'account',
         loadChildren: () =>
           import('./pages/account/account.module').then((m) => m.AccountModule),
-        canActivate: [AuthGuardService]
+        // canActivate: [AuthGuardService]
       },
       {
         path: 'auth',

@@ -1,58 +1,89 @@
-<!-- <nb-layout>
-  <nb-layout-header fixed> -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container-fluid">
-        <a class="navbar-brand" routerLinkActive="active" routerLink="/home">
-          <img src="assets/logo.svg" height="30" class="d-inline-block align-top" alt="Angular Starters Logo"
-            loading="lazy" />
-          Ui
-        </a>
-        <div class="mr-auto"></div>
-        <button class="navbar-toggler" type="button" (click)="toggleNavbar()">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" [ngClass]="{ 'show': navbarOpen }">
-          <ul class="navbar-nav">
-            <a class="nav-item nav-link" routerLinkActive="active" routerLink="/home">Home</a>
-            <a class="nav-item nav-link" routerLinkActive="active" routerLink="/menu">Menu</a>
-            <a class="nav-item nav-link" routerLinkActive="active" routerLink="/deals">Deals</a>
-            <a class="nav-item nav-link" routerLinkActive="active" routerLink="/approach">Approach</a>
-            <a class="nav-item nav-link" routerLinkActive="active" routerLink="/join">Join</a>
-            <a class="nav-item nav-link" routerLinkActive="active" routerLink="/contact">Contact</a>
-            <a class="nav-item nav-link" routerLinkActive="active" routerLink="/account">Account</a>
-            <a class="nav-item nav-link" routerLinkActive="active" routerLink="/auth/sign-in">Sign In</a>
-          </ul>
-          <form class="d-flex">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-                  aria-expanded="false">
-                  Language
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLinkActive="active" routerLink="/home">
+      <img src="assets/logo.svg" height="30" class="d-inline-block align-top" alt="Angular Starters Logo"
+        loading="lazy" />
+      Ui
+    </a>
+    <div class="mr-auto"></div>
+    <button class="navbar-toggler" type="button" (click)="toggleNavbar()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse d-flex justify-content-between" [ngClass]="{ 'show': navbarOpen }">
+      <div  class="me-2">
+        <ul class="navbar-nav" routerLinkActive="active">
+          <a class="nav-item nav-link" routerLink="/home">Home</a>
+          <a class="nav-item nav-link" routerLink="/menu">Menu</a>
+          <a class="nav-item nav-link" routerLink="/deals">Deals</a>
+          <a class="nav-item nav-link" routerLink="/approach">Approach</a>
+          <a class="nav-item nav-link" routerLink="/join">Join</a>
+          <a class="nav-item nav-link" routerLink="/contact">Contact</a>
+        </ul>
+      </div>
+      <div>
+        <ul class="navbar-nav mb-2 mb-lg-0">
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Language
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+              <li>
+                <a class="dropdown-item nav-link" (click)="setLanguage('fr')">
+                  <img src="assets/fr.png" height="25" class="d-inline-block align-top" alt="Angular Starters Logo"
+                    loading="lazy" />
+                  &nbsp;
+                  Français
                 </a>
-                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
-                  <li>
-                    <a class="dropdown-item nav-link" (click)="setLanguage('fr')">
-                      <img src="assets/fr.png" height="25" class="d-inline-block align-top" alt="Angular Starters Logo"
-                        loading="lazy" />
-                      &nbsp;
-                      Français
-                    </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item nav-link" (click)="setLanguage('en')">
-                      <img src="assets/en.png" height="25" class="d-inline-block align-top" alt="Angular Starters Logo"
-                        loading="lazy" />
-                      &nbsp;
-                      English
-                    </a>
-                  </li>
-                </ul>
+              </li>
+              <li>
+                <a class="dropdown-item nav-link" (click)="setLanguage('en')">
+                  <img src="assets/en.png" height="25" class="d-inline-block align-top" alt="Angular Starters Logo"
+                    loading="lazy" />
+                  &nbsp;
+                  English
+                </a>
               </li>
             </ul>
-          </form>
-        </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <fa-icon [icon]="['far', 'user-circle']" size="lg"></fa-icon>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <li *ngIf="isAuthenticated">
+                <button class="dropdown-item nav-link" (click)="updateProfil()">
+                  <i class="fas fa-user me-auto"></i>  &nbsp; {{'button.updateProfil' | translate}}
+                </button>
+              </li>
+              <li *ngIf="isAuthenticated">
+                <a class="dropdown-item nav-link" (click)="displayCommandes()">
+                  <i class="fas fa-pizza-slice"></i>  &nbsp; {{'button.userCommande' | translate}}
+                </a>
+              </li>
+              <li *ngIf="isAuthenticated">
+                <a class="dropdown-item nav-link" (click)="logout()">
+                  <i class="fas fa-sign-out-alt"></i>  &nbsp; {{'button.logout' | translate}}
+                </a>
+              </li>
+              <li *ngIf="!isAuthenticated">
+                <a class="dropdown-item nav-link" (click)="signUp()">
+                  <i class="fas fa-sign-in-alt"></i>  &nbsp; {{'button.sign-up' | translate}}
+                </a>
+              </li>
+              <li *ngIf="!isAuthenticated">
+                <a class="dropdown-item nav-link" (click)="signIn()">
+                  <i class="fas fa-sign-in-alt"></i>  &nbsp; {{'button.sign-in' | translate}}
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
       </div>
-    </nav>
+    </div>
+  </div>
+</nav>
 <!--     <nb-user [name]="user?.sub" [picture]="user?.picture"></nb-user>
   </nb-layout-header>
 </nb-layout> -->

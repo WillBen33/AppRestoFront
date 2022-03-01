@@ -33,9 +33,22 @@
     "reset-password": {
       "instruction": "Renseigner votre nouveau mot de passe !",
       "title": "Renouvelez votre mot de passe"
+    },
+    "profil":
+    {
+      "title":"Mon profil",
+      "msgTitle":"Modification de profil",
+      "edit" : "Modifier votre profil",
+      "delete" : "Supprimer votre compte",
+      "updated": "Votre profil a bien été mis à jour !"
+    },
+    "delete": {
+      "title" : "Suppression de compte",
+      "message" :"Votre compte a bien été supprimé !"
     }
   },
   "user": {
+    "identity": "Identité",
     "firstname": "Prénom",
     "lastname": "Nom",
     "password": "Mot de passe",
@@ -108,10 +121,21 @@
     "forgotten-password": "Mot de passe oublié ?",
     "home": "Retour à l'accueil",
     "cancel": "Annuler",
-    "continue": "Continuer"
+    "continue": "Continuer",
+    "save":"Sauvegarder",
+    "updateProfil" : "Modifier votre profil",
+    "changePassword": "Changer votre mot de passe",
+    "userCommande":"Mes commandes",
+    "logout" : "Se déconnecter",
+    "sign-in" : "Se connecter",
+    "sign-up" : "Créer un compte"
   },
   "404Notfound": {
     "title": "Erreur 404 ! Page non trouvé !",
     "message": "La page que vous cherchez n'exsite pas !"
+  },
+  "confirm":{
+    "delete": "Voulez-vous vraiment supprimer votre compte ?"
   }
+
 }

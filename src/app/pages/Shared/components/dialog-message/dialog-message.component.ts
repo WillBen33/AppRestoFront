@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NbDialogRef } from '@nebular/theme';
 
@@ -9,7 +9,11 @@ import { NbDialogRef } from '@nebular/theme';
 })
 export class DialogMessageComponent implements OnInit {
 
-  constructor(private dialogRef:NbDialogRef<DialogMessageComponent>, private router : Router) { }
+  @Input()
+  context : any;
+
+  constructor(private dialogRef:NbDialogRef<DialogMessageComponent>) { 
+  }
 
   ngOnInit(): void {
   }
@@ -21,7 +25,6 @@ export class DialogMessageComponent implements OnInit {
 
   continue()
   {
-    this.router.navigate(['/auth/sign-in']);
-    this.cancel();
+   this.dialogRef.close("submit");
   }
 }

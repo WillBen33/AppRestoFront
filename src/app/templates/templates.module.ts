@@ -1,13 +1,13 @@
-import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {RouterModule} from '@angular/router';
-import {HeaderComponent} from './header/header.component';
-import {FooterComponent} from './footer/footer.component';
-import {NavigationComponent} from "./navigation/navigation.component";
-import {LayoutComponent} from './layout/layout.component';
-import {TranslateModule} from "@ngx-translate/core";
-import {PagesModule} from "../pages/pages.module";
-import { NbLayoutModule, NbUserModule } from '@nebular/theme';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { NavigationComponent } from "./navigation/navigation.component";
+import { LayoutComponent } from './layout/layout.component';
+import { TranslateModule } from "@ngx-translate/core";
+import { PagesModule } from "../pages/pages.module";
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -16,7 +16,13 @@ import { NbLayoutModule, NbUserModule } from '@nebular/theme';
     NavigationComponent,
     FooterComponent
   ],
-  imports: [CommonModule, RouterModule, TranslateModule, PagesModule,NbLayoutModule, NbUserModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    TranslateModule,
+    PagesModule, 
+    FontAwesomeModule
+  ],
   exports: []
 })
 export class TemplatesModule {

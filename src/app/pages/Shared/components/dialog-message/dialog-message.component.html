@@ -1,6 +1,6 @@
 <nb-card>
     <nb-card-body>
-        <p>{{'error.email.duplicateEmailDlg' | translate}}</p>
+        <p>{{context.message}}</p>
         <div class="d-flex justify-content-around">
             <button type="reset" nbButton status="primary" (click)="cancel()">{{'button.cancel' | translate}}</button>
             <button type="button" nbButton status="success" (click)="continue()" >{{'button.continue' | translate}}</button>

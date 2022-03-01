@@ -1,6 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import { NbAuthJWTToken, NbAuthService } from '@nebular/auth';
-import {LanguageService} from "../../services/language/language.service";
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { NbAuthJWTToken, NbAuthResult, NbAuthService } from '@nebular/auth';
+import { filter } from 'jszip';
+import { LanguageService } from "../../services/language/language.service";
 
 @Component({
   selector: 'app-header',
@@ -10,29 +12,59 @@ import {LanguageService} from "../../services/language/language.service";
 export class HeaderComponent implements OnInit {
 
   navbarOpen = false;
-  user : any = {};
+  user: any = {};
+  isAuthenticated: boolean = false;
 
   constructor(private languageService: LanguageService,
-    private nbAuthService: NbAuthService) {
-      this.nbAuthService.onTokenChange()
+    private nbAuthService: NbAuthService,
+    private router: Router) {
+    this.nbAuthService.onTokenChange()
       .subscribe(token => {
-      
         if (token.isValid()) {
-          this.user = token.getPayload(); 
-          console.log(this.user);// here we receive a payload from the token and assigns it to our `user` variable 
+          this.isAuthenticated = true;
+          this.user = token.getPayload();
         }
-        
       });
   }
 
   ngOnInit(): void {
   }
 
-  toggleNavbar() {
+  toggleNavbar() :void{
     this.navbarOpen = !this.navbarOpen;
   }
 
-  setLanguage(language: string) {
+  setLanguage(language: string):void {
     this.languageService.setLanguage(language);
+  }
+
+  updateProfil():void {
+    this.router.navigate(['/account/profil']);
+  }
+
+  displayCommandes() {
+    // A développer 
+  }
+
+  logout() : void {
+    this.nbAuthService.logout('email').subscribe((result: NbAuthResult) => {
+      this.isAuthenticated = false;
+      const redirect = result.getRedirect();
+      if (redirect) {
+        setTimeout(() => {
+          return this.router.navigateByUrl(redirect);
+        }, 500);
+      }
+    })
+  }
+
+  signUp():void
+  {
+    this.router.navigate(['/auth/register']);
+  }
+
+  signIn():void
+  {
+    this.router.navigate(['/auth/sign-in']);
   }
 }
