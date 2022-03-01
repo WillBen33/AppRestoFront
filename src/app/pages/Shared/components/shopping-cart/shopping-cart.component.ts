@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ModalDismissReasons, NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {Product} from "../../../../api/models/product";
 import {NbToastrService} from "@nebular/theme";
 import { TranslateService } from '@ngx-translate/core';

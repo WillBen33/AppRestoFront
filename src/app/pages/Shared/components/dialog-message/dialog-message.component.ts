@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { NbDialogRef } from '@nebular/theme';
 
 @Component({
@@ -12,7 +11,7 @@ export class DialogMessageComponent implements OnInit {
   @Input()
   context : any;
 
-  constructor(private dialogRef:NbDialogRef<DialogMessageComponent>) { 
+  constructor(private dialogRef:NbDialogRef<DialogMessageComponent>) {
   }
 
   ngOnInit(): void {
