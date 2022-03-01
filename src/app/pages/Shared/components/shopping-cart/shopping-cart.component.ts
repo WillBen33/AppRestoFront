@@ -16,8 +16,6 @@ export class ShoppingCartComponent implements OnInit {
   @Input()
   public shoppingCart: Product[] = [];
 
-  // public reducedArray: Product[]= [];
-
   constructor(private modalService: NgbModal,
               private toastrService: NbToastrService,
               private translateService: TranslateService) {}
@@ -29,7 +27,6 @@ export class ShoppingCartComponent implements OnInit {
     if(this.shoppingCart.length > 0){
       this.modalService.open(content);
       this.getshoppingCartItems();
-      // this.reducedCartItems();
     }else {
       this.toastrService.warning(
         this.translateService.instant("menu.cart-is-empty"),
@@ -45,19 +42,6 @@ export class ShoppingCartComponent implements OnInit {
     this.shoppingCart = JSON.parse(<string>sessionStorage.getItem("shoppingCart"));
     return this.shoppingCart;
   }
-
-  // public reducedCartItems(): {} {
-  //   // Pour compter les éléments uniques
-  //   this.shoppingCart = JSON.parse(<string>sessionStorage.getItem("shoppingCart"));
-  //
-  //   // Pour afficher un seul élément de chaque type
-  //   this.reducedArray = JSON.parse(<string>sessionStorage.getItem("shoppingCart"));
-  //   const uniqueItem = [...new Map(this.reducedArray.map(item => [JSON.stringify(item), item])).values()];
-  //   this.reducedArray = uniqueItem;
-  //
-  //   // Retourne le nouveau tableau avec les nouvelles valeurs à afficher
-  //   return this.reducedArray;
-  // }
 
   cleanCart() {
     sessionStorage.removeItem("shoppingCart");

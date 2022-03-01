@@ -1,16 +1,9 @@
-
-  <ng-template #content let-modal>
-    <div class="modal-header">
+<ng-template #content let-modal>
+  <div class="modal-header">
     <h4 class="modal-title" id="modal-basic-title">Votre panier</h4>
     <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
   </div>
   <div class="modal-body">
-
-<!--    <nb-alert outline="success" role="alert"></nb-alert>-->
-<!--    <nb-alert outline="warning" role="alert"></nb-alert>-->
-<!--    <nb-alert outline="danger" role="alert"></nb-alert>-->
-
-    <!-- TODO: Ajouter le calcul des prix et ne remonter qu'un seul exemplaire d'item avec un compteur -->
     <form>
       <div class="mb-3">
         <table class="table">

@@ -6,11 +6,6 @@
   <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs nav-pills nav-justified justify-content-center">
     <li *ngFor="let category of categories" [ngbNavItem]="category.id" (click)="getFilteredProducts(category.id)">
       <a ngbNavLink>{{category.name}}</a>
-        <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs nav-pills nav-justified justify-content-center">
-          <li *ngFor="let subCategory of subCategories" [ngbNavItem]="subCategory.id" (click)="getFilteredSubProducts(category.id)">
-            <a ngbNavLink>{{ subCategory.name }}</a>
-          </li>
-        </ul>
       <hr>
       <ng-template ngbNavContent>
         <div class="row justify-content-center">

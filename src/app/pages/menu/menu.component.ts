@@ -15,7 +15,6 @@ export class MenuComponent implements OnInit {
   active = 1;
 
   public categories: Category[] = [];
-  public subCategories: Category[] = [];
   public products: Product[] = [];
 
   public shoppingCart: Product[] = [];
@@ -27,7 +26,6 @@ export class MenuComponent implements OnInit {
 
   public ngOnInit(): void {
     this.getCategories();
-    this.getAllSubCategories();
     this.getProducts();
   }
 
@@ -44,18 +42,6 @@ export class MenuComponent implements OnInit {
       console.log(data);
     })
     return this.categories;
-  }
-
-  public getAllSubCategories(): Category[] {
-    this.categoryService.getSubCategorieByParentCategoryId().subscribe(data => {
-      this.subCategories = data;
-      console.log(data);
-    })
-    return this.subCategories;
-  }
-
-  public getFilteredSubProducts(id: number) {
-    console.log(id);
   }
 
   public getFilteredProducts(categoryId: number): Product[] {
