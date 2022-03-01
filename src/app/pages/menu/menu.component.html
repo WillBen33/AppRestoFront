@@ -3,10 +3,14 @@
     <h1 class="display-5 fw-bold">{{ "menu.page-title" | translate }}</h1>
     <p class="col-md-8 fs-4">{{ "menu.page-description" | translate }}</p>
   </div>
-
   <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs nav-pills nav-justified justify-content-center">
     <li *ngFor="let category of categories" [ngbNavItem]="category.id" (click)="getFilteredProducts(category.id)">
       <a ngbNavLink>{{category.name}}</a>
+        <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs nav-pills nav-justified justify-content-center">
+          <li *ngFor="let subCategory of subCategories" [ngbNavItem]="subCategory.id" (click)="getFilteredSubProducts(category.id)">
+            <a ngbNavLink>{{ subCategory.name }}</a>
+          </li>
+        </ul>
       <hr>
       <ng-template ngbNavContent>
         <div class="row justify-content-center">
@@ -15,12 +19,18 @@
             <div class="card-body">
               <h5 class="card-title">{{product.libelle}}</h5>
               <p class="card-text">{{product.description}}</p>
-              <div class="row justify-content-space">
+              <nb-accordion>
+                <nb-accordion-item>
+                  <nb-accordion-item-header>Allergènes</nb-accordion-item-header>
+                  <nb-accordion-item-body>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</nb-accordion-item-body>
+                </nb-accordion-item>
+              </nb-accordion>
+              <div class="row justify-content-space mt-3">
                 <div class="col">
                   <strong><p class="card-text">{{product.price + " $"}}</p></strong>
                 </div>
                 <div class="col">
-                  <button (click)="addToCart(product)" mat-raised-button color="primary">
+                  <button (click)="addItem(product)" mat-raised-button color="primary">
                     <mat-icon>add_shopping_cart</mat-icon>
                   </button>
                 </div>

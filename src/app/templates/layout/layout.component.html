@@ -2,7 +2,11 @@
   <app-header></app-header>
 
   <main class="flex-shrink-0">
-    <router-outlet></router-outlet>
+    <nb-layout>
+      <nb-layout-column>
+        <router-outlet></router-outlet>
+      </nb-layout-column>
+    </nb-layout>
   </main>
 
   <footer class="mt-auto">
