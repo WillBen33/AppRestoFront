@@ -27,7 +27,6 @@ import {SharedModule} from "./Shared/shared.module";
     ContactComponent,
     HomeComponent,
     CarouselComponent,
-    MenuComponent,
     DealsComponent,
     ApproachComponent,
     JoinComponent,

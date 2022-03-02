@@ -3,7 +3,35 @@
     <h1 class="display-5 fw-bold">{{ "menu.page-title" | translate }}</h1>
     <p class="col-md-8 fs-4">{{ "menu.page-description" | translate }}</p>
   </div>
-  <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs nav-pills nav-justified justify-content-center">
+  <nb-tabset >
+ 
+    <nb-tab *ngFor="let parentCategory of parentsCategories$ | async" tabTitle='{{parentCategory.name}}' >
+      <app-subcategory-list [parentCategoryName]="parentCategory.name" [parentCategoryId] = "parentCategory.id"></app-subcategory-list>
+    </nb-tab>
+   </nb-tabset>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs nav-pills nav-justified justify-content-center">
     <li *ngFor="let category of categories" [ngbNavItem]="category.id" (click)="getFilteredProducts(category.id)">
       <a ngbNavLink>{{category.name}}</a>
       <hr>
@@ -38,4 +66,4 @@
     <div [ngbNavOutlet]="nav" class="mt-2 col-12"></div>
   </ul>
 </div>
-<app-shopping-cart [shoppingCart]="shoppingCart"></app-shopping-cart>
+<app-shopping-cart [shoppingCart]="shoppingCart"></app-shopping-cart> -->

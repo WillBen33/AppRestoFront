@@ -4,6 +4,8 @@ import {Category} from "../../api/models/category";
 import { ProductControllerService, CategoryControllerService } from 'src/app/api/services';
 import { NbToastrService } from '@nebular/theme';
 import {TranslateService} from "@ngx-translate/core";
+import { Observable, Subject } from 'rxjs';
+import { take, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-menu',
@@ -17,6 +19,10 @@ export class MenuComponent implements OnInit {
   public categories: Category[] = [];
   public products: Product[] = [];
 
+  parentsCategories$ : Observable<Category[]> = new Observable<Array<Category>>();
+  subCategories : Array<Category> = new Array();
+  subCategoriesSubject$ : Subject<Category[]> = new Subject();
+
   public shoppingCart: Product[] = [];
 
   constructor(private productService: ProductControllerService,
@@ -25,11 +31,19 @@ export class MenuComponent implements OnInit {
               private translateService: TranslateService) { }
 
   public ngOnInit(): void {
-    this.getCategories();
-    this.getProducts();
+    /* this.getCategories();
+    this.getProducts(); */
+    this.parentsCategories$ = this.categoryService.getAllParentsCategories();
   }
 
-  public getProducts(): Product[] {
+
+  sendCategoryId()
+  {
+
+  }
+ 
+
+ /*  public getProducts(): Product[] {
     this.productService.getAllProducts().subscribe(data => {
       this.products = data;
     })
@@ -72,5 +86,5 @@ export class MenuComponent implements OnInit {
       }
     )
     return this.shoppingCart;
-  }
+  } */
 }
