@@ -8,7 +8,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { TranslateModule } from "@ngx-translate/core";
 import { PagesModule } from "../pages/pages.module";
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import {NbLayoutModule} from "@nebular/theme";
+import {NbCardModule, NbLayoutModule} from "@nebular/theme";
 
 @NgModule({
   declarations: [
@@ -23,7 +23,8 @@ import {NbLayoutModule} from "@nebular/theme";
     TranslateModule,
     PagesModule,
     FontAwesomeModule,
-    NbLayoutModule
+    NbLayoutModule,
+    NbCardModule
   ],
   exports: []
 })

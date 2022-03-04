@@ -1,10 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Category } from 'src/app/api/models';
 import { CategoryControllerService } from 'src/app/api/services';
 
 @Component({
   selector: 'app-subcategory-list',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './subcategory-list.component.html',
   styleUrls: ['./subcategory-list.component.scss']
 })
@@ -18,13 +19,13 @@ export class SubcategoryListComponent implements OnInit {
 
   displayProduct : boolean = true ;
 
-  subCategories$ : Observable<Category[]> = new Observable<Category[]>();
+  subCategories : Array<Category> = new Array();
   
 
   constructor(private categoryService: CategoryControllerService) { }
 
   ngOnInit(): void {
-    this.subCategories$ =  this.categoryService.getAllSubCategoriesByParent({parentCategoryId:this.parentCategoryId})
+    this.categoryService.getAllSubCategoriesByParent({parentCategoryId:this.parentCategoryId}).subscribe(subCategories => this.subCategories = subCategories);
   } 
 
 }

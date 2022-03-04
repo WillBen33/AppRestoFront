@@ -1,14 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import {Product} from "../../api/models/product";
 import {Category} from "../../api/models/category";
 import { ProductControllerService, CategoryControllerService } from 'src/app/api/services';
 import { NbToastrService } from '@nebular/theme';
 import {TranslateService} from "@ngx-translate/core";
 import { Observable, Subject } from 'rxjs';
-import { take, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-menu',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss']
 })

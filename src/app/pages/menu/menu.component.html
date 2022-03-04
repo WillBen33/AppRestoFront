@@ -1,18 +1,16 @@
-<div class="p-5 mb-4 bg-light rounded-3 container">
-  <div class="container py-5">
-    <h1 class="display-5 fw-bold">{{ "menu.page-title" | translate }}</h1>
-    <p class="col-md-8 fs-4">{{ "menu.page-description" | translate }}</p>
-  </div>
-  <nb-tabset >
- 
-    <nb-tab *ngFor="let parentCategory of parentsCategories$ | async" tabTitle='{{parentCategory.name}}' >
-      <app-subcategory-list [parentCategoryName]="parentCategory.name" [parentCategoryId] = "parentCategory.id"></app-subcategory-list>
-    </nb-tab>
-   </nb-tabset>
 
-</div>
-
-
+    <div class="p-5 mb-4 bg-light rounded-3">
+      <div class="container py-5">
+        <h1 class="display-5 fw-bold">{{ "menu.page-title" | translate }}</h1>
+        <p class="col-md-8 fs-4">{{ "menu.page-description" | translate }}</p>
+      </div>
+      <nb-tabset>
+        <nb-tab *ngFor="let parentCategory of parentsCategories$ | async" tabTitle='{{parentCategory.name}}'>
+          <app-subcategory-list [parentCategoryName]="parentCategory.name" [parentCategoryId]="parentCategory.id">
+          </app-subcategory-list>
+        </nb-tab>
+      </nb-tabset>
+    </div>
 
 
 
@@ -31,7 +29,9 @@
 
 
 
-  <!-- <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs nav-pills nav-justified justify-content-center">
+
+
+<!-- <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs nav-pills nav-justified justify-content-center">
     <li *ngFor="let category of categories" [ngbNavItem]="category.id" (click)="getFilteredProducts(category.id)">
       <a ngbNavLink>{{category.name}}</a>
       <hr>
