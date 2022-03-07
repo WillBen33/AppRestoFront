@@ -1,6 +1,50 @@
-<div class="py-3 bg-dark text-center text-muted">
-  <small>
-    <a href="https://github.com/angular-starters" class="text-muted">Angular Starters</a>
-    &copy; 2021
-  </small>
-</div>
+<footer class="footer_section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 footer-col">
+        <div class="footer_contact">
+          <h4>{{ "footer.contact-us" | translate }}</h4>
+          <div class="contact_link_box">
+            <a>
+              <i class="fa fa-map-marker" aria-hidden="true"></i>
+              <span>{{ "footer.google-map" | translate }}</span>
+            </a>
+            <a>
+              <i class="fa fa-phone" aria-hidden="true"></i>
+              <span>{{ "footer.phone-number" | translate }}</span>
+            </a>
+            <a>
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+              <span>{{ "footer.email" | translate }}</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 footer-col">
+        <div class="footer_detail">
+          <a class="footer-logo">{{ "footer.logo" | translate }}</a>
+          <p>{{ "footer.message" | translate }}</p>
+          <div class="footer_social">
+            <a><i class="fa-brands fa-facebook-square" aria-hidden="true"></i></a>
+            <a><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+            <a><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+            <a><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
+            <a><i class="fa-brands fa-twitter" aria-hidden="true"></i></a>
+            <a><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 footer-col">
+        <h4>{{ "footer.opening-title" | translate }}</h4>
+        <p>{{ "footer.opening-days" | translate }}</p>
+        <p>{{ "footer.opening-hours" | translate }}</p>
+      </div>
+    </div>
+    <div class="footer-info">
+      <p>
+        &copy; <span id="displayYear"></span> All Rights Reserved By
+        <a href="https://html.design/">Free Html Templates</a>
+      </p>
+    </div>
+  </div>
+</footer>

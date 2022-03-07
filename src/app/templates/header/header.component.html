@@ -1,83 +1,75 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<header class="header_section">
   <div class="container-fluid">
-    <a class="navbar-brand" routerLinkActive="active" routerLink="/home">
-      <img src="assets/logo.svg" height="30" class="d-inline-block align-top" alt="Angular Starters Logo"
-        loading="lazy" />
-      Ui
-    </a>
-    <div class="mr-auto"></div>
-    <button class="navbar-toggler" type="button" (click)="toggleNavbar()">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse d-flex justify-content-between" [ngClass]="{ 'show': navbarOpen }">
-      <div  class="me-2">
-        <ul class="navbar-nav" routerLinkActive="active">
-          <a class="nav-item nav-link" routerLink="/home">Home</a>
-          <a class="nav-item nav-link" routerLink="/menu">Menu</a>
-          <a class="nav-item nav-link" routerLink="/deals">Deals</a>
-          <a class="nav-item nav-link" routerLink="/approach">Approach</a>
-          <a class="nav-item nav-link" routerLink="/join">Join</a>
-          <a class="nav-item nav-link" routerLink="/contact">Contact</a>
-        </ul>
-      </div>
-      <div>
-        <ul class="navbar-nav mb-2 mb-lg-0">
-          
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              Language
-            </a>
-            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
-              <li>
-                <a class="dropdown-item nav-link" (click)="setLanguage('fr')">
-                  <img src="assets/fr.png" height="25" class="d-inline-block align-top" alt="Angular Starters Logo"
-                    loading="lazy" />
-                  &nbsp;
-                  Français
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item nav-link" (click)="setLanguage('en')">
-                  <img src="assets/en.png" height="25" class="d-inline-block align-top" alt="Angular Starters Logo"
-                    loading="lazy" />
-                  &nbsp;
-                  English
-                </a>
-              </li>
-            </ul>
+    <nav class="navbar navbar-expand-lg custom_nav-container ">
+      <a class="navbar-brand" href="index.html">
+            <span>
+              {{ "header.logo" | translate }}
+            </span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class=""> </span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav  mx-auto ">
+          <li class="nav-item active">
+            <a class="nav-link" routerLink="/home">{{ "header.home" | translate }}</a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <fa-icon [icon]="['far', 'user-circle']" size="lg"></fa-icon>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <li *ngIf="isAuthenticated">
-                <button class="dropdown-item nav-link" (click)="updateProfil()">
-                  <i class="fas fa-user me-auto"></i>  &nbsp; {{'button.updateProfil' | translate}}
-                </button>
-              </li>
-              <li *ngIf="isAuthenticated">
-                <a class="dropdown-item nav-link" (click)="displayCommandes()">
-                  <i class="fas fa-pizza-slice"></i>  &nbsp; {{'button.userCommande' | translate}}
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/menu">{{ "header.menu" | translate }}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/deals">{{ "header.deals" | translate }}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/approach">{{ "header.approach" | translate }}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/join">{{ "header.join" | translate }}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/contact">{{ "header.contact" | translate }}</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav user_option">
+          <li class="nav-item">
+            <div class="dropdown">
+              <button class="btn nav_search-btn dropdown-toggle" type="button" id="dropdownMenuButton"
+                      data-toggle="dropdown" aria-expanded="false">
+                <i class="fa fa-user" aria-hidden="true"></i>
+              </button>
+              <div class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item nav-link" (click)="updateProfil()" *ngIf="isAuthenticated">
+                  <i class="fas fa-user me-auto"></i> &nbsp; {{'button.updateProfil' | translate}}
                 </a>
-              </li>
-              <li *ngIf="isAuthenticated">
-                <a class="dropdown-item nav-link" (click)="logout()">
-                  <i class="fas fa-sign-out-alt"></i>  &nbsp; {{'button.logout' | translate}}
+                <a class="dropdown-item nav-link" (click)="displayCommandes()" *ngIf="isAuthenticated">
+                  <i class="fas fa-pizza-slice"></i> &nbsp; {{'button.userCommande' | translate}}
                 </a>
-              </li>
-              <li *ngIf="!isAuthenticated">
-                <a class="dropdown-item nav-link" (click)="signUp()">
-                  <i class="fas fa-sign-in-alt"></i>  &nbsp; {{'button.sign-up' | translate}}
+                <a class="dropdown-item nav-link" (click)="logout()" *ngIf="isAuthenticated">
+                  <i class="fas fa-sign-out-alt"></i> &nbsp; {{'button.logout' | translate}}
                 </a>
-              </li>
-              <li *ngIf="!isAuthenticated">
-                <a class="dropdown-item nav-link" (click)="signIn()">
-                  <i class="fas fa-sign-in-alt"></i>  &nbsp; {{'button.sign-in' | translate}}
+                <a class="dropdown-item nav-link" (click)="signUp()" *ngIf="!isAuthenticated">
+                  <i class="fas fa-sign-in-alt"></i> &nbsp; {{'button.sign-up' | translate}}
                 </a>
-              </li>
-            </ul>
+                <a class="dropdown-item nav-link" (click)="signIn()" *ngIf="!isAuthenticated">
+                  <i class="fas fa-sign-in-alt"></i> &nbsp; {{'button.sign-in' | translate}}
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item">
+            <div class="dropdown">
+              <button class="btn nav_search-btn dropdown-toggle" type="button" id="dropdownMenuButton"
+                      data-toggle="dropdown" aria-expanded="false">
+                <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+              </button>
+              <div class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item nav-link">Opt1</a>
+                <a class="dropdown-item nav-link">Opt2</a>
+              </div>
+            </div>
           </li>
 
           <li class="nav-item">
@@ -103,3 +95,26 @@
     </div>
   </div>
 </nav>
+
+          <li class="nav-item">
+            <div class="dropdown">
+              <button class="btn nav_search-btn dropdown-toggle" type="button" id="dropdownMenuButton"
+                      data-toggle="dropdown" aria-expanded="false">
+                <i class="fa-solid fa-flag" aria-hidden="true"></i>
+              </button>
+              <div class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item nav-link" (click)="setLanguage('fr')">{{ "header.lang.fr" | translate }}</a>
+                <a class="dropdown-item nav-link" (click)="setLanguage('en')">{{ "header.lang.en" | translate }}</a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/menu" class="order_online">
+              {{ "header.order" | translate }}
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</header>
