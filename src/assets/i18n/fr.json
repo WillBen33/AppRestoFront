@@ -1,4 +1,28 @@
 {
+  "header": {
+    "logo": "M&W",
+    "home": "Accueil",
+    "menu": "Carte",
+    "deals": "Offres",
+    "approach": "Approche",
+    "join": "Recrutement",
+    "contact": "Contact",
+    "order": "Commander",
+    "lang.fr": "Français",
+    "lang.en": "English"
+  },
+  "footer": {
+    "contact-us": "Nous contacter",
+    "google-map": "Nous rejoindre",
+    "phone-number": "+33 1234567890",
+    "email": "mwrestaurant@gmail.com",
+    "logo": "M&W",
+    "message": "Necessary, making this the first true generator on the Internet.",
+    "opening-title": "Horaires",
+    "opening-days": "Ouvert tous les jours",
+    "opening-hours": "De 11h00 à minuit"
+
+  },
   "Home": "Accueil",
   "menu": {
     "page-title": "Menu",

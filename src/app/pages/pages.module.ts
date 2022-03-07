@@ -22,23 +22,27 @@ import {MatButtonModule} from "@angular/material/button";
 import {SharedModule} from "./Shared/shared.module";
 
 @NgModule({
-  declarations: [
-    AboutComponent,
-    ContactComponent,
-    HomeComponent,
+    declarations: [
+        AboutComponent,
+        ContactComponent,
+        HomeComponent,
+        CarouselComponent,
+        MenuComponent,
+        DealsComponent,
+        ApproachComponent,
+        JoinComponent,
+        AccountComponent,
+        NotFoundComponent,],
+  exports: [
     CarouselComponent,
-    MenuComponent,
-    DealsComponent,
-    ApproachComponent,
-    JoinComponent,
-    AccountComponent,
-    NotFoundComponent,],
-  imports: [
-    CommonModule, TranslateModule, MatCarouselModule, BrowserAnimationsModule, MatIconModule, RouterModule, NgbNavModule,
-    NbCardModule,
-    NbButtonModule,
-    NbLayoutModule, MatButtonModule, NgbDatepickerModule, NbAccordionModule, SharedModule
-  ]
+    CarouselComponent
+  ],
+    imports: [
+        CommonModule, TranslateModule, MatCarouselModule, BrowserAnimationsModule, MatIconModule, RouterModule, NgbNavModule,
+        NbCardModule,
+        NbButtonModule,
+        NbLayoutModule, MatButtonModule, NgbDatepickerModule, NbAccordionModule, SharedModule
+    ]
 })
 export class PagesModule {
 }
