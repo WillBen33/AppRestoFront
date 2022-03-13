@@ -34,7 +34,7 @@ import {SharedModule} from "./Shared/shared.module";
   exports: [
     CarouselComponent
   ],
-    imports: [
+  imports: [
         CommonModule, TranslateModule, MatCarouselModule, BrowserAnimationsModule, MatIconModule, RouterModule, NgbNavModule,
         NbCardModule,
         NbButtonModule,

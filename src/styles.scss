@@ -59,34 +59,6 @@ $AppRestoFront-theme: mat.define-light-theme((
   @include nb-auth-global();
 };
 
-
-$white: #ffffff;
-$black: #000000;
-$primary1: #ffbe33;
-$primary2: #222831;
-$textCol: #1f1f1f;
-
-@mixin main-font {
-  font-family: "Open Sans", sans-serif;
-}
-
-@mixin second-font {
-  font-family: 'Dancing Script', cursive;
-}
-
-@mixin hero_btn($col1, $col2, $pad1, $pad2, $bRadius) {
-  display: inline-block;
-  padding: $pad1 $pad2;
-  background-color: $col1;
-  color: $col2;
-  border-radius: $bRadius;
-  transition: all 0.3s;
-  border: none;
-
-  &:hover {
-    background-color: darken($color: $col1, $amount: 15);
-  }
-}
 /* Feane theme */
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap");
 body {
@@ -654,7 +626,7 @@ a:focus {
   justify-content: space-between;
 }
 
-.food_section .box .options button {
+.food_section .box .options a {
   width: 40px;
   height: 40px;
   border-radius: 100%;
@@ -1009,22 +981,94 @@ a:focus {
   font-family: 'Dancing Script', cursive;
 }
 
-// CSS Reset, comment out if not required or using a different module
-//@import '~minireset.css/minireset';
-// Custom Theming for Angular Material
-// For more information: https://material.angular.io/guide/theming
+.footer_section p {
+  color: #dbdbdb;
+}
 
-@import "~igniteui-angular/lib/core/styles/themes/index";
-// Uncomment the following lines if you want to add a custom palette:
-// $primary: #731963 !default;
-// $secondary: #ce5712 !default;
-// $app-palette: igx-palette($primary, $secondary);
+.footer_section .footer-col {
+  margin-bottom: 30px;
+}
 
-/* autoprefixer grid: on */
+.footer_section .footer_contact .contact_link_box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
 
-@include igx-core();
-@include igx-typography($font-family: $material-typeface, $type-scale: $material-type-scale);
-@include igx-theme($default-palette);
+.footer_section .footer_contact .contact_link_box a {
+  margin: 5px 0;
+  color: #ffffff;
+}
+
+.footer_section .footer_contact .contact_link_box a i {
+  margin-right: 5px;
+}
+
+.footer_section .footer_contact .contact_link_box a:hover {
+  color: #ffbe33;
+}
+
+.footer_section .footer-logo {
+  display: block;
+  font-weight: bold;
+  font-size: 38px;
+  line-height: 1;
+  color: #ffffff;
+}
+
+.footer_section .footer_social {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.footer_section .footer_social a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #222831;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  background-color: #ffffff;
+  border-radius: 100%;
+  margin: 0 2.5px;
+  font-size: 18px;
+}
+
+.footer_section .footer_social a:hover {
+  color: #ffbe33;
+}
+
+.footer_section .footer-info {
+  text-align: center;
+  margin-top: 25px;
+}
+
+.footer_section .footer-info p {
+  color: #ffffff;
+  margin: 0;
+}
+
+.footer_section .footer-info p a {
+  color: inherit;
+}
+/*# sourceMappingURL=style.css.map */
 
 .footer_section .footer_contact .contact_link_box a i {
   margin-right: 5px;
