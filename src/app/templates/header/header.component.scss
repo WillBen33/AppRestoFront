@@ -23,11 +23,31 @@ ul.navbar-nav.user_option {
   //justify-content: center;
 }
 
-a.dropdown-item {
+//a.dropdown-item {
+//  margin: 0;
+//}
+//
+//.dropdown-menu.bg-dark.show {
+//  border: 1px solid #ffbe33;
+//}
+
+.flag-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.dropdown-menu.show{
+  background-color: black;
+  border-color: #fbbe34
+}
+
+.user_option a {
   margin: 0;
+  color: white;
 }
 
-.dropdown-menu.bg-dark.show {
-  border: 1px solid #ffbe33;
+.user_option a:hover {
+  color: #fbbe34;
+  background-color: black;
+  cursor: pointer;
 }
-
