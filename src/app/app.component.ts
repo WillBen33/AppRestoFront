@@ -9,7 +9,9 @@ import {LanguageService} from './services/language/language.service';
   `,
 })
 export class AppComponent  implements OnInit{
-  constructor(private languageService: LanguageService, private authService: AuthenticationControllerService) {
+  constructor(private languageService: LanguageService,
+     private authService: AuthenticationControllerService) 
+   {
   }
 
   ngOnInit(): void {

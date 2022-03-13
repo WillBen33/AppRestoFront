@@ -79,11 +79,27 @@
               </li>
             </ul>
           </li>
+
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/cart" aria-expanded="false" style="position: relative;">
+              <nb-badge text='{{getToTalProcuct()}}' status="warning" position="top start"></nb-badge>
+              <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+            </a>
+           <!--  <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <div class="food_section layout_padding-bottom">
+                <div *ngFor="let commandeProductTab of commandeProductMap?.values()" >
+                  <li *ngFor="let commandeProduct of commandeProductTab" >
+                    <app-shopping-card-item [commandeProduct]="commandeProduct"></app-shopping-card-item>
+                  </li>
+                </div>
+              </div>
+              <hr class="dropdown-divider">
+            </ul> -->
+          <!--   <p *ngIf = "getShoppingCard() !== null" >Montant de la commande : {{getToTalValue()}} €</p>
+            <p *ngIf = "getShoppingCard() !== null" >Montant de la livraison : {{4}}€</p> -->
+          </li>
         </ul>
       </div>
     </div>
   </div>
 </nav>
-<!--     <nb-user [name]="user?.sub" [picture]="user?.picture"></nb-user>
-  </nb-layout-header>
-</nb-layout> -->

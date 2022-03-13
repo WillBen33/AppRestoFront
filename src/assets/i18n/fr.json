@@ -141,7 +141,9 @@
     "userCommande":"Mes commandes",
     "logout" : "Se déconnecter",
     "sign-in" : "Se connecter",
-    "sign-up" : "Créer un compte"
+    "sign-up" : "Créer un compte",
+    "addToShoppingCard" : "Ajouter au panier",
+    "update": "Modifier"
   },
   "404Notfound": {
     "title": "Erreur 404 ! Page non trouvé !",
@@ -149,6 +151,22 @@
   },
   "confirm":{
     "delete": "Voulez-vous vraiment supprimer votre compte ?"
+  },
+  "product":
+  {
+    "addComment" : "Ajouter un commentaire utile à la préparation de votre produit",
+    "quantity": "Quantité",
+    "update": "Le produit a bien été modifié !",
+    "remove": "Le produit a bien été retiré !",
+    "add": "Le produit a bien été ajouté au panier !"
+  },
+  "cart":
+  {
+    "title": "Votre panier"
+  },
+  "comment":
+  {
+    "title":"Commentaire"
   }
 
 }

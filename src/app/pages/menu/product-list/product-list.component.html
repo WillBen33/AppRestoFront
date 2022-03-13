@@ -1,25 +1,33 @@
-<div class="row justify-content-center">
-    <div class="card" *ngFor="let product of products$ | async">
-      <img src="https://via.placeholder.com/300x200/0000FF" class="card-img-top" alt="img-1">
-      <div class="card-body">
-        <h5 class="card-title">{{product.libelle}}</h5>
-        <p class="card-text">{{product.description}}</p>
-        <nb-accordion>
-          <nb-accordion-item>
-            <nb-accordion-item-header>Allergènes</nb-accordion-item-header>
-            <nb-accordion-item-body>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</nb-accordion-item-body>
-          </nb-accordion-item>
-        </nb-accordion>
-        <div class="row justify-content-space mt-3">
-          <div class="col">
-            <strong><p class="card-text">{{product.price + " $"}}</p></strong>
-          </div>
-          <div class="col">
-            <button (click)="addItem(product)" mat-raised-button color="primary">
-              <mat-icon>add_shopping_cart</mat-icon>
-            </button>
+    <section class="food_section layout_padding-bottom">
+      <div class="container">
+      <div class="filters-content" >
+        <div class="row grid">
+          <div class="col-sm-6 col-lg-4 all pizza" *ngFor="let product of products$ | async">
+            <div class="box" >
+              <div>
+                <div class="img-box">
+                  <img src="https://static.750g.com/images/600-600/fa94d52dd749d587b7fd75e4a918174b/pizza.png" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    {{product.libelle}}
+                  </h5>
+                  <p>
+                    {{product.description}}
+                  </p>
+                  <div class="options">
+                    <h6>
+                      {{product.price}}
+                    </h6>
+                    <button (click)="openProductSelectionDialog(product)">
+                      <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
+      </div>
+    </section>

@@ -25,10 +25,7 @@ export class MenuComponent implements OnInit {
 
   public shoppingCart: Product[] = [];
 
-  constructor(private productService: ProductControllerService,
-              private categoryService: CategoryControllerService,
-              private toastrService: NbToastrService,
-              private translateService: TranslateService) { }
+  constructor(private categoryService: CategoryControllerService) { }
 
   public ngOnInit(): void {
     /* this.getCategories();

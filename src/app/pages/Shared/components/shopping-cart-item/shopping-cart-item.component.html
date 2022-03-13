@@ -1,0 +1,29 @@
+<div class="col-md-8" >
+    <div class="card mb-3" style="max-width: 540px;">
+        <div class="row no-gutters">
+            <div class="col-md-4 box">
+                <img src="https://static.750g.com/images/600-600/fa94d52dd749d587b7fd75e4a918174b/pizza.png" alt="">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <div style="position: relative;">
+                        <h5 class="card-title">{{groupedCommandeProduct[0]?.product?.libelle}}</h5>
+                        <button type="button" nbButton style="position: absolute;
+                            top: 0.4rem;
+                            right: 0;
+                            background: none;
+                            border: none;" (click)="removeFromShoppingCart()">
+                            <i class="fa-regular fa-trash-can fa-lg"></i>
+                        </button>
+                    </div>
+                    <p class="card-text font-weight-bold">{{groupedCommandeProduct[0]?.product?.price}}</p>
+                    <p class="card-text"><span class="font-weight-bold">{{'comment.title' | translate}} :</span>
+                        {{groupedCommandeProduct[0]?.comment}}</p>
+                        <p class="card-text"><span class="font-weight-bold">{{'product.quantity' | translate}} :</span>
+                            {{groupedCommandeProduct.length}} <span class="ml-2"><button nbButton size="tiny" hero status="warning" (click)="openProductSelectionDialog()">{{'button.update' | translate}}</button></span></p>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

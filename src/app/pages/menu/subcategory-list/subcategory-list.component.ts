@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 import { Category } from 'src/app/api/models';
 import { CategoryControllerService } from 'src/app/api/services';
 

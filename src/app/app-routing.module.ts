@@ -47,6 +47,10 @@ const routes: Routes = [
         // canActivate: [AuthGuardService]
       },
       {
+        path:'cart',
+        loadChildren : ()=> import('./pages/cart/cart.module').then(m => m.CartModule)
+      },
+      {
         path: 'auth',
         loadChildren: () =>
           import('./pages/auth/auth.module').then(m => m.AuthModule)

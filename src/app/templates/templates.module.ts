@@ -8,7 +8,8 @@ import { LayoutComponent } from './layout/layout.component';
 import { TranslateModule } from "@ngx-translate/core";
 import { PagesModule } from "../pages/pages.module";
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import {NbCardModule, NbLayoutModule} from "@nebular/theme";
+import {NbBadgeModule, NbCardModule, NbLayoutModule} from "@nebular/theme";
+import { SharedModule } from '../pages/Shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,9 @@ import {NbCardModule, NbLayoutModule} from "@nebular/theme";
     PagesModule,
     FontAwesomeModule,
     NbLayoutModule,
-    NbCardModule
+    NbCardModule,
+    SharedModule,
+    NbBadgeModule
   ],
   exports: []
 })

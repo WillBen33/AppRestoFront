@@ -1,0 +1,35 @@
+<form #productSelectionForm="ngForm"  (ngSubmit)="addToShoppingCart(productSelectionForm)">
+
+    <nb-card>
+        <nb-card-header>{{'product.addComment' | translate }}</nb-card-header>
+
+        <nb-card-body>
+            <div class="row">
+                <div class="col">
+                    <textarea [ngModel]="comment" name="comment" nbInput fullWidth fieldSize="medium" shape="semi-round"
+                        cols="5">
+                </textarea>
+                </div>
+            </div>
+            <div class="mx-auto" style="width: fit-content;">
+                <div class="col">
+                    <button type="button" nbButton size="small" outline hero shape="round" (click)="remove()">
+                        <i class="fa-solid fa-minus"></i>
+                    </button>
+                    {{counter}}
+                    <button type="button" class="ml" nbButton size="small" outline hero shape="round" (click)="add()">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </nb-card-body>
+        <nb-card-footer>
+            <div class="mx-auto" style="width: fit-content;">
+                <button type="submit" nbButton size="medium" hero status="warning" shape="round">
+                    {{'button.addToShoppingCard' | translate}} {{totalPrice}} €
+                </button>
+            </div>
+        </nb-card-footer>
+
+    </nb-card>
+</form>

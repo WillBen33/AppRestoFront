@@ -1,9 +1,15 @@
 .dropdown-menu {
-  height: auto !important;
+  max-height: 350px;
+  overflow-y: auto;
+  width: max-content;
   //background-color: transparent !important;
   //border: none;
 }
 
+p
+{
+  color : white
+}
 .dropdown-item:hover {
   //background-color:transparent !important;
   cursor: pointer !important;

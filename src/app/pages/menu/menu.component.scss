@@ -1,10 +1,10 @@
-.card{
-  width: 17rem;
-  padding: 0;
-  margin: 1rem 1rem;
-}
+$white: #ffffff;
+$white: #ffffff;
+$black: #000000;
+$primary1: #ffbe33;
+$primary2: #222831;
 
-nb-accordion-item-header{
-  padding: 1rem 0;
-  //margin-bottom: 1rem;
+.customTabset .nb-tabset .tab.active .tab-link
+{
+  color: $primary1;
 }

@@ -9,7 +9,6 @@ import {CarouselComponent} from "./Shared/components/carousel/carousel.component
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatCarouselModule} from '@ngmodule/material-carousel';
 import {MatIconModule} from "@angular/material/icon";
-import {MenuComponent} from './menu/menu.component';
 import {DealsComponent} from './deals/deals.component';
 import {ApproachComponent} from './approach/approach.component';
 import {RouterModule} from "@angular/router";

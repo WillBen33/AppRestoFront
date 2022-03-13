@@ -18,6 +18,7 @@ import { far } from '@fortawesome/free-regular-svg-icons';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { httpInterceptorProviders } from './services/auth/http-interceptors';
+import { ToastrModule } from 'ngx-toastr';
 
 export function createTranslateLoader(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient, './assets/i18n/', '.json');
@@ -39,6 +40,7 @@ const socialLinks: NbAuthSocialLink[] = [];
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     AppRoutingModule,
     TemplatesModule,
     FontAwesomeModule,
