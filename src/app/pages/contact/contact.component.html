@@ -1,8 +1,47 @@
-<div class="p-5 mb-4 bg-light rounded-3 container">
-  <div class="container py-5">
-    <h1 class="display-5 fw-bold">{{ "Contact" | translate }}</h1>
-    <p class="col-md-8 fs-4">Using a series of utilities, you can create this jumbotron, just like the one in previous
-      versions of Bootstrap. Check out the examples below for how you can remix and restyle it to your liking.</p>
-    <button class="btn btn-primary btn-lg" type="button">Example button</button>
+<section class="book_section layout_padding">
+
+  <div class="container">
+
+    <div class="heading_container">
+      <h1 class="mb-3">Nous contacter</h1>
+      <p>Une question ? Une remarque ?</p>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form_container">
+          <form action="" class="form-group">
+            <div class="row">
+              <div class="col">
+                <input type="text" class="form-control" placeholder="Nom" />
+              </div>
+              <div class="col">
+                <input type="text" class="form-control" placeholder="Prénom" />
+              </div>
+            </div>
+            <div>
+              <input type="text" class="form-control" placeholder="Téléphone" />
+            </div>
+            <div>
+              <input type="email" class="form-control" placeholder="Email" />
+            </div>
+            <div>
+              <textarea class="form-control" rows="4" placeholder="Message"></textarea>
+            </div>
+            <div class="btn_box">
+              <button>
+                Envoyer
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="map_container ">
+          <div id="googleMap">
+            <iframe src="https://tinyurl.com/2b7ynrtr" width="600" height="450" allowfullscreen="false" loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
+</section>

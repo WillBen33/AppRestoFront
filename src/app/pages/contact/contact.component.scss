@@ -1,0 +1,32 @@
+.heading_container h1 {
+  position: relative;
+  margin-bottom: 0;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.map_container {
+  border: 2px solid #FBBE34;
+}
+
+iframe {
+  border: none;
+}
+
+.book_section .form_container .form-control {
+  width: 100%;
+  border: none;
+  /* height: 50px; */
+  margin-bottom: 25px;
+  padding-left: 25px;
+  border: 1px solid #999;
+  outline: none;
+  color: #000000;
+  border-radius: 5px;
+  outline: none;
+  box-shadow: none;
+}
+
+textarea.form-control {
+  height: auto!important;
+}
