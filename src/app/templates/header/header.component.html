@@ -1,7 +1,7 @@
 <header class="header_section" style="background-color:black;">
   <div class="container-fluid">
     <nav class="navbar navbar-expand-lg custom_nav-container ">
-      <a class="navbar-brand" href="index.html">
+      <a class="navbar-brand" routerLink="/home" routerLinkActive="active">
             <span>
               {{ "header.logo" | translate }}
             </span>
@@ -13,83 +13,65 @@
       </button>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav  mx-auto ">
-          <li class="nav-item active">
-            <a class="nav-link" routerLink="/home">{{ "header.home" | translate }}</a>
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/home" routerLinkActive="active">{{ "header.home" | translate }}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/menu">{{ "header.menu" | translate }}</a>
+            <a class="nav-link" routerLink="/menu" routerLinkActive="active">{{ "header.menu" | translate }}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/deals">{{ "header.deals" | translate }}</a>
+            <a class="nav-link" routerLink="/deals" routerLinkActive="active">{{ "header.deals" | translate }}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/approach">{{ "header.approach" | translate }}</a>
+            <a class="nav-link" routerLink="/approach" routerLinkActive="active">{{ "header.approach" | translate }}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/join">{{ "header.join" | translate }}</a>
+            <a class="nav-link" routerLink="/join" routerLinkActive="active">{{ "header.join" | translate }}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/contact">{{ "header.contact" | translate }}</a>
+            <a class="nav-link" routerLink="/contact" routerLinkActive="active">{{ "header.contact" | translate }}</a>
           </li>
         </ul>
         <ul class="navbar-nav user_option">
           <li class="nav-item">
             <div class="dropdown">
-              <button class="btn nav_search-btn dropdown-toggle" type="button"
+              <button class="btn nav_search-btn dropdown-toggle mb-1" type="button"
                       data-toggle="dropdown" aria-expanded="false">
-                <i class="fa fa-user" aria-hidden="true"></i>
+                <i class="fa fa-user fa-lg" aria-hidden="true"></i>
               </button>
-              <div class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item nav-link" (click)="updateProfil()" *ngIf="isAuthenticated">
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" (click)="updateProfil()" *ngIf="isAuthenticated">
                   <i class="fas fa-user me-auto"></i> &nbsp; {{'button.updateProfil' | translate}}
                 </a>
-                <a class="dropdown-item nav-link" (click)="displayCommandes()" *ngIf="isAuthenticated">
+                <a class="dropdown-item" (click)="displayCommandes()" *ngIf="isAuthenticated">
                   <i class="fas fa-pizza-slice"></i> &nbsp; {{'button.userCommande' | translate}}
                 </a>
-                <a class="dropdown-item nav-link" (click)="logout()" *ngIf="isAuthenticated">
+                <a class="dropdown-item" (click)="logout()" *ngIf="isAuthenticated">
                   <i class="fas fa-sign-out-alt"></i> &nbsp; {{'button.logout' | translate}}
                 </a>
-                <a class="dropdown-item nav-link" (click)="signUp()" *ngIf="!isAuthenticated">
+                <a class="dropdown-item" (click)="signUp()" *ngIf="!isAuthenticated">
                   <i class="fas fa-sign-in-alt"></i> &nbsp; {{'button.sign-up' | translate}}
                 </a>
-                <a class="dropdown-item nav-link" (click)="signIn()" *ngIf="!isAuthenticated">
+                <a class="dropdown-item" (click)="signIn()" *ngIf="!isAuthenticated">
                   <i class="fas fa-sign-in-alt"></i> &nbsp; {{'button.sign-in' | translate}}
                 </a>
-              </div>
-            </div>
-          </li>
-          <li class="nav-item">
-            <div class="dropdown">
-                            <button class="btn nav_search-btn dropdown-toggle" type="button"
-                                    data-toggle="dropdown" aria-expanded="false">
-                              <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
-                            </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
               </div>
             </div>
           </li>
 
           <li class="nav-item">
             <a class="nav-link" routerLink="/cart" aria-expanded="false" style="position: relative;">
-              <nb-badge text='{{getToTalProcuct()}}' status="warning" position="top start"></nb-badge>
-              <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+              <i class="fa-solid fa-cart-shopping fa-lg" aria-hidden="true"></i>
+              <span class="badge badge-warning text-white ml-1">{{ getToTalProcuct() }}</span>
             </a>
           </li>
-<!--        </ul>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</nav>-->
 
           <li class="nav-item">
             <div class="dropdown">
               <button class="btn nav_search-btn dropdown-toggle" type="button"
                       data-toggle="dropdown" aria-expanded="false">
-                <i class="fa-solid fa-flag" aria-hidden="true"></i>
+                <i class="fa-solid fa-flag fa-lg" aria-hidden="true"></i>
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <a class="dropdown-item" (click)="setLanguage('fr')">

@@ -1,24 +1,24 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { NbAuthResult, NbAuthService } from '@nebular/auth';
-import { ShoppingCartService } from 'src/app/services/shopping-cart/shopping-cart.service';
-import { LanguageService } from "../../services/language/language.service";
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {NbAuthResult, NbAuthService} from '@nebular/auth';
+import {ShoppingCartService} from 'src/app/services/shopping-cart/shopping-cart.service';
+import {LanguageService} from "../../services/language/language.service";
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit{
+export class HeaderComponent implements OnInit {
 
   navbarOpen = false;
   user: any = {};
   isAuthenticated: boolean = false;
 
   constructor(private languageService: LanguageService,
-    private nbAuthService: NbAuthService,
-    private router: Router,
-    private shoppingCartService: ShoppingCartService) {
+              private nbAuthService: NbAuthService,
+              private router: Router,
+              private shoppingCartService: ShoppingCartService) {
     this.nbAuthService.onTokenChange()
       .subscribe(token => {
         if (token.isValid()) {
@@ -44,7 +44,7 @@ export class HeaderComponent implements OnInit{
   }
 
   displayCommandes() {
-    // A développer 
+    // A développer
   }
 
   logout(): void {
@@ -71,8 +71,4 @@ export class HeaderComponent implements OnInit{
     return this.shoppingCartService.getNbProductInCart();
   }
 
-  showCommandes()
-  {
-
-  }
 }

@@ -5,6 +5,10 @@
   font-weight: bold;
 }
 
+.btn_box {
+  text-align: center;
+}
+
 .map_container {
   border: 2px solid #FBBE34;
 }
@@ -29,4 +33,5 @@ iframe {
 
 textarea.form-control {
   height: auto!important;
+  padding-bottom: 1rem!important;
 }
