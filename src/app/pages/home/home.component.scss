@@ -8,8 +8,35 @@ mat-icon{
   font-size: xxx-large;
 }
 
+.offer_section .box .detail-box h5 {
+  font-size: 2.5rem!important;
+  margin-left: .5rem!important;
+}
+
 .offer_section .box .img-box img {
   width: 165px;
   height: 165px;
   object-fit: cover;
+}
+
+img.box-img {
+  height: 5rem;
+}
+
+.owl-stage{
+  transform: translate(-1404px, 0px, 0px);
+  transition: all 0.25s ease 0s;
+  width: 2808px;
+}
+
+.owl-item{
+  width: 468px;
+}
+
+.owl-item .cloned{
+  width: 468px;
+}
+
+.owl-item .active{
+  width: 468px;
 }

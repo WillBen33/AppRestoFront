@@ -23,7 +23,16 @@
     "opening-hours": "De 11h00 à minuit"
 
   },
-  "Home": "Accueil",
+  "home": {
+    "takeaway": "A emporter ?",
+    "book": "Réservez !",
+    "delivery": "En livraison ?",
+    "order": "Commandez !",
+    "about-title": "A propos de M&W",
+    "about-message": "M&W est une jeune entreprise créée en 2020 par deux passionnés de cuisine que sont Messan et Wilfrid. Ils vous feront découvrir leurs spécialités culinaires à travers une carte de plats riches et variés, préparés essentiellement avec des produits frais,",
+    "about-read-more": "En savoir plus",
+    "customer-notice-title": "Ce que nos clients pensent de nous"
+  },
   "menu": {
     "page-title": "Menu",
     "page-description": "Découvrez notre carte et composez votre menu.",
