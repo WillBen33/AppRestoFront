@@ -167,7 +167,8 @@
     "sign-in" : "Se connecter",
     "sign-up" : "Créer un compte",
     "addToShoppingCard" : "Ajouter au panier",
-    "update": "Modifier"
+    "update": "Modifier",
+    "navigateToCart" : "Retour au menu"
   },
   "404Notfound": {
     "title": "Erreur 404 ! Page non trouvé !",
@@ -186,7 +187,8 @@
   },
   "cart":
   {
-    "title": "Votre panier"
+    "title": "Votre panier",
+    "empty" : "Votre panier est vide...!"
   },
   "comment":
   {
