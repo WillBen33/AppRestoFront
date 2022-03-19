@@ -6,7 +6,7 @@ import { CartComponent } from './cart/cart.component';
 import {NbButtonModule, NbCardModule, NbLayoutModule, NbSelectModule} from '@nebular/theme';
 import { TranslateModule } from '@ngx-translate/core';
 import { SharedModule } from '../Shared/shared.module';
-
+import {MatDividerModule} from '@angular/material/divider';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,8 @@ import { SharedModule } from '../Shared/shared.module';
     NbCardModule,
     SharedModule,
     NbLayoutModule,
-    NbButtonModule
+    NbButtonModule,
+    MatDividerModule
   ]
 })
 export class CartModule { }

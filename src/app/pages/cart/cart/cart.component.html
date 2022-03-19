@@ -2,22 +2,53 @@
   <nb-layout-column>
     <nb-card>
       <nb-card-body>
-        <div class="row col" *ngIf="nbProductInCart !== 0">
-          <h1 id="title" class="title text-center">{{"cart.title" | translate }}</h1> 
-        </div>
-          <div *ngIf="nbProductInCart === 0">
-            <h2 class= "text-center title">{{'cart.empty' | translate}} <i class="fa-solid fa-lg fa-heart-crack"></i> </h2> 
-            <div class="d-flex justify-content-center">
-              <button nbButton  (click)="goMenu()" type="button" class="home-button">
-                {{'button.navigateToCart' | translate}}
+        <div class="container">
+          <div class="row">
+            <div *ngIf="nbProductInCart === 0">
+              <h2 class="text-center title">{{'cart.empty' | translate}} <i class="fa-solid fa-lg fa-heart-crack"></i>
+              </h2>
+              <div class="d-flex justify-content-center">
+                <button nbButton (click)="goMenu()" type="button" class="home-button">
+                  {{'button.navigateToCart' | translate}}
                 </button>
+              </div>
             </div>
+            <h1 id="title" *ngIf="nbProductInCart !== 0" class="title text-center">{{"cart.title" | translate }}</h1>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div *ngIf="nbProductInCart !== 0">
+                <app-shopping-cart-item *ngFor="let groupedCommandeProduct of getCommandeProductByKeyAndCommentArrays()"
+                  [groupedCommandeProduct]="groupedCommandeProduct">
+                </app-shopping-cart-item>
+              </div>
+            </div>
+            <div class="col">
+              <div class="row-cols-2">
+                <button nbButton shape="semi-round" status="warning" size="medium" hero type="button">{{'button.sign-in'
+                  |
+                  translate}}
+                </button>
+                <mat-divider class="mt-3" style="color: black;"></mat-divider>
+                <div class="col">
+                  <span>{{'commande.value' | translate}}</span> 
+                </div>
+                <div class="col">
+                  <span>56,00€ </span>
+                 
+                </div>
+                <div class="col">
+                  <span>{{'commande.type.delivery' | translate}}</span> 
+                </div>
+
+                <div class="col">
+                  <span>10,99€</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div *ngIf="nbProductInCart !== 0">
-          <app-shopping-cart-item *ngFor="let groupedCommandeProduct of getCommandeProductByKeyAndCommentArrays()"
-                                  [groupedCommandeProduct]="groupedCommandeProduct">
-          </app-shopping-cart-item>
-        </div>
+
       </nb-card-body>
     </nb-card>
   </nb-layout-column>
