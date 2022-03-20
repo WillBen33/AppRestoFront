@@ -44,7 +44,8 @@
   "contact": {
     "contact-us": "Nous contacter",
     "contact-us-text": "Vous souhaitez nous contacter ? Vous pouvez  nous écrire en remplissant le formulaire ci-dessous.",
-    "recaptcha-error": "Vous devez valider le captcha"
+    "recaptcha-error": "Vous devez valider le captcha",
+    "contact-send-email": "Envoyer"
   },
   "Contact": "Contact",
   "About": "A propos",

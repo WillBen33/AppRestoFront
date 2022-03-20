@@ -3,33 +3,40 @@
   <div class="container">
 
     <div class="heading_container">
-      <h1 class="mb-3">Nous contacter</h1>
-      <p>Une question ? Une remarque ?</p>
+      <h1 class="mb-3">{{ "contact.contact-us" | translate }}</h1>
+      <p>{{ "contact.contact-us-text" | translate }}</p>
     </div>
     <div class="row">
       <div class="col-md-6">
         <div class="form_container">
-          <form action="" class="form-group">
+          <form action="" class="form-group" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+            <div>
+              <input type="text" class="form-control" placeholder="Sujet" formControlName="subject"/>
+            </div>
             <div class="row">
               <div class="col">
-                <input type="text" class="form-control" placeholder="Nom" />
+                <input type="text" class="form-control" placeholder="Prénom" formControlName="firstName"/>
               </div>
               <div class="col">
-                <input type="text" class="form-control" placeholder="Prénom" />
+                <input type="text" class="form-control" placeholder="Nom" formControlName="lastName"/>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div>
+                  <input type="text" class="form-control" placeholder="Téléphone" formControlName="phone"/>
+                </div>
+              </div>
+              <div class="col">
+                <input type="email" class="form-control" placeholder="Email" formControlName="email"/>
               </div>
             </div>
             <div>
-              <input type="text" class="form-control" placeholder="Téléphone" />
-            </div>
-            <div>
-              <input type="email" class="form-control" placeholder="Email" />
-            </div>
-            <div>
-              <textarea class="form-control" rows="4" placeholder="Message"></textarea>
+              <textarea class="form-control" rows="4" placeholder="Message" formControlName="message"></textarea>
             </div>
             <div class="btn_box">
-              <button>
-                Envoyer
+              <button type="submit">
+                {{ "contact.contact-send-email" | translate }}
               </button>
             </div>
           </form>
@@ -38,7 +45,8 @@
       <div class="col-md-6">
         <div class="map_container ">
           <div id="googleMap">
-            <iframe src="https://tinyurl.com/2b7ynrtr" width="600" height="450" allowfullscreen="false" loading="lazy"></iframe>
+            <iframe src="https://tinyurl.com/2b7ynrtr" width="600" height="450" allowfullscreen="false"
+                    loading="lazy"></iframe>
           </div>
         </div>
       </div>

@@ -19,6 +19,7 @@ import {NbAccordionModule, NbButtonModule, NbCardModule, NbLayoutModule} from '@
 import {NotFoundComponent} from './not-found/not-found.component';
 import {MatButtonModule} from "@angular/material/button";
 import {SharedModule} from "./Shared/shared.module";
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
     declarations: [
@@ -34,11 +35,11 @@ import {SharedModule} from "./Shared/shared.module";
   exports: [
     CarouselComponent
   ],
-  imports: [
+    imports: [
         CommonModule, TranslateModule, MatCarouselModule, BrowserAnimationsModule, MatIconModule, RouterModule, NgbNavModule,
         NbCardModule,
         NbButtonModule,
-        NbLayoutModule, MatButtonModule, NgbDatepickerModule, NbAccordionModule, SharedModule
+        NbLayoutModule, MatButtonModule, NgbDatepickerModule, NbAccordionModule, SharedModule, ReactiveFormsModule
     ]
 })
 export class PagesModule {

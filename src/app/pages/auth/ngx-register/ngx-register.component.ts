@@ -57,7 +57,7 @@ export class NgxRegisterComponent extends NbRegisterComponent implements OnInit 
   }
 
   ngOnInit(): void {
-    this.profilService.getProfilById({ id: 2 }).subscribe(profil =>
+    this.profilService.getProfilByName({profilName: 'customer'}).subscribe(profil =>
       this.user.profils[0] = profil);
   }
 
