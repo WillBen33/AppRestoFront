@@ -3,11 +3,10 @@ import { CommonModule } from '@angular/common';
 
 import { CartRoutingModule } from './cart-routing.module';
 import { CartComponent } from './cart/cart.component';
-import {NbCardModule, NbLayoutModule, NbSelectModule} from '@nebular/theme';
+import {NbButtonModule, NbCardModule, NbLayoutModule, NbSelectModule} from '@nebular/theme';
 import { TranslateModule } from '@ngx-translate/core';
 import { SharedModule } from '../Shared/shared.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import {MatDividerModule} from '@angular/material/divider';
 
 @NgModule({
   declarations: [
@@ -19,7 +18,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     TranslateModule.forChild(),
     NbCardModule,
     SharedModule,
-    NbLayoutModule
+    NbLayoutModule,
+    NbButtonModule,
+    MatDividerModule
   ]
 })
 export class CartModule { }

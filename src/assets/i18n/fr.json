@@ -21,7 +21,6 @@
     "opening-title": "Horaires",
     "opening-days": "Ouvert tous les jours",
     "opening-hours": "De 11h00 à minuit"
-
   },
   "home": {
     "takeaway": "A emporter ?",
@@ -80,17 +79,16 @@
       "instruction": "Renseigner votre nouveau mot de passe !",
       "title": "Renouvelez votre mot de passe"
     },
-    "profil":
-    {
-      "title":"Mon profil",
-      "msgTitle":"Modification de profil",
-      "edit" : "Modifier votre profil",
-      "delete" : "Supprimer votre compte",
+    "profil": {
+      "title": "Mon profil",
+      "msgTitle": "Modification de profil",
+      "edit": "Modifier votre profil",
+      "delete": "Supprimer votre compte",
       "updated": "Votre profil a bien été mis à jour !"
     },
     "delete": {
-      "title" : "Suppression de compte",
-      "message" :"Votre compte a bien été supprimé !"
+      "title": "Suppression de compte",
+      "message": "Votre compte a bien été supprimé !"
     }
   },
   "user": {
@@ -138,7 +136,7 @@
       "title": "Erreur de validation",
       "message": "Votre lien de validation n'est plus valide! Veuillez le renouvelez en renseignant votre adresse email dans le formulaire ci-dessous !",
       "clientSide": "Une erreur est survenue! Veuillez recliquez sur le lien dans le mail de validation !",
-      "duplicateEmailDlg" : "Un compte est déjà associé à cet email ! Voulez-vous vous connecter ? Sinon veuillez renseigner un autre.",
+      "duplicateEmailDlg": "Un compte est déjà associé à cet email ! Voulez-vous vous connecter ? Sinon veuillez renseigner un autre.",
       "duplicateEmailMsg": "Un compte est déjà associé à cet email ! Veuillez renseigner un autre svp !"
     },
     "reset-password": {
@@ -147,8 +145,7 @@
       "clientSide": "Une erreur est survenue! Veuillez recliquez sur le lien dans le mail de renouvellement !"
     },
     "lost": "Oops ! Vous vous êtes peut-être perdue !",
-    "phoneNumber":
-    {
+    "phoneNumber": {
       "duplicatePhoneNumber": " Un compte est déjà associé à ce numéro de téléphone. Veuillez renseigner un autre svp !",
       "title": "Numéro de téléphone existant"
     },
@@ -168,38 +165,42 @@
     "home": "Retour à l'accueil",
     "cancel": "Annuler",
     "continue": "Continuer",
-    "save":"Sauvegarder",
-    "updateProfil" : "Modifier votre profil",
+    "save": "Sauvegarder",
+    "updateProfil": "Modifier votre profil",
     "changePassword": "Changer votre mot de passe",
-    "userCommande":"Mes commandes",
-    "logout" : "Se déconnecter",
-    "sign-in" : "Se connecter",
-    "sign-up" : "Créer un compte",
-    "addToShoppingCard" : "Ajouter au panier",
-    "update": "Modifier"
+    "userCommande": "Mes commandes",
+    "logout": "Se déconnecter",
+    "sign-in": "Se connecter",
+    "sign-up": "Créer un compte",
+    "addToShoppingCard": "Ajouter au panier",
+    "update": "Modifier",
+    "navigateToCart": "Retour au menu"
   },
   "404Notfound": {
     "title": "Erreur 404 ! Page non trouvé !",
     "message": "La page que vous cherchez n'exsite pas !"
   },
-  "confirm":{
+  "confirm": {
     "delete": "Voulez-vous vraiment supprimer votre compte ?"
   },
-  "product":
-  {
-    "addComment" : "Ajouter un commentaire utile à la préparation de votre produit",
+  "product": {
+    "addComment": "Ajouter un commentaire utile à la préparation de votre produit",
     "quantity": "Quantité",
     "update": "Le produit a bien été modifié !",
     "remove": "Le produit a bien été retiré !",
     "add": "Le produit a bien été ajouté au panier !"
   },
-  "cart":
-  {
-    "title": "Votre panier"
+  "cart": {
+    "title": "Votre panier",
+    "empty": "Votre panier est vide...!"
   },
-  "comment":
-  {
-    "title":"Commentaire"
+  "comment": {
+    "title": "Commentaire"
+  },
+  "commande": {
+    "value": "Valeur de votre commande",
+    "type": {
+      "delivery": "Livraison"
+    }
   }
-
 }
