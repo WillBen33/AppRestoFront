@@ -15,7 +15,7 @@
     "contact-us": "Nous contacter",
     "google-map": "Nous rejoindre",
     "phone-number": "+33 1234567890",
-    "email": "mwrestaurant@gmail.com",
+    "email": "wmpferestaurant@gmail.com",
     "logo": "M&W",
     "message": "Venez passer un bon moment avec nous !",
     "opening-title": "Horaires",
@@ -42,12 +42,12 @@
     "remove-item": "Produit retiré du panier"
   },
   "contact": {
-    "contact-us": "Nous contacter",
+    "contact-us-title": "Nous contacter",
     "contact-us-text": "Vous souhaitez nous contacter ? Vous pouvez  nous écrire en remplissant le formulaire ci-dessous.",
     "recaptcha-error": "Vous devez valider le captcha",
-    "contact-send-email": "Envoyer"
+    "contact-send-email": "Envoyer",
+    "required": "* Ces champs sont obligatoires"
   },
-  "Contact": "Contact",
   "About": "A propos",
   "Login": {
     "sign-in": "Se connecter",

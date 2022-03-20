@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Contact} from "../../api/models/contact";
 import {ContactControllerService} from "../../api/services/contact-controller.service";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-contact',
@@ -10,35 +11,47 @@ import {ContactControllerService} from "../../api/services/contact-controller.se
 })
 export class ContactComponent implements OnInit {
 
-  public contactForm = new FormGroup({
-    firstName: new FormControl(''),
-    lastName: new FormControl(''),
-    phone: new FormControl(''),
-    email: new FormControl(''),
-    message: new FormControl(''),
-    subject: new FormControl(''),
-  });
+  public contactForm!: FormGroup;
 
-  constructor(private contactControllerService: ContactControllerService) {
+  constructor(private contactControllerService: ContactControllerService,
+              private form: FormBuilder,
+              private toastr: ToastrService) {
   }
 
   ngOnInit(): void {
+    this.buildForm();
   }
 
-  onSubmit() {
-    let contact: Contact = {
-      firstName: this.getContactFormValues("firstName"),
-      lastName: this.getContactFormValues("lastName"),
-      phone: this.getContactFormValues("phone"),
-      email: this.getContactFormValues("email"),
-      message: this.getContactFormValues("message"),
-      subject: this.getContactFormValues("subject"),
+  public onSubmit() {
+    if (this.contactForm.status === "VALID") {
+      let contact: Contact = {
+        firstName: this.getContactFormValues("firstName"),
+        lastName: this.getContactFormValues("lastName"),
+        phone: this.getContactFormValues("phone"),
+        email: this.getContactFormValues("email"),
+        message: this.getContactFormValues("message"),
+        subject: this.getContactFormValues("subject"),
+      }
+      this.contactControllerService.sendEmail({body: contact}).subscribe();
+      this.toastr.success('Votre email a bien été envoyé !', 'Merci !');
+      this.contactForm.reset();
+    } else {
+      this.toastr.error('Tous les champs doivent être remplis !', 'Erreur !');
     }
-    this.contactControllerService.sendEmail({body: contact}).subscribe();
+  }
+
+  public buildForm() {
+    this.contactForm = this.form.group({
+      firstName: new FormControl('', [Validators.required]),
+      lastName: new FormControl('', [Validators.required]),
+      phone: new FormControl('', [Validators.required,]),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      message: new FormControl('', [Validators.required]),
+      subject: new FormControl('', [Validators.required]),
+    });
   }
 
   public getContactFormValues(formControlName: string) {
     return this.contactForm.get(formControlName)?.value;
   }
-
 }

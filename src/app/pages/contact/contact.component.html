@@ -1,38 +1,43 @@
 <section class="book_section layout_padding">
-
   <div class="container">
-
     <div class="heading_container">
-      <h1 class="mb-3">{{ "contact.contact-us" | translate }}</h1>
+      <h1 class="mb-3">{{ "contact.contact-us-title" | translate }}</h1>
       <p>{{ "contact.contact-us-text" | translate }}</p>
+      <p><small>{{ "contact.required" | translate }}</small></p>
     </div>
     <div class="row">
       <div class="col-md-6">
         <div class="form_container">
           <form action="" class="form-group" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
             <div>
-              <input type="text" class="form-control" placeholder="Sujet" formControlName="subject"/>
+              <input type="text" class="form-control"
+                     placeholder="Sujet *"
+                     formControlName="subject"
+                     required/>
             </div>
             <div class="row">
               <div class="col">
-                <input type="text" class="form-control" placeholder="Prénom" formControlName="firstName"/>
+                <input type="text" class="form-control"
+                       placeholder="Prénom *"
+                       formControlName="firstName"
+                       required/>
               </div>
               <div class="col">
-                <input type="text" class="form-control" placeholder="Nom" formControlName="lastName"/>
+                <input type="text" class="form-control" placeholder="Nom *" formControlName="lastName"/>
               </div>
             </div>
             <div class="row">
               <div class="col">
                 <div>
-                  <input type="text" class="form-control" placeholder="Téléphone" formControlName="phone"/>
+                  <input type="text" class="form-control" placeholder="Téléphone *" formControlName="phone"/>
                 </div>
               </div>
               <div class="col">
-                <input type="email" class="form-control" placeholder="Email" formControlName="email"/>
+                <input type="email" class="form-control" placeholder="Email *" formControlName="email"/>
               </div>
             </div>
             <div>
-              <textarea class="form-control" rows="4" placeholder="Message" formControlName="message"></textarea>
+              <textarea class="form-control" rows="4" placeholder="Message *" formControlName="message"></textarea>
             </div>
             <div class="btn_box">
               <button type="submit">
