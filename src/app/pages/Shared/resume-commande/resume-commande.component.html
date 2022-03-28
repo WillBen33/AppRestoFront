@@ -1,0 +1,31 @@
+<div class="row row-cols-2 g-3">
+    <div class="col">
+        <span class="font-weight-bold">{{'commande.value' | translate}}</span>
+    </div>
+    <div class="col">
+        {{getShoppingCartProductValue()}} €
+
+    </div>
+    <div class="col" *ngIf="isDeliveryCommande()">
+        <span class="font-weight-bold">{{'commande.type.delivery' | translate}}</span>
+    </div>
+
+    <div class="col" *ngIf="isDeliveryCommande()">
+        {{getShoppingCartDeliveryValue()}} €
+    </div>
+</div>
+<mat-divider class="mb-3 mt-3"></mat-divider>
+<div class="row row-cols-2">
+    <div class="col">
+        <span class="font-weight-bold">{{'commande.total' | translate}}</span>
+    </div>
+    <div class="col">
+        {{getShoppingCartTotalValue()}} €
+    </div>
+</div>
+<div class="row col mt-5 gy-3">
+
+    <button nbButton shape="semi-round" status="warning" size="medium" hero type="button" (click)="completeCommande()">{{translateExpression
+        |
+        translate}}</button>
+</div>

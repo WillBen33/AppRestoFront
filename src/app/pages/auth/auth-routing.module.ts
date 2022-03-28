@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NbAuthComponent } from '@nebular/auth';
 import { EmailVerificationComponent } from './email-verification/email-verification.component';
+import { LoginCheckoutComponent } from './login-checkout/login-checkout.component';
 import { NgxLoginComponent } from './ngx-login/ngx-login.component';
 import { NgxRegisterComponent } from './ngx-register/ngx-register.component';
 import { NgxRequestPasswordComponent } from './ngx-request-password/ngx-request-password.component';
@@ -10,37 +11,41 @@ import { SuccessRegisterComponent } from './success-register/success-register.co
 
 const routes: Routes = [
   {
-    path:'',
+    path: '',
     component: NbAuthComponent,
     children:
-    [
-      {
-        path:'sign-in',
-        component: NgxLoginComponent
-      },
-      {
-        path:'register',
-        component:NgxRegisterComponent
-      },
-      {
-        path:'verifyEmail',
-        component:EmailVerificationComponent
-      },
-      {
-        path:'register-success',
-        component:SuccessRegisterComponent
-      },
-      {
-        path:'request-password',
-        component: NgxRequestPasswordComponent
-      },
-      {
-        path:'reset-password',
-        component: NgxResetPasswordComponent
-      }
-    ]
-  },
+      [
+        {
+          path: 'sign-in',
+          component: NgxLoginComponent
+        },
+        {
+          path: 'register',
+          component: NgxRegisterComponent
+        },
+        {
+          path: 'verifyEmail',
+          component: EmailVerificationComponent
+        },
+        {
+          path: 'register-success',
+          component: SuccessRegisterComponent
+        },
+        {
+          path: 'request-password',
+          component: NgxRequestPasswordComponent
+        },
+        {
+          path: 'reset-password',
+          component: NgxResetPasswordComponent
+        },
 
+      ]
+  },
+  {
+    path: 'checkout',
+    component: LoginCheckoutComponent
+  },
 ];
 
 @NgModule({

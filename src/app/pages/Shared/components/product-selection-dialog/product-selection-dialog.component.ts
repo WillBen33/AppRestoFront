@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { NbDialogRef, NbToastrService } from '@nebular/theme';
-import { TranslateService } from '@ngx-translate/core';
+import { NbDialogRef } from '@nebular/theme';
 import { Commande, CommandeProduct } from 'src/app/api/models';
 import { ShoppingCartService } from 'src/app/services/shopping-cart/shopping-cart.service';
 
@@ -13,14 +12,15 @@ import { ShoppingCartService } from 'src/app/services/shopping-cart/shopping-car
 export class ProductSelectionDialogComponent implements OnInit {
 
   counter: number = 1;
-  product : any;
-  totalPrice : number = 0;
-  comment : string = "";
-  oldComment : string = "";
+  product: any;
+  totalPrice: number = 0;
+  comment: string = "";
+  oldComment: string = "";
+  update: boolean = false;
 
-  constructor(private nbDialogRef: NbDialogRef<ProductSelectionDialogComponent>, 
-    private shoppingCardService : ShoppingCartService) { }
-  
+  constructor(private nbDialogRef: NbDialogRef<ProductSelectionDialogComponent>,
+    private shoppingCardService: ShoppingCartService) { }
+
 
   ngOnInit(): void {
     this.updateTotalPrice();
@@ -32,29 +32,26 @@ export class ProductSelectionDialogComponent implements OnInit {
   }
 
   remove() {
-    if (this.counter > 1) 
-    {
+    if (this.counter > 1) {
       this.counter--;
       this.updateTotalPrice();
     }
   }
 
-  addToShoppingCart(productSelectionForm:NgForm)
-  {
+  addToShoppingCart(productSelectionForm: NgForm) {
     let currentCommandeProduct: CommandeProduct = {
       commande: {} as Commande,
       comment: productSelectionForm.value['comment'],
-      product:this.product,
+      product: this.product,
     }
-    this.shoppingCardService.addToShoppingCart(currentCommandeProduct,this.counter,this.oldComment);
+    this.shoppingCardService.addToShoppingCart(currentCommandeProduct, this.counter, this.oldComment, this.update);
     this.nbDialogRef.close("submit");
   }
 
-  updateTotalPrice()
-  {
-    this.totalPrice = this.counter * this.product.price ;
+  updateTotalPrice() {
+    this.totalPrice = this.counter * this.product.price;
   }
 
-  
+
 
 }

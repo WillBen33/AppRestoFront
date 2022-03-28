@@ -10,8 +10,7 @@
         <nb-alert *ngIf="showMessages.error && errors?.length && !submitted" outline="danger" role="alert">
             <p class="alert-title"><b>Oh snap!</b></p>
             <ul class="alert-message-list">
-                <li *ngFor="let error of errors" class="alert-message">{{"Login.error.invalidPasswordOrEmail" |
-                    translate }}</li>
+                <li *ngFor="let error of errors" class="alert-message">{{"Login.error.invalidPasswordOrEmail" | translate }}</li>
             </ul>
         </nb-alert>
     </div>
@@ -28,7 +27,7 @@
     </div>
 </div>
 
-<form (ngSubmit)="login()" #form="ngForm" aria-labelledby="title">
+<form (ngSubmit)=" customLogin()" #form="ngForm" aria-labelledby="title">
 
     <div class="form-control-group">
         <div class="row mb-3">
@@ -36,19 +35,15 @@
                 <fa-icon [icon]="['fas', 'envelope']" size="2x"></fa-icon>
             </div>
             <div class="col-sm-10">
-                <input nbInput fullWidth [(ngModel)]="user.username" #email="ngModel" name="email" id="input-email"
-                    pattern=".+@.+\..+" placeholder='{{"user.email" | translate }}' fieldSize="large"
-                    [status]="email.dirty ? (email.invalid  ? 'danger' : 'success') : 'basic'"
-                    [required]="getConfigValue('forms.validation.email.required')"
-                    [attr.aria-invalid]="email.invalid && email.touched ? true : null">
+                <input nbInput fullWidth [(ngModel)]="user.username" #email="ngModel" name="email" id="input-email" pattern=".+@.+\..+" placeholder='{{"user.email" | translate }}' fieldSize="large" [status]="email.dirty ? (email.invalid  ? 'danger' : 'success') : 'basic'"
+                    [required]="getConfigValue('forms.validation.email.required')" [attr.aria-invalid]="email.invalid && email.touched ? true : null">
             </div>
         </div>
         <div class="row">
             <div class="col offset-md-2">
                 <ng-container *ngIf="email.invalid && email.touched">
                     <p class="caption status-danger" *ngIf="email.errors?.required">
-                        {{"error.required.field" | translate:{'field':
-                        getTranslation('user.email')} }}
+                        {{"error.required.field" | translate:{'field': getTranslation('user.email')} }}
                     </p>
                     <p class="caption status-danger" *ngIf="email.errors?.pattern">
                         {{"error.email.valid" | translate}}
@@ -64,13 +59,8 @@
                 <fa-icon [icon]="['fas', 'lock']" size="2x"></fa-icon>
             </div>
             <div class="col-sm-10">
-                <input nbInput fullWidth [(ngModel)]="user.password" #password="ngModel" name="password" type="password"
-                    id="input-password" placeholder='{{"user.password" | translate }}' fieldSize="large"
-                    [status]="password.dirty ? (password.invalid  ? 'danger' : 'success') : 'basic'"
-                    [required]="getConfigValue('forms.validation.password.required')"
-                    [minlength]="getConfigValue('forms.validation.password.minLength')"
-                    [maxlength]="getConfigValue('forms.validation.password.maxLength')"
-                    [attr.aria-invalid]="password.invalid && password.touched ? true : null">
+                <input nbInput fullWidth [(ngModel)]="user.password" #password="ngModel" name="password" type="password" id="input-password" placeholder='{{"user.password" | translate }}' fieldSize="large" [status]="password.dirty ? (password.invalid  ? 'danger' : 'success') : 'basic'"
+                    [required]="getConfigValue('forms.validation.password.required')" [minlength]="getConfigValue('forms.validation.password.minLength')" [maxlength]="getConfigValue('forms.validation.password.maxLength')" [attr.aria-invalid]="password.invalid && password.touched ? true : null">
             </div>
         </div>
         <div class="row">
@@ -85,13 +75,10 @@
             <div class="col offset-md-2">
                 <ng-container *ngIf="password.invalid && password.touched ">
                     <p class="caption status-danger" *ngIf="password.errors?.required">
-                        {{"error.required.field" | translate:{'field':
-                        getTranslation('user.password')} }}
+                        {{"error.required.field" | translate:{'field': getTranslation('user.password')} }}
                     </p>
                     <p class="caption status-danger" *ngIf="password.errors?.minlength || password.errors?.maxlength">
-                        {{"error.required.length" | translate:{'field': [['user.password' |translate ]],'minLength':
-                        getConfigValue('forms.validation.password.minLength'), 'maxLength':
-                        getConfigValue('forms.validation.password.maxLength')} }}
+                        {{"error.required.length" | translate:{'field': [['user.password' |translate ]],'minLength': getConfigValue('forms.validation.password.minLength'), 'maxLength': getConfigValue('forms.validation.password.maxLength')} }}
                     </p>
                 </ng-container>
             </div>
@@ -99,8 +86,7 @@
     </div>
     <div class="row">
         <div class="col-sm-10 offset-sm-2">
-            <button nbButton fullWidth status="success" size="medium" shape="semi-round"
-                [disabled]="submitted || !form.valid" [class.btn-pulse]="submitted">
+            <button nbButton fullWidth status="success" size="medium" shape="semi-round" [disabled]="submitted || !form.valid" [class.btn-pulse]="submitted">
                 {{ "Login.sign-in" | translate }}
             </button>
         </div>
@@ -112,13 +98,11 @@
     or enter with:
     <div class="socials">
         <ng-container *ngFor="let socialLink of socialLinks">
-            <a *ngIf="socialLink.link" [routerLink]="socialLink.link" [attr.target]="socialLink.target"
-                [attr.class]="socialLink.icon" [class.with-icon]="socialLink.icon">
+            <a *ngIf="socialLink.link" [routerLink]="socialLink.link" [attr.target]="socialLink.target" [attr.class]="socialLink.icon" [class.with-icon]="socialLink.icon">
                 <nb-icon *ngIf="socialLink.icon; else title" [icon]="socialLink.icon"></nb-icon>
                 <ng-template #title>{{ socialLink.title }}</ng-template>
             </a>
-            <a *ngIf="socialLink.url" [attr.href]="socialLink.url" [attr.target]="socialLink.target"
-                [attr.class]="socialLink.icon" [class.with-icon]="socialLink.icon">
+            <a *ngIf="socialLink.url" [attr.href]="socialLink.url" [attr.target]="socialLink.target" [attr.class]="socialLink.icon" [class.with-icon]="socialLink.icon">
                 <nb-icon *ngIf="socialLink.icon; else title" [icon]="socialLink.icon"></nb-icon>
                 <ng-template #title>{{ socialLink.title }}</ng-template>
             </a>
@@ -127,6 +111,6 @@
 </section>
 
 <section class="another-action" aria-label="Register">
-    {{"account.missing" | translate}} <a class="text-link" routerLink="../register">{{"account.register.create" |
+    {{"account.missing" | translate}} <a class="text-link" routerLink="" (click)="register()">{{"account.register.create" |
         translate}}</a>
 </section>

@@ -1,0 +1,52 @@
+<nb-layout>
+    <nb-layout-column>
+        <nb-card>
+            <nb-card-body>
+                <div class="row row-cols-2 mb-3">
+                    <div class="col">
+                        <nb-card>
+                            <nb-card-header>
+                                <h6>{{'customer.status.new.title' | translate}}</h6>
+                            </nb-card-header>
+                            <nb-card-body>
+                                <button nbButton shape="semi-round" status="warning" size="medium" hero type="button" class="mb-3" (click)="signUp()">{{'button.registerAndValid' | translate}}</button>
+                                <p class="font-weight-bold">{{'customer.status.new.message' | translate}}</p>
+                                <ul class="list-unstyled">
+                                    <li> <i class="fa-solid fa-fire-flame-curved"></i> {{'customer.status.new.advantage.promo' | translate}}</li>
+                                    <li><i class="fa-solid fa-fire-flame-curved"></i> {{'customer.status.new.advantage.deliveryPass' | translate}}</li>
+                                    <li><i class="fa-solid fa-fire-flame-curved"></i> {{'customer.status.new.advantage.faithfull' | translate}}</li>
+                                    <li><i class="fa-solid fa-fire-flame-curved"></i> {{'customer.status.new.advantage.birthdate' | translate}}</li>
+                                </ul>
+                            </nb-card-body>
+                        </nb-card>
+                    </div>
+                    <div class="col">
+                        <div class="row">
+                            <nb-card>
+                                <nb-card-header>
+                                    <h6>{{'customer.status.guess.title' | translate}}</h6>
+                                </nb-card-header>
+                                <nb-card-body>
+                                    <button nbButton shape="semi-round" status="warning" size="medium" hero type="button" class="mb-3" (click)="guessForm()">{{'button.valid' | translate}}</button>
+                                    <p class="font-weight-bold">{{'customer.status.guess.message' | translate}}</p>
+                                </nb-card-body>
+                            </nb-card>
+                        </div>
+                        <div class="row">
+                            <nb-card>
+                                <nb-card-header>
+                                    <h6>{{'customer.status.registered.title' | translate}}</h6>
+                                </nb-card-header>
+                                <nb-card-body>
+                                    <button nbButton shape="semi-round" status="warning" size="medium" hero type="button" (click)="signIn()">{{'button.sign-in' | translate}}</button>
+                                    <p class="font-weight-bold">{{'customer.status.registered.message' | translate}}</p>
+                                </nb-card-body>
+                            </nb-card>
+                        </div>
+
+                    </div>
+                </div>
+            </nb-card-body>
+        </nb-card>
+    </nb-layout-column>
+</nb-layout>

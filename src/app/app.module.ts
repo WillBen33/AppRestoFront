@@ -1,24 +1,24 @@
+import { HttpClient, HttpClientModule, HttpRequest } from "@angular/common/http";
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { HttpClient, HttpClientModule, HttpRequest } from "@angular/common/http";
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { TranslateHttpLoader } from "@ngx-translate/http-loader";
-import { TemplatesModule } from "./templates/templates.module";
-import { AppRoutingModule } from "./app-routing.module";
-import { AppComponent } from "./app.component";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { NbDialogModule, NbLayoutModule, NbThemeModule, NbToastrModule } from '@nebular/theme';
-import { NbEvaIconsModule } from '@nebular/eva-icons';
-import { NbAuthJWTToken, NbAuthModule, NbPasswordAuthStrategy, NB_AUTH_TOKEN_INTERCEPTOR_FILTER } from '@nebular/auth';
-import { CookieService } from 'ngx-cookie-service';
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { fab } from '@fortawesome/free-brands-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
 import { fas } from '@fortawesome/free-solid-svg-icons';
-import { fab } from '@fortawesome/free-brands-svg-icons';
-import { httpInterceptorProviders } from './services/auth/http-interceptors';
+import { NbAuthJWTToken, NbAuthModule, NbPasswordAuthStrategy, NB_AUTH_TOKEN_INTERCEPTOR_FILTER } from '@nebular/auth';
+import { NbEvaIconsModule } from '@nebular/eva-icons';
+import { NbDialogModule, NbLayoutModule, NbThemeModule, NbToastrModule } from '@nebular/theme';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from "@ngx-translate/http-loader";
+import { CookieService } from 'ngx-cookie-service';
 import { ToastrModule } from 'ngx-toastr';
+import { AppRoutingModule } from "./app-routing.module";
+import { AppComponent } from "./app.component";
+import { httpInterceptorProviders } from './services/auth/http-interceptors';
+import { TemplatesModule } from "./templates/templates.module";
+
 
 export function createTranslateLoader(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient, './assets/i18n/', '.json');
@@ -94,8 +94,8 @@ const socialLinks: NbAuthSocialLink[] = [];
           logout: {
             endpoint: '/auth/logout',
             method: 'get',
-            redirect:{
-              success:'/menu'
+            redirect: {
+              success: '/menu'
             }
           },
           requestPass: {

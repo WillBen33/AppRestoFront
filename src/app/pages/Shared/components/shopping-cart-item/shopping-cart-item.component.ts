@@ -18,42 +18,41 @@ export class ShoppingCartItemComponent implements OnInit {
   @Input()
   groupedCommandeProduct: Array<CommandeProduct> = new Array();;
 
-  currentCommandeProduct : any;
+  currentCommandeProduct: any;
 
   constructor(private dialogService: NbDialogService,
-    private shoppingCartService : ShoppingCartService,
+    private shoppingCartService: ShoppingCartService,
     private translateService: TranslateService,
-    private toastr: ToastrService){
-    }
-  
+    private toastr: ToastrService) {
+  }
+
   ngOnInit(): void {
     this.currentCommandeProduct = this.groupedCommandeProduct[0];
   }
 
-   removeFromShoppingCart()
-   {
-     this.shoppingCartService.removeFromShoppingCart(this.currentCommandeProduct);
-     this.toastr.success(
+  removeFromShoppingCart() {
+    this.shoppingCartService.removeFromShoppingCart(this.currentCommandeProduct);
+    this.toastr.success(
       this.translateService.instant("product.remove"),
       this.translateService.instant("cart.title"));
-   }
+  }
 
 
-   openProductSelectionDialog()
-  {
+  openProductSelectionDialog() {
     this.dialogService.open(ProductSelectionDialogComponent,
       {
-        autoFocus:false,
-        hasScroll:true,
+        autoFocus: false,
+        hasScroll: true,
         context: {
-          product:this.currentCommandeProduct.product,
-          comment:this.currentCommandeProduct.comment,
+          product: this.currentCommandeProduct.product,
+          comment: this.currentCommandeProduct.comment,
           oldComment: this.currentCommandeProduct.comment,
-          counter:this.groupedCommandeProduct.length
+          counter: this.groupedCommandeProduct.length,
+          update: true
         }
-      }).onClose.pipe(filter(res=> res === "submit")).subscribe(()=> this.toastr.success(
+      }).onClose.pipe(filter(res => res === "submit")).subscribe(() => this.toastr.success(
         this.translateService.instant("product.update"),
         this.translateService.instant("cart.title")
-      ) )
+      ))
   }
 }

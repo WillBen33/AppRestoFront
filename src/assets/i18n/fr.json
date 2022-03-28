@@ -1,206 +1,238 @@
 {
-  "header": {
-    "logo": "M&W",
-    "home": "Accueil",
-    "menu": "Carte",
-    "deals": "Offres",
-    "approach": "Approche",
-    "join": "Recrutement",
-    "contact": "Contact",
-    "order": "Commander",
-    "lang.fr": "Français",
-    "lang.en": "English"
-  },
-  "footer": {
-    "contact-us": "Nous contacter",
-    "google-map": "Nous rejoindre",
-    "phone-number": "+33 1234567890",
-    "email": "mwrestaurant@gmail.com",
-    "logo": "M&W",
-    "message": "Venez passer un bon moment avec nous !",
-    "opening-title": "Horaires",
-    "opening-days": "Ouvert tous les jours",
-    "opening-hours": "De 11h00 à minuit"
-  },
-  "home": {
-    "takeaway": "A emporter ?",
-    "book": "Réservez !",
-    "delivery": "En livraison ?",
-    "order": "Commandez !",
-    "about-title": "A propos de M&W",
-    "about-message": "M&W est une jeune entreprise créée en 2020 par deux passionnés de cuisine que sont Messan et Wilfrid. Ils vous feront découvrir leurs spécialités culinaires à travers une carte de plats riches et variés, préparés essentiellement avec des produits frais,",
-    "about-read-more": "En savoir plus",
-    "customer-notice-title": "Ce que nos clients pensent de nous"
-  },
-  "menu": {
-    "page-title": "Menu",
-    "page-description": "Découvrez notre carte et composez votre menu.",
-    "cleanCart-success": "Votre panier est vide",
-    "cart-is-empty": "Votre panier est vide",
-    "add-item": "Produit ajouté au panier",
-    "remove-item": "Produit retiré du panier"
-  },
-  "contact": {
-    "contact-us": "Nous contacter",
-    "contact-us-text": "Vous souhaitez nous contacter ? Vous pouvez  nous écrire en remplissant le formulaire ci-dessous.",
-    "recaptcha-error": "Vous devez valider le captcha"
-  },
-  "Contact": "Contact",
-  "About": "A propos",
-  "Login": {
-    "sign-in": "Se connecter",
-    "withEmail": "Connectez-vous à votre compte à l'aide de votre email pour accéder à votre profil !",
+    "header": {
+        "logo": "M&W",
+        "home": "Accueil",
+        "menu": "Carte",
+        "deals": "Offres",
+        "approach": "Approche",
+        "join": "Recrutement",
+        "contact": "Contact",
+        "order": "Commander",
+        "lang.fr": "Français",
+        "lang.en": "English"
+    },
+    "footer": {
+        "contact-us": "Nous contacter",
+        "google-map": "Nous rejoindre",
+        "phone-number": "+33 1234567890",
+        "email": "mwrestaurant@gmail.com",
+        "logo": "M&W",
+        "message": "Venez passer un bon moment avec nous !",
+        "opening-title": "Horaires",
+        "opening-days": "Ouvert tous les jours",
+        "opening-hours": "De 11h00 à minuit"
+    },
+    "home": {
+        "takeaway": "A emporter ?",
+        "book": "Réservez !",
+        "delivery": "En livraison ?",
+        "order": "Commandez !",
+        "about-title": "A propos de M&W",
+        "about-message": "M&W est une jeune entreprise créée en 2020 par deux passionnés de cuisine que sont Messan et Wilfrid. Ils vous feront découvrir leurs spécialités culinaires à travers une carte de plats riches et variés, préparés essentiellement avec des produits frais,",
+        "about-read-more": "En savoir plus",
+        "customer-notice-title": "Ce que nos clients pensent de nous"
+    },
+    "menu": {
+        "page-title": "Menu",
+        "page-description": "Découvrez notre carte et composez votre menu.",
+        "cleanCart-success": "Votre panier est vide",
+        "cart-is-empty": "Votre panier est vide",
+        "add-item": "Produit ajouté au panier",
+        "remove-item": "Produit retiré du panier"
+    },
+    "contact": {
+        "contact-us": "Nous contacter",
+        "contact-us-text": "Vous souhaitez nous contacter ? Vous pouvez  nous écrire en remplissant le formulaire ci-dessous.",
+        "recaptcha-error": "Vous devez valider le captcha"
+    },
+    "Contact": "Contact",
+    "About": "A propos",
+    "Login": {
+        "sign-in": "Se connecter",
+        "withEmail": "Connectez-vous à votre compte à l'aide de votre email pour accéder à votre profil !",
+        "error": {
+            "invalidPasswordOrEmail": "L'adresse email ou le mot de passe est incorrecte! Réessayez à nouveau !"
+        },
+        "success": "Bravo ! Vous êtes connecté!"
+    },
+    "account": {
+        "added": "Votre compte a bien été crée !",
+        "missing": " Vous n'avez pas de compte ? ",
+        "present": "Vous avez déjà un compte ?",
+        "register": {
+            "create": "Créer un compte",
+            "success": "Bravo, Votre inscription est réussie !",
+            "validate": "Nous vous avons envoyé un mail de confirmation à l'adresse renseignée dans le formulaire d'inscription. Veuillez cliquez sur le lien contenu dans ce mail afin de valider votre inscription. Merci, au plaisir de vous revoir !!",
+            "verifyEmail": "Vérification d'email",
+            "emailValidating": "Veuillez patienter Svp. Votre email est en cours de validation !"
+        },
+        "validRegistration": "Validez votre inscription",
+        "isActivated": {
+            "title": "Activation réussie !",
+            "message": "Votre compte est désormais activé, vous pouvez dès à présent vous connecter !"
+        },
+        "request-password": {
+            "instruction": "Veuillez renseigner votre email et nous vous enverrons un lien pour renouveller votre mot de passe !",
+            "title": "Mot de passe oublié..."
+        },
+        "reset-password": {
+            "instruction": "Renseigner votre nouveau mot de passe !",
+            "title": "Renouvelez votre mot de passe"
+        },
+        "profil": {
+            "title": "Mon profil",
+            "msgTitle": "Modification de profil",
+            "edit": "Modifier votre profil",
+            "delete": "Supprimer votre compte",
+            "updated": "Votre profil a bien été mis à jour !"
+        },
+        "delete": {
+            "title": "Suppression de compte",
+            "message": "Votre compte a bien été supprimé !"
+        }
+    },
+    "user": {
+        "identity": "Identité",
+        "firstname": "Prénom",
+        "lastname": "Nom",
+        "password": "Mot de passe",
+        "renewPassword": "Nouveau mot de passe",
+        "email": "Adresse email",
+        "deliveryAdress": "Adresse de livraison",
+        "billingAdress": "Adresse de facturation",
+        "adress": {
+            "streetNumber": "N° de Rue",
+            "street": "Rue",
+            "zipCode": "Code postal",
+            "department": "Departement",
+            "country": "Pays",
+            "additionalAdress": "Complément d'adresse",
+            "city": "Ville"
+        },
+        "phoneNumber": "N° de téléphone",
+        "rePassword": "Confirmation du mot de passe",
+        "civility": "Civilité"
+    },
     "error": {
-      "invalidPasswordOrEmail": "L'adresse email ou le mot de passe est incorrecte! Réessayez à nouveau !"
+        "required": {
+            "field": "Le champ {{field}} est requis !",
+            "length": "Le champ {{field}} doit contenir entre {{minLength}} et {{maxLength}} caractères !",
+            "exactLength": "Le champ {{field}} doit avoir exactement {{length}} caractères !",
+            "cgu": "Vous devez acceptez les conditions générales d'utilisation du logiciel avant de créer votre compte !",
+            "numberPattern": "Le champ {{field}} ne doit contenir que des chiffres et doit avoir une longueur de {{length}} !"
+        },
+        "password": {
+            "confirm": "Les mots de passes sont différents !",
+            "pattern": {
+                "title": "Attention ! Le mot de passe doit contenir au minimum:",
+                "lowercase": "Une lettre minuscule",
+                "uppercase": "Une lettre majuscule",
+                "digit": "Un chiffre",
+                "symbol": "Un caractère spécial parmis les suivantes : *. ! @ # $ % ^ & ( ) { } [ ] : ; < > , . ? ~ _ + - = \\ |"
+            }
+        },
+        "email": {
+            "valid": "Ceci n'est pas une adresse email valide !",
+            "title": "Erreur de validation",
+            "message": "Votre lien de validation n'est plus valide! Veuillez le renouvelez en renseignant votre adresse email dans le formulaire ci-dessous !",
+            "clientSide": "Une erreur est survenue! Veuillez recliquez sur le lien dans le mail de validation !",
+            "duplicateEmailDlg": "Un compte est déjà associé à cet email ! Voulez-vous vous connecter ? Sinon veuillez renseigner un autre.",
+            "duplicateEmailMsg": "Un compte est déjà associé à cet email ! Veuillez renseigner un autre svp !"
+        },
+        "reset-password": {
+            "title": "Erreur de validation",
+            "message": " Votre lien de renouvellement n'est plus valide! Veuillez le renouveler en renseignant votre adresse email dans le formulaire ci-dessous !",
+            "clientSide": "Une erreur est survenue! Veuillez recliquez sur le lien dans le mail de renouvellement !"
+        },
+        "lost": "Oops ! Vous vous êtes peut-être perdue !",
+        "phoneNumber": {
+            "duplicatePhoneNumber": " Un compte est déjà associé à ce numéro de téléphone. Veuillez renseigner un autre svp !",
+            "title": "Numéro de téléphone existant"
+        },
+        "clientSide": "Une erreur est survenue; Veuillez rééssayer svp !"
     },
-    "success": "Bravo ! Vous êtes connecté!"
-  },
-  "account": {
-    "added": "Votre compte a bien été crée !",
-    "missing": " Vous n'avez pas de compte ? ",
-    "present": "Vous avez déjà un compte ?",
-    "register": {
-      "create": "Créer un compte",
-      "success": "Bravo, Votre inscription est réussie !",
-      "validate": "Nous vous avons envoyé un mail de confirmation à l'adresse renseignée dans le formulaire d'inscription. Veuillez cliquez sur le lien contenu dans ce mail afin de valider votre inscription. Merci, au plaisir de vous revoir !!",
-      "verifyEmail": "Vérification d'email",
-      "emailValidating": "Veuillez patienter Svp. Votre email est en cours de validation !"
+    "terms": {
+        "title": "les conditions d'utilisations",
+        "agree": "Accepter"
     },
-    "validRegistration": "Validez votre inscription",
-    "isActivated": {
-      "title": "Activation réussie !",
-      "message": "Votre compte est désormais activé, vous pouvez dès à présent vous connecter !"
+    "billingAdress": {
+        "keep": "Garder la même adresse pour la facturation ?"
     },
-    "request-password": {
-      "instruction": "Veuillez renseigner votre email et nous vous enverrons un lien pour renouveller votre mot de passe !",
-      "title": "Mot de passe oublié..."
+    "button": {
+        "send": "Envoyer",
+        "password-request": "Renouveler votre mot de passe ",
+        "forgotten-password": "Mot de passe oublié ?",
+        "home": "Retour à l'accueil",
+        "cancel": "Annuler",
+        "continue": "Continuer",
+        "save": "Sauvegarder",
+        "updateProfil": "Modifier votre profil",
+        "changePassword": "Changer votre mot de passe",
+        "userCommande": "Mes commandes",
+        "logout": "Se déconnecter",
+        "sign-in": "Se connecter",
+        "sign-up": "Créer un compte",
+        "addToShoppingCard": "Ajouter au panier",
+        "update": "Modifier",
+        "navigateToCart": "Retour au menu",
+        "completeCommande": "Finaliser la commande",
+        "validShopping": "Valider l'achat",
+        "valid": "Valider",
+        "registerAndValid": "S'enregistrer et finaliser"
     },
-    "reset-password": {
-      "instruction": "Renseigner votre nouveau mot de passe !",
-      "title": "Renouvelez votre mot de passe"
+    "404Notfound": {
+        "title": "Erreur 404 ! Page non trouvé !",
+        "message": "La page que vous cherchez n'exsite pas !"
     },
-    "profil": {
-      "title": "Mon profil",
-      "msgTitle": "Modification de profil",
-      "edit": "Modifier votre profil",
-      "delete": "Supprimer votre compte",
-      "updated": "Votre profil a bien été mis à jour !"
+    "confirm": {
+        "delete": "Voulez-vous vraiment supprimer votre compte ?"
     },
-    "delete": {
-      "title": "Suppression de compte",
-      "message": "Votre compte a bien été supprimé !"
+    "product": {
+        "addComment": "Ajouter un commentaire utile à la préparation de votre produit",
+        "quantity": "Quantité",
+        "update": "Le produit a bien été modifié !",
+        "remove": "Le produit a bien été retiré !",
+        "add": "Le produit a bien été ajouté au panier !"
+    },
+    "cart": {
+        "title": "Votre panier",
+        "empty": "Votre panier est vide...!"
+    },
+    "comment": {
+        "title": "Commentaire"
+    },
+    "commande": {
+        "value": "Valeur de votre commande",
+        "type": {
+            "delivery": "Livraison",
+            "takeAway": "Click & Collect",
+            "message": "Choix du type de commande"
+        },
+        "total": "Total de vos commandes",
+        "confirmCommande": {
+            "myInfos": "Mes Informations"
+        }
+    },
+    "customer": {
+        "status": {
+            "new": {
+                "title": "Nouveau client",
+                "message": "Devenez membre de la fabuleuse communauté M&W ! C'est simple et rapide !",
+                "advantage": {
+                    "promo": "Des promos exceptionnelles !",
+                    "deliveryPass": "Des livraisons gratuites à des heures précises ! Les fameux Hot hours !",
+                    "faithfull": "Des points de fidélités qui vous donnent le sourire",
+                    "birthdate": "Privatisez la salle pour vos anniversaires, n'est-ce pas magique ? "
+                }
+            },
+            "guess": {
+                "title": "Passez la commande en tant qu'invité(e)",
+                "message": "Vous préférez passer à côté de tout ça ? Pas de problème !"
+            },
+            "registered": {
+                "title": "Déjà membre",
+                "message": "Vous avez déjà rejoint la team ?"
+            }
+        }
     }
-  },
-  "user": {
-    "identity": "Identité",
-    "firstname": "Prénom",
-    "lastname": "Nom",
-    "password": "Mot de passe",
-    "renewPassword": "Nouveau mot de passe",
-    "email": "Adresse email",
-    "deliveryAdress": "Adresse de livraison",
-    "billingAdress": "Adresse de facturation",
-    "adress": {
-      "streetNumber": "N° de Rue",
-      "street": "Rue",
-      "zipCode": "Code postal",
-      "department": "Departement",
-      "country": "Pays",
-      "additionalAdress": "Complément d'adresse",
-      "city": "Ville"
-    },
-    "phoneNumber": "N° de téléphone",
-    "rePassword": "Confirmation du mot de passe",
-    "civility": "Civilité"
-  },
-  "error": {
-    "required": {
-      "field": "Le champ {{field}} est requis !",
-      "length": "Le champ {{field}} doit contenir entre {{minLength}} et {{maxLength}} caractères !",
-      "exactLength": "Le champ {{field}} doit avoir exactement {{length}} caractères !",
-      "cgu": "Vous devez acceptez les conditions générales d'utilisation du logiciel avant de créer votre compte !",
-      "numberPattern": "Le champ {{field}} ne doit contenir que des chiffres et doit avoir une longueur de {{length}} !"
-    },
-    "password": {
-      "confirm": "Les mots de passes sont différents !",
-      "pattern": {
-        "title": "Attention ! Le mot de passe doit contenir au minimum:",
-        "lowercase": "Une lettre minuscule",
-        "uppercase": "Une lettre majuscule",
-        "digit": "Un chiffre",
-        "symbol": "Un caractère spécial parmis les suivantes : *. ! @ # $ % ^ & ( ) { } [ ] : ; < > , . ? ~ _ + - = \\ |"
-      }
-    },
-    "email": {
-      "valid": "Ceci n'est pas une adresse email valide !",
-      "title": "Erreur de validation",
-      "message": "Votre lien de validation n'est plus valide! Veuillez le renouvelez en renseignant votre adresse email dans le formulaire ci-dessous !",
-      "clientSide": "Une erreur est survenue! Veuillez recliquez sur le lien dans le mail de validation !",
-      "duplicateEmailDlg": "Un compte est déjà associé à cet email ! Voulez-vous vous connecter ? Sinon veuillez renseigner un autre.",
-      "duplicateEmailMsg": "Un compte est déjà associé à cet email ! Veuillez renseigner un autre svp !"
-    },
-    "reset-password": {
-      "title": "Erreur de validation",
-      "message": " Votre lien de renouvellement n'est plus valide! Veuillez le renouveler en renseignant votre adresse email dans le formulaire ci-dessous !",
-      "clientSide": "Une erreur est survenue! Veuillez recliquez sur le lien dans le mail de renouvellement !"
-    },
-    "lost": "Oops ! Vous vous êtes peut-être perdue !",
-    "phoneNumber": {
-      "duplicatePhoneNumber": " Un compte est déjà associé à ce numéro de téléphone. Veuillez renseigner un autre svp !",
-      "title": "Numéro de téléphone existant"
-    },
-    "clientSide": "Une erreur est survenue; Veuillez rééssayer svp !"
-  },
-  "terms": {
-    "title": "les conditions d'utilisations",
-    "agree": "Accepter"
-  },
-  "billingAdress": {
-    "keep": "Garder la même adresse pour la facturation ?"
-  },
-  "button": {
-    "send": "Envoyer",
-    "password-request": "Renouveler votre mot de passe ",
-    "forgotten-password": "Mot de passe oublié ?",
-    "home": "Retour à l'accueil",
-    "cancel": "Annuler",
-    "continue": "Continuer",
-    "save": "Sauvegarder",
-    "updateProfil": "Modifier votre profil",
-    "changePassword": "Changer votre mot de passe",
-    "userCommande": "Mes commandes",
-    "logout": "Se déconnecter",
-    "sign-in": "Se connecter",
-    "sign-up": "Créer un compte",
-    "addToShoppingCard": "Ajouter au panier",
-    "update": "Modifier",
-    "navigateToCart": "Retour au menu"
-  },
-  "404Notfound": {
-    "title": "Erreur 404 ! Page non trouvé !",
-    "message": "La page que vous cherchez n'exsite pas !"
-  },
-  "confirm": {
-    "delete": "Voulez-vous vraiment supprimer votre compte ?"
-  },
-  "product": {
-    "addComment": "Ajouter un commentaire utile à la préparation de votre produit",
-    "quantity": "Quantité",
-    "update": "Le produit a bien été modifié !",
-    "remove": "Le produit a bien été retiré !",
-    "add": "Le produit a bien été ajouté au panier !"
-  },
-  "cart": {
-    "title": "Votre panier",
-    "empty": "Votre panier est vide...!"
-  },
-  "comment": {
-    "title": "Commentaire"
-  },
-  "commande": {
-    "value": "Valeur de votre commande",
-    "type": {
-      "delivery": "Livraison"
-    }
-  }
 }

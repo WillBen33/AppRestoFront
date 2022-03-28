@@ -1,7 +1,8 @@
-import { ChangeDetectorRef, Component, Inject, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, Inject, OnInit, Optional } from '@angular/core';
 import { NgModel } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NbAuthService, NbRegisterComponent, NB_AUTH_OPTIONS } from '@nebular/auth';
+import { NbWindowRef } from '@nebular/theme';
 import { ProfilControllerService } from 'src/app/api/services';
 
 @Component({
@@ -13,7 +14,7 @@ export class NgxRegisterComponent extends NbRegisterComponent implements OnInit 
 
   showPassword: boolean = false;
   showRePassword: boolean = false;
-  loading : boolean = false;
+  loading: boolean = false;
 
   user: any = {
     billingAdress: {
@@ -50,9 +51,10 @@ export class NgxRegisterComponent extends NbRegisterComponent implements OnInit 
   };
   checkedBillingAdress: boolean = false;
 
-  constructor(nbAuthService: NbAuthService, @Inject(NB_AUTH_OPTIONS) protected options = {},
+  constructor(private nbAuthService: NbAuthService, @Inject(NB_AUTH_OPTIONS) protected options = {},
     cd: ChangeDetectorRef, router: Router,
-    private profilService: ProfilControllerService  ) {
+    private profilService: ProfilControllerService,
+    @Optional() private windowRef: NbWindowRef) {
     super(nbAuthService, options, cd, router);
   }
 
@@ -80,11 +82,22 @@ export class NgxRegisterComponent extends NbRegisterComponent implements OnInit 
   }
 
 
-customRegister()
-{
-  this.loading = true;
-  this.register();
-}
+  customRegister() {
+    if (this.windowRef) {
+      this.loading = true;
+      this.nbAuthService.register("email", this.user).subscribe(nbAuthResult => {
+        if (nbAuthResult.isSuccess()) {
+          this.windowRef?.close("submit")
+        }
+        else
+          this.errors = nbAuthResult.getErrors();
+      })
+    }
+    else {
+      this.loading = true;
+      this.register();
+    }
+  }
 
   toggleFieldTextType(field: NgModel) {
     if (field.name === 'password')
