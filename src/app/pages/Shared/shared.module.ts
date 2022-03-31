@@ -12,6 +12,7 @@ import { MatButtonModule } from "@angular/material/button";
 import { ProductSelectionDialogComponent } from './components/product-selection-dialog/product-selection-dialog.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ShoppingCartItemComponent } from './components/shopping-cart-item/shopping-cart-item.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 const NB_MODULES = [
   NbInputModule,
@@ -30,6 +31,7 @@ const NB_MODULES = [
     ShoppingCartComponent,
     ProductSelectionDialogComponent,
     ShoppingCartItemComponent,
+    CheckoutComponent,
   ],
   imports: [
     CommonModule,
