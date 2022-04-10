@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {CheckoutControllerService} from "../../../api/services/checkout-controller.service";
 
 @Component({
   selector: 'app-checkout',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CheckoutComponent implements OnInit {
 
-  constructor() { }
+  public formToken: {} = "";
 
-  ngOnInit(): void {
+  constructor(private checkoutControllerService: CheckoutControllerService) {}
+
+  ngOnInit() {}
+
+  public onCheckout() {
+    this.checkoutControllerService.generateFormToken().subscribe(data => {
+      this.formToken = data;
+      console.log(this.formToken);
+    });
   }
 
 }
