@@ -30,6 +30,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@igniteui/material-icons-extended": "^2.8.0",
     "@juggle/resize-observer": "^3.3.0",
+    "@lyracom/embedded-form-glue": "^1.0.0",
     "@nebular/auth": "^8.0.0",
     "@nebular/eva-icons": "8.0.0",
     "@nebular/theme": "^8.0.0",

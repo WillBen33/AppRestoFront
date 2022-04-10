@@ -13,6 +13,7 @@ import { ProductSelectionDialogComponent } from './components/product-selection-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ShoppingCartItemComponent } from './components/shopping-cart-item/shopping-cart-item.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import {RouterModule} from "@angular/router";
 
 const NB_MODULES = [
   NbInputModule,
@@ -33,16 +34,17 @@ const NB_MODULES = [
     ShoppingCartItemComponent,
     CheckoutComponent,
   ],
-  imports: [
-    CommonModule,
-    TranslateModule.forChild(),
-    FormsModule,
-    ReactiveFormsModule,
-    NgbDatepickerModule,
-    MatIconModule,
-    MatButtonModule,
-    NB_MODULES
-  ],
-  exports: [DialogMessageComponent, ExistPhoneNumberDirective, ExistEmailDirective, ShoppingCartComponent,ShoppingCartItemComponent]
+    imports: [
+        CommonModule,
+        TranslateModule.forChild(),
+        FormsModule,
+        ReactiveFormsModule,
+        NgbDatepickerModule,
+        MatIconModule,
+        MatButtonModule,
+        NB_MODULES,
+        RouterModule
+    ],
+    exports: [DialogMessageComponent, ExistPhoneNumberDirective, ExistEmailDirective, ShoppingCartComponent, ShoppingCartItemComponent, CheckoutComponent]
 })
 export class SharedModule { }
