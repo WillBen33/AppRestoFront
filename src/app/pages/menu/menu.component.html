@@ -1,16 +1,25 @@
-<nb-layout>
-  <nb-layout-column>
-    <div class="p-5 mb-4  rounded-3">
-      <div class="container py-5">
-        <h1 class="display-5 fw-bold">{{ "menu.page-title" | translate }}</h1>
-        <p class="col-md-8 fs-4">{{ "menu.page-description" | translate }}</p>
-      </div>
-      <nb-tabset>
-        <nb-tab *ngFor="let parentCategory of parentsCategories$ | async" tabTitle='{{parentCategory.name}}'>
-          <app-subcategory-list [parentCategoryName]="parentCategory.name" [parentCategoryId]="parentCategory.id">
-          </app-subcategory-list>
-        </nb-tab>
-      </nb-tabset>
-    </div>
+<nb-layout class="custom-layout">
+  <nb-layout-column class="custom-layout-column">
+
+    <nb-card class="custom-nb-card">
+      <nb-card-body class="custom-nb-card-body">
+        <div class="container">
+          <div class="heading_container heading_center">
+            <h2>
+              <h1 class="display-5 fw-bold">{{ "menu.page-title" | translate }}</h1>
+              <p>{{ "menu.page-description" | translate }}</p>
+            </h2>
+          </div>
+          <nb-tabset class="custom-tabset">
+            <nb-tab *ngFor="let parentCategory of parentsCategories$ | async; let i = index" [active]="i === 0" tabTitle='{{parentCategory.name}}'>
+              <app-subcategory-list [parentCategoryName]="parentCategory.name" [parentCategoryId]="parentCategory.id">
+              </app-subcategory-list>
+            </nb-tab>
+          </nb-tabset>
+        </div>
+      </nb-card-body>
+
+    </nb-card>
+
   </nb-layout-column>
 </nb-layout>

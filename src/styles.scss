@@ -46,9 +46,9 @@ $AppRestoFront-theme: mat.define-light-theme((
 //}
 
 / Importing Bootstrap SCSS file. */
-@import '~bootstrap/scss/bootstrap';
+/* @import '~bootstrap/scss/bootstrap'; */
 
-@import 'themes';
+@import 'themes';   
 
 @import '~@nebular/theme/styles/globals';
 

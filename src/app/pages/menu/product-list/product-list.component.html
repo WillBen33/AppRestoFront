@@ -1,8 +1,7 @@
 <section class="food_section layout_padding-bottom">
-    <div class="container">
         <div class="filters-content">
             <div class="row grid">
-                <div class="col-sm-6 col-lg-4 all pizza" *ngFor="let product of products$ | async">
+                <div class="col-sm-6 col-lg-4" *ngFor="let product of products$ | async">
                     <div class="box">
                         <div>
                             <div class="img-box">
@@ -15,11 +14,16 @@
                                 <p>
                                     {{product.description}}
                                 </p>
+                             <div>
+                                <button nbButton status="warning" size="tiny" hero shape="round" (click)="productDetails(product)">
+                                    {{'button.productDetail' | translate}}
+                                  </button>
+                             </div>
                                 <div class="options">
                                     <h6>
-                                        {{product.price}}
+                                        {{product.price | currency }} 
                                     </h6>
-                                    <button (click)="selectionProcess(product)">
+                                    <button nbButton status="warning" hero shape="round" (click)="selectionProcess(product)">
                       <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
                     </button>
                                 </div>
@@ -29,5 +33,4 @@
                 </div>
             </div>
         </div>
-    </div>
 </section>

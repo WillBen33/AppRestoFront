@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component, Inject, OnInit, Optional } from '@angular/core';
-import { NgModel } from '@angular/forms';
+import { NgForm, NgModel } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NbAuthService, NbRegisterComponent, NB_AUTH_OPTIONS } from '@nebular/auth';
 import { NbWindowRef } from '@nebular/theme';
@@ -63,21 +63,16 @@ export class NgxRegisterComponent extends NbRegisterComponent implements OnInit 
       this.user.profils[0] = profil);
   }
 
-  setBillingAdress(checked: boolean) {
+  isDeliveryAdressValid(form:NgForm)
+    {
+      return form.controls['deliveryAdressStreet'].valid && form.controls['deliveryAdressStreetNumber'].valid 
+      && form.controls['deliveryAdressCity'].valid && form.controls['deliveryAdressZipCode'].valid;
+    }
+  
+  setBillingAdress(checked :any, form: NgForm) {
     if (checked) {
       this.user.billingAdress = this.user.deliveryAdress;
-      this.checkedBillingAdress = true;
-    } else {
-      this.checkedBillingAdress = false;
-      this.user.billingAdress = {
-        city: '',
-        street: '',
-        streetNumber: '',
-        zipCode: '',
-        additionalAdress: '',
-        country: '',
-        department: ''
-      }
+      this.checkedBillingAdress = checked;
     }
   }
 

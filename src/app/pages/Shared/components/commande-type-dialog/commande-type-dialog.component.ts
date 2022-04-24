@@ -11,7 +11,7 @@ import { ShoppingCartService } from 'src/app/services/shopping-cart/shopping-car
 })
 export class CommandeTypeDialogComponent implements OnInit {
 
-  selectedItemFormControl: FormControl = new FormControl();
+  selectedItemFormControl: FormControl = new FormControl('TAKE_AWAY');
   constructor(private nbDialogRef: NbDialogRef<CommandeTypeDialogComponent>,
     private shoppingCartService: ShoppingCartService) { }
 

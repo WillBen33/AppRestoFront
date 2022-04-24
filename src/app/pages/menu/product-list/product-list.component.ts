@@ -8,6 +8,7 @@ import { Product } from 'src/app/api/models';
 import { ProductControllerService } from 'src/app/api/services';
 import { ShoppingCartService } from 'src/app/services/shopping-cart/shopping-cart.service';
 import { CommandeTypeDialogComponent } from '../../Shared/components/commande-type-dialog/commande-type-dialog.component';
+import { ProductDetailDialogComponent } from '../../Shared/components/product-detail-dialog/product-detail-dialog.component';
 import { ProductSelectionDialogComponent } from '../../Shared/components/product-selection-dialog/product-selection-dialog.component';
 
 @Component({
@@ -63,6 +64,17 @@ export class ProductListComponent implements OnInit {
         context: {
           product: product,
           update: false
+        }
+      }).onClose;
+  }
+
+  productDetails(product: Product) {
+    this.dialogService.open(ProductDetailDialogComponent,
+      {
+        autoFocus: false,
+        hasScroll: true,
+        context: {
+          product: product,
         }
       }).onClose;
   }

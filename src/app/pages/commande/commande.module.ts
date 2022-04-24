@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDividerModule } from '@angular/material/divider';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { NbButtonModule, NbCardModule, NbCheckboxModule, NbIconModule, NbInputModule, NbLayoutModule, NbSelectModule } from '@nebular/theme';
+import { NbButtonModule, NbCardModule, NbCheckboxModule, NbIconModule, NbInputModule, NbLayoutModule, NbSelectModule, NbTooltipModule } from '@nebular/theme';
 import { TranslateModule } from '@ngx-translate/core';
 import { SharedModule } from '../Shared/shared.module';
 import { CartComponent } from './cart/cart.component';
@@ -31,7 +31,8 @@ import { CommandeComponent } from './commande/commande.component';
     FontAwesomeModule,
     NbInputModule,
     NbIconModule,
-    NbCheckboxModule
+    NbCheckboxModule,
+    NbTooltipModule
   ]
 })
 export class CommandeModule { }

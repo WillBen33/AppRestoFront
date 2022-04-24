@@ -32,7 +32,6 @@
             ],
             "styles": [
               "./node_modules/bootstrap/dist/css/bootstrap.css",
-              "node_modules/bootstrap/dist/css/bootstrap.css",
               "src/styles.scss",
               "node_modules/@fortawesome/fontawesome-free/css/all.css",
               "node_modules/ngx-toastr/toastr.css"
@@ -42,6 +41,7 @@
               "node_modules/bootstrap/dist/js/bootstrap.js",
               "./node_modules/hammerjs/hammer.min.js"
             ]
+            
           },
           "configurations": {
             "production": {

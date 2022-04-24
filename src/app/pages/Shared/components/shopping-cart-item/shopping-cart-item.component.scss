@@ -1,10 +1,38 @@
-.box {
-    img
+.img-box
+{
+    width: 25%;
+}
+.desc-box
+{
+    margin: 15px;
+}
+img{
+    width: 100%;
+}
+
+@media (min-width: 576px) {
+    .img-box
     {
-        max-width: inherit;
-        border: ridge;
-        border-radius: 5px;
-        margin: 20px;
-        border-color: #ffbe33;;
+        width: 25%;
+    }
+    .desc-box
+    {
+        padding:15px;
+        margin: 0;
+    }
+    img{
+        width: 100%;
     }
 }
+@media (min-width: 768px) {
+    .img-box
+    {
+        width: 25%;
+        padding: 15px;
+    }
+    img{
+        width: 80%;
+    }
+}
+
+

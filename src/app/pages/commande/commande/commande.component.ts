@@ -33,8 +33,8 @@ export class CommandeComponent implements OnInit {
       switchMap(() => this.userService.getCurrentUser()))
       .subscribe(user => {
         this.authenticatedUser = true;
-        this.flippIdentityInfosCard();
-        this.flippAdressCard();
+        this.flippedIdentityInfos = true;
+        this.flippedAddress = true;
         this.setcommandeInfosFormValue(user);
       })
 
@@ -114,13 +114,16 @@ export class CommandeComponent implements OnInit {
 
   }
 
+  isInValidDeliveryAdress()
+  {
+    return this.commandeInfosForm.get('deliveryAdress')?.invalid;
+  }
+
   flippAdressCard() {
     if (this.commandeInfosForm.get('billingAdress')?.valid && this.commandeInfosForm.get('deliveryAdress')?.valid)
       this.flippedAddress = !this.flippedAddress;
     else {
-      if (this.commandeInfosForm.get('billingAdress')?.invalid)
         this.commandeInfosForm.get('billingAdress')?.markAllAsTouched();
-      if (this.commandeInfosForm.get('deliveryAdress')?.invalid)
         this.commandeInfosForm.get('deliveryAdress')?.markAllAsTouched();
     }
 

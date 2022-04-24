@@ -15,6 +15,7 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
 import { ExistPhoneNumberDirective } from './directives/exist-phone-number/exist-phone-number.directive';
 import { ExistEmailDirective } from './directives/existEmail/exist-email.directive';
 import { ResumeCommandeComponent } from './resume-commande/resume-commande.component';
+import { ProductDetailDialogComponent } from './components/product-detail-dialog/product-detail-dialog.component';
 
 const NB_MODULES = [
   NbInputModule,
@@ -35,6 +36,7 @@ const NB_MODULES = [
     ShoppingCartItemComponent,
     CommandeTypeDialogComponent,
     ResumeCommandeComponent,
+    ProductDetailDialogComponent,
   ],
   imports: [
     CommonModule,

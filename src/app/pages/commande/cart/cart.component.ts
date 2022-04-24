@@ -9,16 +9,15 @@ import { ShoppingCartService } from 'src/app/services/shopping-cart/shopping-car
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
-  nbProductInCart: number = 0;
   selectedItemFormControl: FormControl = new FormControl();
   constructor(private shoppingCartService: ShoppingCartService,
     private router: Router) {
   }
 
+
   ngOnInit(): void {
-    this.nbProductInCart = this.shoppingCartService.getNbProductInCart();
     this.selectedItemFormControl.setValue(this.shoppingCartService.getCommadeType());
-    this.selectedItemFormControl.valueChanges.subscribe(value => this.shoppingCartService.setCommandeType(value))
+    this.selectedItemFormControl.valueChanges.subscribe(value => this.shoppingCartService.setCommandeType(value));
   }
 
   getCommandeProductByKeyAndCommentArrays() {
@@ -29,7 +28,8 @@ export class CartComponent implements OnInit {
     this.router.navigate(["/menu"])
   }
 
-
-
+  getNbProduct() {
+    return this.shoppingCartService.getNbProductInCart();
+  }
 
 }

@@ -1,38 +1,46 @@
-<nb-layout>
-    <nb-layout-column>
+<nb-layout class="custom-layout">
+    <nb-layout-column class="custom-layout-column">
         <nb-card>
             <nb-card-body>
-                <div class="container">
+                <div class="container-sm">
                     <div class="row">
-                        <div *ngIf="nbProductInCart === 0">
-                            <h2 class="text-center title">{{'cart.empty' | translate}} <i class="fa-solid fa-lg fa-heart-crack"></i>
+                        <div class="col mx-auto"  *ngIf="getNbProduct() === 0">
+                            <h2 class="text-center title">{{'cart.empty' | translate}} <i
+                                    class="fa-solid fa-lg fa-heart-crack"></i>
                             </h2>
-                            <div class="d-flex justify-content-center">
-                                <button nbButton (click)="goMenu()" type="button" class="home-button">
-                  {{'button.navigateToCart' | translate}}
-                </button>
+                            <div  class="d-flex justify-content-center">
+                                <button  nbButton (click)="goMenu()" type="button" class="home-button mx-auto">
+                                    {{'button.navigateToCart' | translate}}
+                                </button>
                             </div>
                         </div>
-                        <h1 id="title" *ngIf="nbProductInCart !== 0" class="title text-center">{{"cart.title" | translate }}</h1>
+                        <h1 id="title" *ngIf="getNbProduct() !== 0" class="title text-center mx-auto">{{"cart.title" |
+                            translate }}</h1>
                     </div>
-                    <div class="row" *ngIf="nbProductInCart !== 0">
-                        <div class="col">
-                            <div>
-                                <app-shopping-cart-item *ngFor="let groupedCommandeProduct of getCommandeProductByKeyAndCommentArrays()" [groupedCommandeProduct]="groupedCommandeProduct">
-                                </app-shopping-cart-item>
-                            </div>
-                        </div>
-                        <div class="col">
+                    <div class="row" *ngIf="getNbProduct() !== 0">
+                        <div class="col-sm-12 col-md-12 col-lg-6">
                             <nb-card>
-                                <nb-card-body>
-                                    <div class="row col mb-2">
-                                        <nb-select [formControl]="selectedItemFormControl">
-                                            <nb-option value="TAKE_AWAY">{{'commande.type.takeAway' | translate }}</nb-option>
-                                            <nb-option value="DELIVERY">{{'commande.type.delivery' | translate}}</nb-option>
+                                <nb-card-body style="padding-top: 15px;">
+                                    <app-shopping-cart-item
+                                        *ngFor="let groupedCommandeProduct of getCommandeProductByKeyAndCommentArrays()"
+                                        [groupedCommandeProduct]="groupedCommandeProduct">
+                                    </app-shopping-cart-item>
+                                </nb-card-body>
+                            </nb-card>
+                        </div>
+                        <div class="col-sm-12 col-md-12 col-lg-6">
+                            <nb-card>
+                                <nb-card-body class="p-2">
+                                    <div class="row no-gutters mb-2">
+                                        <nb-select class="mx-auto" [formControl]="selectedItemFormControl">
+                                            <nb-option value="TAKE_AWAY">{{'commande.type.takeAway' | translate }}
+                                            </nb-option>
+                                            <nb-option value="DELIVERY">{{'commande.type.delivery' | translate}}
+                                            </nb-option>
                                         </nb-select>
                                     </div>
                                     <mat-divider class="mb-3 mt-3"></mat-divider>
-                                    <app-resume-commande [translateExpression]="'button.completeCommande'"></app-resume-commande>
+                                    <app-resume-commande [finalStep]="false"></app-resume-commande>
                                 </nb-card-body>
                             </nb-card>
                         </div>

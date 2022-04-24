@@ -1,31 +1,41 @@
-<div class="row row-cols-2 g-3">
-    <div class="col">
-        <span class="font-weight-bold">{{'commande.value' | translate}}</span>
-    </div>
-    <div class="col">
-        {{getShoppingCartProductValue()}} €
-
-    </div>
-    <div class="col" *ngIf="isDeliveryCommande()">
-        <span class="font-weight-bold">{{'commande.type.delivery' | translate}}</span>
-    </div>
-
-    <div class="col" *ngIf="isDeliveryCommande()">
-        {{getShoppingCartDeliveryValue()}} €
-    </div>
+<div>
+    <table class="table table-borderless ">
+        <tbody>
+            <tr>
+                <th scope="row">{{'commande.value' | translate}}</th>
+                <td>{{getShoppingCartProductValue() | currency }}</td>
+            </tr>
+            <tr *ngIf="isDeliveryCommande()">
+                <th scope="row">{{'commande.type.delivery' | translate}}</th>
+                <td>{{getShoppingCartDeliveryValue() | currency }}</td>
+            </tr>
+        </tbody>
+    </table>
 </div>
 <mat-divider class="mb-3 mt-3"></mat-divider>
-<div class="row row-cols-2">
-    <div class="col">
-        <span class="font-weight-bold">{{'commande.total' | translate}}</span>
-    </div>
-    <div class="col">
-        {{getShoppingCartTotalValue()}} €
-    </div>
+<div>
+    <table class="table table-borderless">
+        <tbody>
+            <tr>
+                <th scope="row">
+                    {{'commande.total' | translate}}
+                </th>
+                <td>
+                    {{getShoppingCartTotalValue() | currency }}
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>
-<div class="row col mt-5 gy-3">
+<div class="row no-gutters">
 
-    <button nbButton shape="semi-round" status="warning" size="medium" hero type="button" (click)="completeCommande()">{{translateExpression
+    <button class="mx-auto" *ngIf="!finalStep" nbButton shape="semi-round" status="warning" size="medium" hero type="button"
+        (click)="completeCommande()">{{'button.completeCommande'
+        |
+        translate}}  </button>
+
+    <button class="mx-auto" *ngIf="finalStep" nbButton shape="semi-round" status="warning" size="medium" hero type="button"
+        (click)="validShopping()">{{'button.validShopping'
         |
         translate}}</button>
 </div>
