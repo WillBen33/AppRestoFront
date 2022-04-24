@@ -1,0 +1,16 @@
+<nb-card>
+    <nb-card-header>
+        {{'commande.type.message' | translate}}
+    </nb-card-header>
+    <nb-card-body>
+        <nb-select [formControl]="selectedItemFormControl">
+            <nb-option value="TAKE_AWAY">{{'commande.type.takeAway' | translate }}</nb-option>
+            <nb-option value="DELIVERY">{{'commande.type.delivery' | translate}}</nb-option>
+        </nb-select>
+    </nb-card-body>
+    <nb-card-footer>
+        <div class="mx-auto" style="width: fit-content;">
+            <button nbButton shape="semi-round" status="warning" size="medium" hero type="button" (click)="sendOption()">{{'button.valid' | translate}}</button>
+        </div>
+    </nb-card-footer>
+</nb-card>

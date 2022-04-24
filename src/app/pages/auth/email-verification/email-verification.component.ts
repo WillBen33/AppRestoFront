@@ -1,11 +1,12 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { NbToastrService } from '@nebular/theme';
 import { TranslateService } from '@ngx-translate/core';
+import { ToastrService } from 'ngx-toastr';
 import { throwError } from 'rxjs';
 import { catchError, filter, switchMap, take } from 'rxjs/operators';
 import { AuthenticationControllerService } from 'src/app/api/services';
+import { ShoppingCartService } from 'src/app/services/shopping-cart/shopping-cart.service';
 
 @Component({
   selector: 'app-email-verification',
@@ -19,8 +20,9 @@ export class EmailVerificationComponent implements OnInit {
   constructor(private authService: AuthenticationControllerService,
     private activateRoute: ActivatedRoute,
     private router: Router,
-    private toastrService: NbToastrService,
-    private translateService: TranslateService) { }
+    private toastrService: ToastrService,
+    private translateService: TranslateService,
+    private shoppingCartService: ShoppingCartService) { }
 
   ngOnInit(): void {
     this.activateRoute.queryParams.pipe(
@@ -34,31 +36,24 @@ export class EmailVerificationComponent implements OnInit {
   handleResponse() {
     this.toastrService.success(
       this.translateService.instant("account.isActivated.message"),
-      this.translateService.instant("account.isActivated.title"),
-      {
-        duration: 20000,
-        status: "success"
-      });
-    this.router.navigate(['auth/sign-in']);
+      this.translateService.instant("account.isActivated.title"));
+    if (this.shoppingCartService.getNbProductInCart() > 0) {
+      this.router.navigate(['commande/confirmCommande']);
+    }
+    else {
+      this.router.navigate(['auth/sign-in']);
+    }
   }
 
   handleError(error: HttpErrorResponse) {
     if (error.status === 0) {
       this.toastrService.warning(
         this.translateService.instant("error.clientSide"),
-        this.translateService.instant("error.email.title"),
-        {
-          duration: 40000,
-        }
-      )
+        this.translateService.instant("error.email.title"))
     } else {
-      this.toastrService.danger(
+      this.toastrService.error(
         this.translateService.instant("error.email.message"),
-        this.translateService.instant("error.email.title"),
-        {
-          duration: 40000,
-        }
-      )
+        this.translateService.instant("error.email.title"));
       this.refresh = true;
     }
     return throwError(
@@ -71,9 +66,6 @@ export class EmailVerificationComponent implements OnInit {
       this.toastrService.success(
         this.translateService.instant("account.register.validate"),
         this.translateService.instant("account.register.verifyEmail"),
-        {
-          duration: 40000,
-        }
       );
     })
   }

@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
-import { AuthGuardService } from './services/auth/guards/auth-guard.service';
 import { LayoutComponent } from "./templates/layout/layout.component";
 
 const routes: Routes = [
@@ -47,8 +46,8 @@ const routes: Routes = [
         // canActivate: [AuthGuardService]
       },
       {
-        path:'cart',
-        loadChildren : ()=> import('./pages/cart/cart.module').then(m => m.CartModule)
+        path: 'commande',
+        loadChildren: () => import('./pages/commande/commande.module').then(m => m.CommandeModule)
       },
       {
         path: 'auth',
