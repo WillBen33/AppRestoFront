@@ -4,6 +4,7 @@
 
 $nb-enable-css-custom-properties: true;
 
+$tabset-tab-active-text-color: #be33ff;
 $nb-themes: nb-register-theme((
 
   // add your variables here like:
@@ -17,5 +18,9 @@ $nb-themes: nb-register-theme((
   // color-primary-700: #1a34b8,
   // color-primary-800: #102694,
   // color-primary-900: #091c7a,
+
+  color-primary-500: #ffbe33,
+  text-primary-hover-color : #ffbe33,
+  $tabset-tab-active-text-color : #be33ff
 
 ), default, default);

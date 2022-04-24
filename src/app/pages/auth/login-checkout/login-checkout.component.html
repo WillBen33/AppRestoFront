@@ -2,44 +2,164 @@
     <nb-layout-column>
         <nb-card>
             <nb-card-body>
-                <div class="row row-cols-2 mb-3">
+                <div class="row row-cols-sm-1 row-cols-md-1 row-cols-lg-2">
                     <div class="col">
                         <nb-card>
                             <nb-card-header>
                                 <h6>{{'customer.status.new.title' | translate}}</h6>
                             </nb-card-header>
                             <nb-card-body>
-                                <button nbButton shape="semi-round" status="warning" size="medium" hero type="button" class="mb-3" (click)="signUp()">{{'button.registerAndValid' | translate}}</button>
+                                <div class="d-flex justify-content-center">
+
+                                    <button nbButton shape="semi-round" status="warning" size="medium" hero
+                                        type="button" class="mb-3 btn-style "
+                                        (click)="signUp()">{{'button.registerAndValid' |
+                                        translate}}</button>
+                                </div>
+
                                 <p class="font-weight-bold">{{'customer.status.new.message' | translate}}</p>
                                 <ul class="list-unstyled">
-                                    <li> <i class="fa-solid fa-fire-flame-curved"></i> {{'customer.status.new.advantage.promo' | translate}}</li>
-                                    <li><i class="fa-solid fa-fire-flame-curved"></i> {{'customer.status.new.advantage.deliveryPass' | translate}}</li>
-                                    <li><i class="fa-solid fa-fire-flame-curved"></i> {{'customer.status.new.advantage.faithfull' | translate}}</li>
-                                    <li><i class="fa-solid fa-fire-flame-curved"></i> {{'customer.status.new.advantage.birthdate' | translate}}</li>
+                                    <li> <i class="fa-solid fa-fire-flame-curved"></i>
+                                        {{'customer.status.new.advantage.promo' | translate}}</li>
+                                    <li><i class="fa-solid fa-fire-flame-curved"></i>
+                                        {{'customer.status.new.advantage.deliveryPass' | translate}}</li>
+                                    <li><i class="fa-solid fa-fire-flame-curved"></i>
+                                        {{'customer.status.new.advantage.faithfull' | translate}}</li>
+                                    <li><i class="fa-solid fa-fire-flame-curved"></i>
+                                        {{'customer.status.new.advantage.birthdate' | translate}}</li>
                                 </ul>
                             </nb-card-body>
                         </nb-card>
                     </div>
                     <div class="col">
                         <div class="row">
-                            <nb-card>
+                            <nb-card style="width: 100%;">
                                 <nb-card-header>
                                     <h6>{{'customer.status.guess.title' | translate}}</h6>
                                 </nb-card-header>
                                 <nb-card-body>
-                                    <button nbButton shape="semi-round" status="warning" size="medium" hero type="button" class="mb-3" (click)="guessForm()">{{'button.valid' | translate}}</button>
+                                <div class="d-flex justify-content-center">
+
+                                        <button nbButton shape="semi-round" status="warning" size="medium" hero
+                                            type="button" class="mb-3 btn-style"
+                                            (click)="guessForm()">{{'button.valid' | translate}}</button>
+                                </div>
                                     <p class="font-weight-bold">{{'customer.status.guess.message' | translate}}</p>
                                 </nb-card-body>
                             </nb-card>
                         </div>
                         <div class="row">
-                            <nb-card>
+                            <nb-card style="width: 100%;">
                                 <nb-card-header>
                                     <h6>{{'customer.status.registered.title' | translate}}</h6>
                                 </nb-card-header>
                                 <nb-card-body>
-                                    <button nbButton shape="semi-round" status="warning" size="medium" hero type="button" (click)="signIn()">{{'button.sign-in' | translate}}</button>
-                                    <p class="font-weight-bold">{{'customer.status.registered.message' | translate}}</p>
+                                    <div class="row">
+                                        <div class="col-sm-10 offset-sm-2">
+                                            <p class="font-weight-bold">{{'customer.status.registered.message' |
+                                                translate}}</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-sm-10 offset-sm-2">
+                                            <nb-alert *ngIf="errors?.length && !submitted" outline="danger"
+                                                role="alert">
+                                                <p class="alert-title"><b>Oh snap!</b></p>
+                                                <ul class="alert-message-list">
+                                                    <li *ngFor="let error of errors" class="alert-message">
+                                                        {{"Login.error.invalidPasswordOrEmail" | translate }}</li>
+                                                </ul>
+                                            </nb-alert>
+                                        </div>
+                                    </div>
+                                    <form (ngSubmit)="customLogin()" #form="ngForm" aria-labelledby="title">
+
+                                        <div class="form-control-group">
+                                            <div class="row mb-3">
+                                                <div class="col-sm-2 col-form-label">
+                                                    <fa-icon [icon]="['fas', 'envelope']" size="2x"></fa-icon>
+                                                </div>
+                                                <div class="col-sm-10">
+                                                    <input nbInput fullWidth [(ngModel)]="user.username"
+                                                        #email="ngModel" name="email" id="input-email"
+                                                        pattern=".+@.+\..+" placeholder='{{"user.email" | translate }}'
+                                                        fieldSize="large"
+                                                        [status]="email.dirty ? (email.invalid  ? 'danger' : 'success') : 'basic'"
+                                                        [required]="true"
+                                                        [attr.aria-invalid]="email.invalid && email.touched ? true : null">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col offset-md-2">
+                                                    <ng-container *ngIf="email.invalid && email.touched">
+                                                        <p class="caption status-danger" *ngIf="email.errors?.required">
+                                                            {{"error.required.field" | translate:{'field': ('user.email'
+                                                            | translate)} }}
+                                                        </p>
+                                                        <p class="caption status-danger" *ngIf="email.errors?.pattern">
+                                                            {{"error.email.valid" | translate}}
+                                                        </p>
+                                                    </ng-container>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-control-group">
+                                            <div class="row mb-3">
+                                                <div class="col-sm-2 col-form-label">
+                                                    <fa-icon [icon]="['fas', 'lock']" size="2x"></fa-icon>
+                                                </div>
+                                                <div class="col-sm-10">
+                                                    <input nbInput fullWidth [(ngModel)]="user.password"
+                                                        #password="ngModel" name="password" type="password"
+                                                        id="input-password"
+                                                        placeholder='{{"user.password" | translate }}' fieldSize="large"
+                                                        [status]="password.dirty ? (password.invalid  ? 'danger' : 'success') : 'basic'"
+                                                        [required]="true" [minlength]="8" [maxlength]="32"
+                                                        [attr.aria-invalid]="password.invalid && password.touched ? true : null">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col offset-md-2 offset-sm-2">
+                                                    <span class="label-with-link">
+                                                        <a class="forgot-password caption-2"
+                                                            routerLink="../request-password">{{'button.forgotten-password'
+                                                            | translate}}</a>
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col offset-md-2">
+                                                    <ng-container *ngIf="password.invalid && password.touched ">
+                                                        <p class="caption status-danger"
+                                                            *ngIf="password.errors?.required">
+                                                            {{"error.required.field" | translate:{'field':
+                                                            ('user.password' | translate)} }}
+                                                        </p>
+                                                        <p class="caption status-danger"
+                                                            *ngIf="password.errors?.minlength || password.errors?.maxlength">
+                                                            {{"error.required.length" | translate:{'field':
+                                                            [['user.password' |translate ]],'minLength': 8, 'maxLength':
+                                                            32} }}
+                                                        </p>
+                                                    </ng-container>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-10 offset-sm-2">
+                                                <button nbButton fullWidth status="warning" size="medium"
+                                                    shape="semi-round" [disabled]="!form.valid"
+                                                    [class.btn-pulse]="false">
+                                                    {{ "Login.sign-in" | translate }}
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                    </form>
+
                                 </nb-card-body>
                             </nb-card>
                         </div>

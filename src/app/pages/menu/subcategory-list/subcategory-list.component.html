@@ -1,4 +1,4 @@
-<nb-tabset>
+<nb-tabset class="custom-tabset" *ngIf="subCategories.length !== 0">
     <nb-tab *ngIf="subCategories.length !== 0" [tabTitle]="parentCategoryName">
         <app-product-list [categoryId]="parentCategoryId"></app-product-list>
     </nb-tab>

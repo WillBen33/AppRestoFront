@@ -4,6 +4,7 @@
     "scripts": {
         "ng": "ng",
         "ng-openapi-gen": "ng-openapi-gen",
+        "runWithCert":" npm run ng -- serve --ssl true --ssl-cert ssl/mwhttpslocalhostcertificate.crt --ssl-key ssl/private_key ",
         "start": "npm run ng -- serve",
         "build": "ng build",
         "watch": "ng build --watch --configuration development",

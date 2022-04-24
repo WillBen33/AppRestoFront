@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NbAuthService } from '@nebular/auth';
 import { NbWindowService } from '@nebular/theme';
 import { filter } from 'rxjs/operators';
 import { NgxLoginComponent } from '../ngx-login/ngx-login.component';
@@ -12,7 +13,11 @@ import { NgxLoginComponent } from '../ngx-login/ngx-login.component';
 export class LoginCheckoutComponent implements OnInit {
 
   OngoingOrder: boolean = true;
+  user : any = {};
+  errors: string[] = [];
+  submitted: boolean = false;
   constructor(private windowService: NbWindowService,
+    private nbAuthService: NbAuthService,
     private router: Router) { }
 
   ngOnInit(): void {
@@ -28,6 +33,17 @@ export class LoginCheckoutComponent implements OnInit {
 
   guessForm() {
     this.router.navigate(['commande/confirmCommande']);
+  }
+
+  customLogin()
+  {
+    this.submitted = false;
+    this.nbAuthService.authenticate("email", this.user).subscribe(nbAuthResult => {
+      if (nbAuthResult.isSuccess()) 
+        this.router.navigate(['commande/confirmCommande']);
+      else
+      this.errors = nbAuthResult.getErrors();
+    })
   }
 
 }

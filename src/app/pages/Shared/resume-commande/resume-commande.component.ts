@@ -12,7 +12,7 @@ import { ShoppingCartService } from 'src/app/services/shopping-cart/shopping-car
 export class ResumeCommandeComponent implements OnInit {
 
   @Input()
-  translateExpression: string = '';
+  finalStep: boolean = false;
 
   constructor(private shoppingCartService: ShoppingCartService,
     private router: Router,
@@ -44,6 +44,11 @@ export class ResumeCommandeComponent implements OnInit {
         }
       }
     )
+  }
+
+  validShopping()
+  {
+    // TODO for final step 
   }
 
   isDeliveryCommande() {

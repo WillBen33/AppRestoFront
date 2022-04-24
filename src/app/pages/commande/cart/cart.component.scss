@@ -1,0 +1,13 @@
+@media (max-width: 768px) {
+    :host .custom-layout {
+        padding: 0;
+    }
+
+    :host .custom-layout .custom-layout-column {
+        padding: 0;
+    }
+
+    :host .custom-layout .custom-layout-column nb-card-body {
+        padding: 0;
+    }
+}

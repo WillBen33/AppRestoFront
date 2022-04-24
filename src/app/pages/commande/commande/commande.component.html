@@ -140,7 +140,7 @@
                                             <div class="form-control-group" formGroupName="deliveryAdress">
                                                 <div class="row">
                                                     <div class="col-sm-2 col-form-label">
-                                                        <fa-icon [icon]="['fas', 'home']" size="2x"></fa-icon>
+                                                        <fa-icon [icon]="['fas', 'home']" nbTooltip="{{'user.deliveryAdress' | translate}}" nbTooltipStatus="warning" size="2x"></fa-icon>
                                                     </div>
                                                     <div class="col-sm-10">
                                                         <input nbInput formControlName="street" id="input-deliveryAdressStreet" placeholder='{{"user.adress.street" | translate }}' fullWidth [status]="deliveryAdressStreet?.dirty ? (deliveryAdressStreet?.invalid  ? 'danger' : 'success') : ''" [required]="true"
@@ -215,7 +215,7 @@
 
 
                                             <div class="row col offset-md-2">
-                                                <nb-checkbox status="warning" (checkedChange)="setBillingAdress($event)">{{"billingAdress.keep" | translate}}</nb-checkbox>
+                                                <nb-checkbox status="warning" (checkedChange)="setBillingAdress($event)" [disabled]="isInValidDeliveryAdress()">{{"billingAdress.keep" | translate}}</nb-checkbox>
                                             </div>
 
                                             <mat-divider class="mt-2 mb-2"></mat-divider>
@@ -223,7 +223,7 @@
                                             <div class="form-control-group" *ngIf="!checkedBillingAdress" formGroupName="billingAdress">
                                                 <div class="row">
                                                     <div class="col-sm-2 col-form-label">
-                                                        <fa-icon [icon]="['fas', 'home']" size="2x"></fa-icon>
+                                                        <fa-icon [icon]="['fas', 'home']" nbTooltip="{{'user.billingAdress' | translate}}" nbTooltipStatus="warning" size="2x"></fa-icon>
                                                     </div>
                                                     <div class="col-sm-10">
                                                         <input nbInput formControlName="street" id="input-billingAdressStreet" placeholder='{{"user.adress.street" | translate }}' fullWidth [status]="billingAdressStreet?.dirty ? (billingAdressStreet?.invalid  ? 'danger' : 'success') : ''" [required]="true"
@@ -329,7 +329,7 @@
                     <div class="col">
                         <nb-card>
                             <nb-card-body>
-                                <app-resume-commande [translateExpression]="'button.validShopping'"></app-resume-commande>
+                                <app-resume-commande [finalStep]="true"></app-resume-commande>
                             </nb-card-body>
                         </nb-card>
                     </div>

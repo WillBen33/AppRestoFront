@@ -7,14 +7,16 @@ import { CommandeProduct } from 'src/app/api/models';
 })
 export class ShoppingCartService {
 
+  
   constructor() {
   }
 
   private getShoppingCart() {
-    let shoppingCard = localStorage.getItem('shoppingCard');
+    let shoppingCard = localStorage.getItem('shoppingCart');
     if (shoppingCard != null)
       return new Map<string, Array<CommandeProduct>>(JSON.parse(shoppingCard));
     return new Map<string, Array<CommandeProduct>>();
+
   }
 
   getNbProductInCart() {
@@ -50,7 +52,7 @@ export class ShoppingCartService {
       commandeProductTab.push(commandeProduct);
     }
     commandeProductMap.set(commandeProduct.product.libelle, commandeProductTab);
-    localStorage.setItem('shoppingCard', JSON.stringify(Array.from(commandeProductMap)));
+    localStorage.setItem('shoppingCart', JSON.stringify(Array.from(commandeProductMap)));
   }
 
   removeFromShoppingCart(commandeProduct: CommandeProduct) {
@@ -61,7 +63,7 @@ export class ShoppingCartService {
       commandeProductMap.set(commandeProduct.product.libelle, commandeProductTab);
     else
       commandeProductMap.delete(commandeProduct.product.libelle);
-    localStorage.setItem('shoppingCard', JSON.stringify(Array.from(commandeProductMap)));
+    localStorage.setItem('shoppingCart', JSON.stringify(Array.from(commandeProductMap)));
   }
 
   private sortCommandeProductByKeyAndComment() {

@@ -179,7 +179,8 @@
         "completeCommande": "Finaliser la commande",
         "validShopping": "Valider l'achat",
         "valid": "Valider",
-        "registerAndValid": "S'enregistrer et finaliser"
+        "registerAndValid": "S'enregistrer et finaliser",
+        "productDetail":"Détail du produit"
     },
     "404Notfound": {
         "title": "Erreur 404 ! Page non trouvé !",
@@ -193,7 +194,9 @@
         "quantity": "Quantité",
         "update": "Le produit a bien été modifié !",
         "remove": "Le produit a bien été retiré !",
-        "add": "Le produit a bien été ajouté au panier !"
+        "add": "Le produit a bien été ajouté au panier !",
+        "description":"Description",
+        "allergen": "Allergens"
     },
     "cart": {
         "title": "Votre panier",

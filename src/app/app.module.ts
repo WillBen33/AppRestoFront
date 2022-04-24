@@ -1,5 +1,6 @@
+import { registerLocaleData } from "@angular/common";
 import { HttpClient, HttpClientModule, HttpRequest } from "@angular/common/http";
-import { NgModule } from '@angular/core';
+import { DEFAULT_CURRENCY_CODE, LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -18,7 +19,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { httpInterceptorProviders } from './services/auth/http-interceptors';
 import { TemplatesModule } from "./templates/templates.module";
-
+import localeFr from "@angular/common/locales/fr";
 
 export function createTranslateLoader(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient, './assets/i18n/', '.json');
@@ -179,6 +180,8 @@ const socialLinks: NbAuthSocialLink[] = [];
         return false;
       },
     },
+    { provide: LOCALE_ID, useValue: "fr-FR" },
+    {provide: DEFAULT_CURRENCY_CODE, useValue: 'EUR'},
     httpInterceptorProviders,
     CookieService
   ],
@@ -197,4 +200,6 @@ export interface NbAuthSocialLink {
   title?: string,
   icon?: string,
 }
+
+registerLocaleData(localeFr, "fr");
 

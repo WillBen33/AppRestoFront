@@ -1,10 +1,9 @@
-$white: #ffffff;
-$white: #ffffff;
-$black: #000000;
-$primary1: #ffbe33;
-$primary2: #222831;
+@media (max-width: 575.98px) {
+    .custom-tabset ::ng-deep ul.tabset {
+        flex-direction: column;
+    }
 
-nb-tabset .tab.active .tab-link
-{
-  color: $primary1;
+    .custom-tabset ::ng-deep nb-tab.content-active {
+        padding: 0;
+    }
 }
