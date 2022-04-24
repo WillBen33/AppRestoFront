@@ -31,7 +31,7 @@ export class NgxLoginComponent extends NbLoginComponent implements OnInit {
     if (this.windowRef) {
       this.nbAuthService.authenticate("email", this.user).subscribe(nbAuthResult => {
         if (nbAuthResult.isSuccess()) {
-          this.windowRef?.close("submit")
+          this.windowRef?.close();
         }
         else
           this.errors = nbAuthResult.getErrors();

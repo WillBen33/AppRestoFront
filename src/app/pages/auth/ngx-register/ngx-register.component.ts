@@ -87,7 +87,7 @@ export class NgxRegisterComponent extends NbRegisterComponent implements OnInit 
       this.loading = true;
       this.nbAuthService.register("email", this.user).subscribe(nbAuthResult => {
         if (nbAuthResult.isSuccess()) {
-          this.windowRef?.close("submit")
+          this.windowRef?.close();
         }
         else
           this.errors = nbAuthResult.getErrors();
