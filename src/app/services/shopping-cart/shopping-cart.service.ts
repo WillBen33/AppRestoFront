@@ -7,7 +7,7 @@ import { CommandeProduct } from 'src/app/api/models';
 })
 export class ShoppingCartService {
 
-  
+
   constructor() {
   }
 
@@ -78,17 +78,24 @@ export class ShoppingCartService {
     let arr = new Array();
     this.sortCommandeProductByKeyAndComment().forEach(
       reducedCommandeProduct =>
-        arr = arr.concat(Object.values(reducedCommandeProduct))
+        arr = arr.concat(reducedCommandeProduct)
     )
     return arr;
   }
 
   getCommadeType() {
-    return localStorage.getItem('commandeType');
+    return localStorage.getItem('commandeType') as any;
   }
 
   setCommandeType(commandeType: string) {
     return localStorage.setItem('commandeType', commandeType);
+  }
+
+  getShoppingCartAsArray(): Array<CommandeProduct> {
+    let arr: Array<CommandeProduct> = new Array();
+    this.getShoppingCart().forEach(value =>
+     arr =  arr.concat(value));
+    return arr;
   }
 
 }

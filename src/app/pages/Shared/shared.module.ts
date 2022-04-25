@@ -12,7 +12,7 @@ import { DialogMessageComponent } from './components/dialog-message/dialog-messa
 import { ProductSelectionDialogComponent } from './components/product-selection-dialog/product-selection-dialog.component';
 import { ShoppingCartItemComponent } from './components/shopping-cart-item/shopping-cart-item.component';
 import { CheckoutComponent } from './checkout/checkout.component';
-import {RouterModule} from "@angular/router";
+import { RouterModule } from "@angular/router";
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { ExistPhoneNumberDirective } from './directives/exist-phone-number/exist-phone-number.directive';
 import { ExistEmailDirective } from './directives/existEmail/exist-email.directive';
@@ -57,18 +57,7 @@ const NB_MODULES = [
     ExistEmailDirective,
     ShoppingCartComponent,
     ShoppingCartItemComponent,
-    ResumeCommandeComponent]
-    imports: [
-        CommonModule,
-        TranslateModule.forChild(),
-        FormsModule,
-        ReactiveFormsModule,
-        NgbDatepickerModule,
-        MatIconModule,
-        MatButtonModule,
-        NB_MODULES,
-        RouterModule
-    ],
-    exports: [DialogMessageComponent, ExistPhoneNumberDirective, ExistEmailDirective, ShoppingCartComponent, ShoppingCartItemComponent, CheckoutComponent]
+    ResumeCommandeComponent,
+    CheckoutComponent]
 })
 export class SharedModule { }

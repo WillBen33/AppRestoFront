@@ -1,8 +1,12 @@
-import {Component, OnInit} from '@angular/core';
-import {CheckoutControllerService} from "../../../api/services/checkout-controller.service";
-import KRGlue from "@lyracom/embedded-form-glue";
-import {tap} from "rxjs/operators";
-import {Order} from "../../../api/models/order";
+import { Component, OnInit } from '@angular/core';
+import { CheckoutControllerService } from "../../../api/services/checkout-controller.service";
+import { filter, switchMap, tap } from "rxjs/operators";
+import { Order } from "../../../api/models/order";
+import { ShoppingCartService } from 'src/app/services/shopping-cart/shopping-cart.service';
+import { Adress, CommandeProduct, User } from 'src/app/api/models';
+import { UserControllerService } from 'src/app/api/services';
+import { NbAuthService } from '@nebular/auth';
+import KRGlue from '@lyracom/embedded-form-glue';
 
 
 @Component({
@@ -17,17 +21,33 @@ export class CheckoutComponent implements OnInit {
   public title: string = 'Checkout Form';
 
   order: Order = {
-    "amount": 50000,
-    "currency": "EUR"
+    payzenOrderInfos: {
+      "amount": 50000,
+      "currency": "EUR",
+    },
+    commande:
+    {
+      billingAdress: {} as Adress,
+      deliveryAdress: {} as Adress,
+      firstname: "",
+      phoneNumber: "",
+      commandeProducts: {} as Array<CommandeProduct>,
+      createdAt: "",
+      email: "",
+      typeCommande: "DELIVERY",
+      number: "",
+    }
   }
 
-  constructor(private checkoutControllerService: CheckoutControllerService) {
+  constructor(private checkoutControllerService: CheckoutControllerService,
+    private shoppingCartService: ShoppingCartService,
+    private userService: UserControllerService,
+    private authService: NbAuthService) {
+    this.initOrder();
   }
 
   ngOnInit() {
-    this.checkoutControllerService.generateFormToken({body: this.order}).pipe(tap(data => this.formToken = data?.answer.formToken)).subscribe(
-      () => this.onCheckout()
-    );
+
   }
 
   public onCheckout() {
@@ -36,18 +56,37 @@ export class CheckoutComponent implements OnInit {
     const formToken = this.formToken;
 
     KRGlue.loadLibrary(endpoint, publicKey) /* Load the remote library */
-      .then(({KR}) =>
+      .then(({ KR }) =>
         KR.setFormConfig({
           /* set the minimal configuration */
           formToken: formToken,
           "kr-language": "fr-FR", /* to update initialization parameter */
         })
       )
-      .then(({KR}) =>
+      .then(({ KR }) =>
         KR.addForm("#myPaymentForm")
       ) /* add a payment form  to myPaymentForm div*/
-      .then(({KR, result}) =>
+      .then(({ KR, result }) =>
         KR.showForm(result.formId)
       ); /* show the payment form */
+  }
+
+  initOrder() {
+    this.order.commande.commandeProducts = this.shoppingCartService.getShoppingCartAsArray();
+    this.order.commande.typeCommande = this.shoppingCartService.getCommadeType();
+    this.order.payzenOrderInfos.amount = this.shoppingCartService.getShoppingCartTotalValue() * 100;
+    this.authService.isAuthenticated().pipe(
+      filter(res => res === true),
+      switchMap(() => this.userService.getCurrentUser()),
+      switchMap(user => {
+        this.order.commande.billingAdress = user.billingAdress,
+          this.order.commande.deliveryAdress = user.deliveryAdress,
+          this.order.commande.email = user.email,
+          this.order.commande.phoneNumber = user.phoneNumber,
+          this.order.commande.firstname = user.firstname
+        return this.checkoutControllerService.generateFormToken({ body: this.order })
+      }),
+      tap(data => this.formToken = data?.answer.formToken)).
+      subscribe(() => this.onCheckout());
   }
 }
