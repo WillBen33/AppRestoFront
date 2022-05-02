@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import {Component, DoCheck, Inject, OnInit, Renderer2} from '@angular/core';
 
 @Component({
   selector: 'app-layout',
@@ -9,9 +10,12 @@ export class LayoutComponent implements OnInit {
 
   constructor() {
   }
+
+
  
 
   ngOnInit(): void {
   }
 
+  
 }

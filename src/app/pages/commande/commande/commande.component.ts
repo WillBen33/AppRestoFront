@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { NbAuthService } from '@nebular/auth';
 import { filter, switchMap } from 'rxjs/operators';
-import { User } from 'src/app/api/models';
+import { Adress, Commande, User } from 'src/app/api/models';
 import { UserControllerService } from 'src/app/api/services';
 import { ShoppingCartService } from 'src/app/services/shopping-cart/shopping-cart.service';
 
@@ -18,12 +19,13 @@ export class CommandeComponent implements OnInit {
   checkedBillingAdress: boolean = false;
   commandeInfosForm: FormGroup = new FormGroup({});
   authenticatedUser: boolean = false;
-
+  displayPayzenForm : boolean = false;
 
   constructor(private formBuilder: FormBuilder,
     private authService: NbAuthService,
     private userService: UserControllerService,
-    private shoppingCartService: ShoppingCartService) {
+    private shoppingCartService: ShoppingCartService,
+    private router : Router) {
     this.initForm();
   }
 
@@ -37,7 +39,6 @@ export class CommandeComponent implements OnInit {
         this.flippedAddress = true;
         this.setcommandeInfosFormValue(user);
       })
-
   }
 
   initForm() {
@@ -114,17 +115,17 @@ export class CommandeComponent implements OnInit {
 
   }
 
-  isInValidDeliveryAdress()
-  {
+  isInValidDeliveryAdress() {
     return this.commandeInfosForm.get('deliveryAdress')?.invalid;
   }
 
   flippAdressCard() {
-    if (this.commandeInfosForm.get('billingAdress')?.valid && this.commandeInfosForm.get('deliveryAdress')?.valid)
+    if (this.commandeInfosForm.get('billingAdress')?.valid && this.commandeInfosForm.get('deliveryAdress')?.valid) {
       this.flippedAddress = !this.flippedAddress;
+    }
     else {
-        this.commandeInfosForm.get('billingAdress')?.markAllAsTouched();
-        this.commandeInfosForm.get('deliveryAdress')?.markAllAsTouched();
+      this.commandeInfosForm.get('billingAdress')?.markAllAsTouched();
+      this.commandeInfosForm.get('deliveryAdress')?.markAllAsTouched();
     }
 
   }
@@ -197,11 +198,11 @@ export class CommandeComponent implements OnInit {
         {
           billingAdress:
           {
-            city: this.getDeliveryAdressControlValue('city'),
-            street: this.getDeliveryAdressControlValue('street'),
-            streetNumber: this.getDeliveryAdressControlValue('streetNumber'),
-            zipCode: this.getDeliveryAdressControlValue('zipCode'),
-            additionalAdress: this.getDeliveryAdressControlValue('additionalAdress'),
+            city: this.getAdressControlValue('city', 'deliveryAdress'),
+            street: this.getAdressControlValue('street', 'deliveryAdress'),
+            streetNumber: this.getAdressControlValue('streetNumber', 'deliveryAdress'),
+            zipCode: this.getAdressControlValue('zipCode', 'deliveryAdress'),
+            additionalAdress: this.getAdressControlValue('additionalAdress', 'deliveryAdress'),
           }
         }
       );
@@ -219,11 +220,65 @@ export class CommandeComponent implements OnInit {
     return this.commandeInfosForm.get(`identityInfos.${formControlName}`)?.value;
   }
 
-  getDeliveryAdressControlValue(formControlName: String) {
-    return this.commandeInfosForm.get(`deliveryAdress.${formControlName}`)?.value;
+  getAdressControlValue(formControlName: String, addressType: String) {
+    return this.commandeInfosForm.get(`${addressType}.${formControlName}`)?.value;
   }
+
+
   isDeliveryCommande() {
     return this.shoppingCartService.getCommadeType() === "DELIVERY";
   }
+
+  validShopping() {
+    localStorage.setItem('readyTopay',JSON.stringify(this.initCommande()));
+    this.router.navigate(['/commande/heatThePaymentCard'])
+  }
+
+  mustDisableButton() {
+    if (this.isDeliveryCommande()) {
+      return !this.flippedAddress || !this.flippedIdentityInfos;
+    }
+    else {
+      return !this.flippedIdentityInfos
+    }
+  }
+
+   initCommande(): Commande {
+    let commande: Commande = {} as Commande;
+    let deliveryAdress : Adress = {} as Adress;
+    let billingAdress: Adress =  {
+        city: this.getAdressControlValue("city", "billingAdress"),
+        street: this.getAdressControlValue("street", "billingAdress"),
+        streetNumber: this.getAdressControlValue("streetNumber", "billingAdress"),
+        zipCode: this.getAdressControlValue("zipCode", "billingAdress"),
+        additionalAdress: this.getAdressControlValue("additionalAdress", "billingAdress"),
+        country: this.getAdressControlValue("country", "billingAdress"),
+        department: this.getAdressControlValue("city", "billingAdress")
+      }
+    
+    if (this.isDeliveryCommande()) {
+     deliveryAdress = {
+      city: this.getAdressControlValue("city", "deliveryAdress"),
+      street: this.getAdressControlValue("street", "deliveryAdress"),
+      streetNumber: this.getAdressControlValue("streetNumber", "deliveryAdress"),
+      zipCode: this.getAdressControlValue("zipCode", "deliveryAdress"),
+      additionalAdress: this.getAdressControlValue("additionalAdress", "deliveryAdress"),
+      country: this.getAdressControlValue("country", "deliveryAdress"),
+      department: this.getAdressControlValue("city", "deliveryAdress")
+    }
+  }
+  
+
+    commande.billingAdress = billingAdress;
+    commande.deliveryAdress = deliveryAdress;
+    commande.email = this.getIdentityInfosControlValue("email");
+    commande.phoneNumber = this.getIdentityInfosControlValue("phoneNumber");
+    commande.firstname = this.getIdentityInfosControlValue("firstname");
+    commande.createdAt = new Date().toJSON();
+
+    return commande;
+  }
+
+
 
 }

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, DoCheck, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { NbDialogService } from '@nebular/theme';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
@@ -15,7 +15,7 @@ import { ProductSelectionDialogComponent } from '../product-selection-dialog/pro
 export class ShoppingCartItemComponent implements OnInit {
 
   @Input()
-  groupedCommandeProduct: Array<CommandeProduct> = new Array();;
+  groupedCommandeProduct: Array<CommandeProduct> = new Array();
 
   currentCommandeProduct: any;
 

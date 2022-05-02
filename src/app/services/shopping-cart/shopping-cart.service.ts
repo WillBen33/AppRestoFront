@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject, Subject } from 'rxjs';
 import { CommandeProduct } from 'src/app/api/models';
 
 
@@ -7,6 +8,7 @@ import { CommandeProduct } from 'src/app/api/models';
 })
 export class ShoppingCartService {
 
+  commandeProductSubject : Subject<Array<Array<CommandeProduct>>> = new BehaviorSubject<Array<Array<CommandeProduct>>>(this.getCommandeProductByKeyAndCommentArrays());
 
   constructor() {
   }
@@ -53,6 +55,8 @@ export class ShoppingCartService {
     }
     commandeProductMap.set(commandeProduct.product.libelle, commandeProductTab);
     localStorage.setItem('shoppingCart', JSON.stringify(Array.from(commandeProductMap)));
+    this.commandeProductSubject.next(this.getCommandeProductByKeyAndCommentArrays());
+
   }
 
   removeFromShoppingCart(commandeProduct: CommandeProduct) {
@@ -64,6 +68,7 @@ export class ShoppingCartService {
     else
       commandeProductMap.delete(commandeProduct.product.libelle);
     localStorage.setItem('shoppingCart', JSON.stringify(Array.from(commandeProductMap)));
+    this.commandeProductSubject.next(this.getCommandeProductByKeyAndCommentArrays());
   }
 
   private sortCommandeProductByKeyAndComment() {
@@ -78,7 +83,7 @@ export class ShoppingCartService {
     let arr = new Array();
     this.sortCommandeProductByKeyAndComment().forEach(
       reducedCommandeProduct =>
-        arr = arr.concat(reducedCommandeProduct)
+        arr = arr.concat(Object.values(reducedCommandeProduct))
     )
     return arr;
   }

@@ -214,7 +214,8 @@
         },
         "total": "Total de vos commandes",
         "confirmCommande": {
-            "myInfos": "Mes Informations"
+            "myInfos": "Mes Informations",
+            "creditCardData":"Entrez les coordonnées de votre carte ici !"
         }
     },
     "customer": {
@@ -238,5 +239,10 @@
                 "message": "Vous avez déjà rejoint la team ?"
             }
         }
+    },
+    "payment":
+    {
+        "valid":"Votre paiment a bien été validé !",
+        "title":"Status de la transaction"
     }
 }

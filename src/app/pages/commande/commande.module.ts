@@ -9,12 +9,14 @@ import { SharedModule } from '../Shared/shared.module';
 import { CartComponent } from './cart/cart.component';
 import { CommandeRoutingModule } from './commande-routing.module';
 import { CommandeComponent } from './commande/commande.component';
+import { HeatThePaymentCardComponent } from './heat-the-payment-card/heat-the-payment-card.component';
 
 
 @NgModule({
   declarations: [
     CommandeComponent,
-    CartComponent
+    CartComponent,
+    HeatThePaymentCardComponent
   ],
   imports: [
     CommonModule,

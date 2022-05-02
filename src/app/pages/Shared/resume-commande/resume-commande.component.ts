@@ -33,24 +33,7 @@ export class ResumeCommandeComponent implements OnInit {
   getShoppingCartTotalValue() {
     return this.shoppingCartService.getShoppingCartTotalValue().toFixed(2);
   }
-
-  completeCommande() {
-    this.nbAuthService.isAuthenticated().pipe(take(1)).subscribe(
-      res => {
-        if (res) {
-          this.router.navigate(["/commande/confirmCommande"]);
-        } else {
-          this.router.navigate(["/auth/checkout"]);
-        }
-      }
-    )
-  }
-
-  validShopping()
-  {
-    // TODO for final step 
-  }
-
+  
   isDeliveryCommande() {
 
     return this.shoppingCartService.getCommadeType() === "DELIVERY";
