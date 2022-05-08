@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject, Subject } from 'rxjs';
-import { CommandeProduct } from 'src/app/api/models';
+import {Injectable} from '@angular/core';
+import {BehaviorSubject, Subject} from 'rxjs';
+import {CommandeProduct} from 'src/app/api/models';
 
 
 @Injectable({
@@ -8,7 +8,7 @@ import { CommandeProduct } from 'src/app/api/models';
 })
 export class ShoppingCartService {
 
-  commandeProductSubject : Subject<Array<Array<CommandeProduct>>> = new BehaviorSubject<Array<Array<CommandeProduct>>>(this.getCommandeProductByKeyAndCommentArrays());
+  commandeProductSubject: Subject<Array<Array<CommandeProduct>>> = new BehaviorSubject<Array<Array<CommandeProduct>>>(this.getCommandeProductByKeyAndCommentArrays());
 
   constructor() {
   }
@@ -99,8 +99,12 @@ export class ShoppingCartService {
   getShoppingCartAsArray(): Array<CommandeProduct> {
     let arr: Array<CommandeProduct> = new Array();
     this.getShoppingCart().forEach(value =>
-     arr =  arr.concat(value));
+      arr = arr.concat(value));
     return arr;
+  }
+
+  deleteAllCartProducts(): void {
+    return localStorage.clear();
   }
 
 }

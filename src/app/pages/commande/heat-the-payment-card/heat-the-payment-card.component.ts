@@ -67,11 +67,12 @@ export class HeatThePaymentCardComponent implements OnInit {
         /* set the minimal configuration */
         formToken: formToken,
         "kr-language": "fr-FR", /* to update initialization parameter */
+        "kr-clear-on-error": false, /* clear the CCV field on refused transaction */
       })
     ).then(({KR}) => KR.onSubmit(resp => {
       axios
         .post('http://localhost:8081/restaurant/checkout/validatePayment', resp,
-        { 
+        {
           headers:{
             'X-XSRF-TOKEN' : this.cookieService.get("XSRF-TOKEN")
           },
@@ -81,10 +82,15 @@ export class HeatThePaymentCardComponent implements OnInit {
           if (response.status === 200)
           {
             this.toastrService.success(this.translateService.instant("payment.valid"), this.translateService.instant("payment.title"));
-          
+            // this.shoppingCartService.deleteAllCartProducts();
+            // this.router.navigate(['commande/success']);
           }
-        })
+        }
+      )
       return false
+    }))
+    .then(({KR}) => KR.onError(resp => {
+      this.toastrService.error(this.translateService.instant("payment.invalid"), this.translateService.instant("payment.title"));
     }))
     .then(({ KR }) =>
       KR.addForm("#myPaymentForm")
@@ -93,8 +99,8 @@ export class HeatThePaymentCardComponent implements OnInit {
       KR.showForm(result.formId)
     ); /* show the payment form */
 
-   
-      
+
+
   }
 
   initOrder() {

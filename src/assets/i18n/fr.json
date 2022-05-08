@@ -242,7 +242,8 @@
     },
     "payment":
     {
-        "valid":"Votre paiment a bien été validé !",
-        "title":"Status de la transaction"
+        "title":"Status de la transaction",
+        "valid":"Votre paiement a bien été validé !",
+        "invalid":"Le processus de paiement a rencontré une erreur !"
     }
 }
