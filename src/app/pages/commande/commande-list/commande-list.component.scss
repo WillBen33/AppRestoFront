@@ -1,0 +1,37 @@
+@use '../../../../themes.scss' as *;
+
+:host nb-list-item {
+    display: block;
+    border: 0;
+}
+
+:host nb-accordion-item-header {
+    justify-content: space-evenly;
+    background-color: aliceblue;
+}
+
+@media (max-width: 575.98px) {
+
+    :host nb-accordion-item-header {
+        flex-direction: column;
+        background-color: aliceblue;
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    
+
+    :host .custom-layout-column
+    {
+        padding: 0 !important;
+    }
+
+    :host nb-card-body
+    {
+        padding: 0;
+    }
+
+    :host nb-list-item {
+        padding: 0;
+    }
+}

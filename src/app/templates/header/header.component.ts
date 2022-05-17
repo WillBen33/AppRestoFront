@@ -44,7 +44,7 @@ export class HeaderComponent implements OnInit {
   }
 
   displayCommandes() {
-    // A développer
+    this.router.navigate(['/commande/commandeList'])
   }
 
   logout(): void {

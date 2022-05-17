@@ -2,7 +2,6 @@
     <div class="col-sm-10 offset-sm-2">
         <h1 id="title" class="title">{{"account.register.create" | translate }}</h1>
     </div>
-    <igx-divider></igx-divider>
 </div>
 
 <div class="row" [nbSpinner]="loading" nbSpinnerStatus="success">
@@ -25,7 +24,7 @@
                         </div>
                     </div>
                     <div class="row mb-2">
-                        <div class="col offset-md-2">
+                        <div class="col offset-sm-2 offset-md-2">
                             <ng-container *ngIf="civility.invalid && civility.touched">
                                 <p class="error-message caption status-danger" *ngIf="civility.errors?.required">
                                     {{"error.required.field" | translate:{'field': [['user.civility' | translate]]} }}
@@ -34,7 +33,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col offset-md-2">
+                        <div class="col offset-sm-2 offset-md-2">
                             <input nbInput [(ngModel)]="user.firstname" #firstname="ngModel" id="input-firstname"
                                 name="firstname" placeholder='{{"user.firstname" | translate }}' fullWidth
                                 [status]="firstname.dirty ? (firstname.invalid  ? 'danger' : 'warning') : ''"
@@ -44,7 +43,7 @@
                         </div>
                     </div>
                     <div class="row mb-2">
-                        <div class="col offset-md-2">
+                        <div class="col offset-sm-2 offset-md-2">
                             <ng-container *ngIf="firstname.invalid && firstname.touched">
                                 <p class="error-message caption status-danger" *ngIf="firstname.errors?.required">
                                     {{"error.required.field" | translate:{'field': [['user.firstname' | translate ]]} }}
@@ -53,7 +52,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col offset-md-2">
+                        <div class="col offset-sm-2 offset-md-2">
                             <input nbInput [(ngModel)]="user.lastname" #lastname="ngModel" id="input-lastname"
                                 name="lastname" placeholder='{{"user.lastname" | translate }}' fullWidth
                                 [status]="lastname.dirty ? (lastname.invalid  ? 'danger' : 'warning') : ''"
@@ -63,7 +62,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col offset-md-2">
+                        <div class="col offset-sm-2 offset-md-2">
                             <ng-container *ngIf="lastname.invalid && lastname.touched">
                                 <p class="error-message caption status-danger" *ngIf="lastname.errors?.required">
                                     {{"error.required.field" | translate:{'field': [['user.lastname' | translate]]} }}
@@ -91,7 +90,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col offset-md-2">
+                        <div class="col offset-sm-2 offset-md-2">
                             <ng-container *ngIf="deliveryAdressStreet.invalid && deliveryAdressStreet.touched">
                                 <p class="error-message caption status-danger"
                                     *ngIf="deliveryAdressStreet.errors?.required">
@@ -103,7 +102,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col offset-md-2">
+                        <div class="col offset-sm-2 offset-md-2">
                             <input nbInput [(ngModel)]="user.deliveryAdress.streetNumber"
                                 #deliveryAdressStreetNumber="ngModel" id="input-deliveryAdressStreetNumber"
                                 name="deliveryAdressStreetNumber"
@@ -114,7 +113,7 @@
                         </div>
                     </div>
                     <div class="row mb-2">
-                        <div class="col offset-md-2">
+                        <div class="col offset-sm-2 offset-md-2">
                             <ng-container
                                 *ngIf="deliveryAdressStreetNumber.invalid && deliveryAdressStreetNumber.touched">
                                 <p class="error-message caption status-danger"
@@ -127,7 +126,7 @@
                     </div>
 
                     <div class="row mb-2">
-                        <div class="col offset-md-2">
+                        <div class="col offset-sm-2 offset-md-2">
                             <input nbInput [(ngModel)]="user.deliveryAdress.additionalAdress"
                                 #deliveryAdressAdditionalAdress="ngModel" id="input-deliveryAdressAdditionalAdress"
                                 name="deliveryAdressAdditionalAdress"
@@ -139,7 +138,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col offset-md-2">
+                        <div class="col offset-sm-2 offset-md-2">
                             <input nbInput [(ngModel)]="user.deliveryAdress.zipCode" #deliveryAdressZipCode="ngModel"
                                 id="input-deliveryAdressZipCode" name="deliveryAdressZipCode"
                                 placeholder='{{"user.adress.zipCode" | translate }}' fullWidth
@@ -149,7 +148,7 @@
                         </div>
                     </div>
                     <div class="row mb-2">
-                        <div class="col offset-md-2">
+                        <div class="col offset-sm-2 offset-md-2">
                             <ng-container *ngIf="deliveryAdressZipCode.invalid && deliveryAdressZipCode.touched">
                                 <p class="error-message caption status-danger"
                                     *ngIf="deliveryAdressZipCode.errors?.required">
@@ -161,7 +160,7 @@
                     </div>
 
                     <div class="row mb-2">
-                        <div class="col offset-md-2">
+                        <div class="col offset-sm-2 offset-md-2">
                             <input nbInput [(ngModel)]="user.deliveryAdress.city" #deliveryAdressCity="ngModel"
                                 id="input-deliveryAdressCity" name="deliveryAdressCity"
                                 placeholder='{{"user.adress.city" | translate }}' fullWidth
@@ -171,7 +170,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col offset-md-2">
+                        <div class="col offset-sm-2 offset-md-2">
                             <ng-container *ngIf="deliveryAdressCity.invalid && deliveryAdressCity.touched">
                                 <p class="error-message caption status-danger"
                                     *ngIf="deliveryAdressCity.errors?.required">
@@ -184,7 +183,7 @@
                     </div>
 
                     <div class="row ">
-                        <div class="col offset-md-2">
+                        <div class="col offset-sm-2 offset-md-2">
                             <input nbInput [(ngModel)]="user.deliveryAdress.country" #deliveryAdressCountry="ngModel"
                                 id="input-deliveryAdressCountry" name="deliveryAdressCountry"
                                 placeholder='{{"user.adress.country" | translate }}' fullWidth
@@ -195,7 +194,7 @@
                     </div>
                  
                     <div class="row mt-2">
-                        <div class="col offset-md-2">
+                        <div class="col offset-sm-2 offset-md-2">
                             <ng-container *ngIf="deliveryAdressCountry.invalid && deliveryAdressCountry.touched">
                                 <p class="error-message caption status-danger"
                                     *ngIf="deliveryAdressCountry.errors?.required">
@@ -228,7 +227,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col offset-md-2">
+                        <div class="col offset-sm-2 offset-md-2">
                             <ng-container *ngIf="billingAdressStreet.invalid && billingAdressStreet.touched">
                                 <p class="error-message caption status-danger"
                                     *ngIf="billingAdressStreet.errors?.required">
@@ -240,7 +239,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col offset-md-2">
+                        <div class="col offset-sm-2 offset-md-2">
                             <input nbInput [(ngModel)]="user.billingAdress.streetNumber"
                                 #billingAdressStreetNumber="ngModel" id="input-billingAdressStreetNumber"
                                 name="billingAdressStreetNumber"
@@ -251,7 +250,7 @@
                         </div>
                     </div>
                     <div class="row mb-2">
-                        <div class="col offset-md-2">
+                        <div class="col offset-sm-2 offset-md-2">
                             <ng-container
                                 *ngIf="billingAdressStreetNumber.invalid && billingAdressStreetNumber.touched">
                                 <p class="error-message caption status-danger"
@@ -264,7 +263,7 @@
                     </div>
 
                     <div class="row mb-2">
-                        <div class="col offset-md-2">
+                        <div class="col offset-sm-2 offset-md-2">
                             <input nbInput [(ngModel)]="user.billingAdress.additionalAdress"
                                 #billingAdressAdditionalAdress="ngModel" id="input-billingAdressAdditionalAdress"
                                 name="billingAdressAdditionalAdress"
@@ -276,7 +275,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col offset-md-2">
+                        <div class="col offset-sm-2 offset-md-2">
                             <input nbInput [(ngModel)]="user.billingAdress.zipCode" #billingAdressZipCode="ngModel"
                                 id="input-billingAdressZipCode" name="billingAdressZipCode"
                                 placeholder='{{"user.adress.zipCode" | translate }}' fullWidth
@@ -286,7 +285,7 @@
                         </div>
                     </div>
                     <div class="row mb-2">
-                        <div class="col offset-md-2">
+                        <div class="col offset-sm-2 offset-md-2">
                             <ng-container *ngIf="billingAdressZipCode.invalid && billingAdressZipCode.touched">
                                 <p class="error-message caption status-danger"
                                     *ngIf="billingAdressZipCode.errors?.required">
@@ -298,7 +297,7 @@
                     </div>
 
                     <div class="row mb-2">
-                        <div class="col offset-md-2">
+                        <div class="col offset-sm-2 offset-md-2">
                             <input nbInput [(ngModel)]="user.billingAdress.city" #billingAdressCity="ngModel"
                                 id="input-billingAdressCity" name="billingAdressCity"
                                 placeholder='{{"user.adress.city" | translate }}' fullWidth
@@ -308,7 +307,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col offset-md-2">
+                        <div class="col offset-sm-2 offset-md-2">
                             <ng-container *ngIf="billingAdressCity.invalid && billingAdressCity.touched">
                                 <p class="error-message caption status-danger"
                                     *ngIf="billingAdressCity.errors?.required">
@@ -321,7 +320,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col offset-md-2">
+                        <div class="col offset-sm-2 offset-md-2">
                             <input nbInput [(ngModel)]="user.billingAdress.country" #billingAdressCountry="ngModel"
                                 id="input-billingAdressCountry" name="billingAdressCountry"
                                 placeholder='{{"user.adress.country" | translate }}' fullWidth
@@ -332,7 +331,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col offset-md-2">
+                        <div class="col offset-sm-2 offset-md-2">
                             <ng-container *ngIf="billingAdressCountry.invalid && billingAdressCountry.touched">
                                 <p class="error-message caption status-danger"
                                     *ngIf="billingAdressCountry.errors?.required">
@@ -361,7 +360,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col offset-md-2">
+                        <div class="col offset-sm-2 offset-md-2">
                             <ng-container *ngIf="phoneNumber.invalid && phoneNumber.touched">
                                 <p class="error-message caption status-danger" *ngIf="phoneNumber.errors?.required">
                                     {{"error.required.field" | translate:{'field': [['user.phoneNumber' | translate ]] }
@@ -399,7 +398,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col offset-md-2">
+                        <div class="col offset-sm-2 offset-md-2">
                             <ng-container *ngIf="email.invalid && email.touched  && email.dirty">
                                 <p class="caption status-danger" *ngIf="email.errors?.required">
                                     {{"error.required.field" | translate:{'field': [['user.email' | translate ]]} }}
@@ -440,7 +439,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col offset-md-2">
+                        <div class="col offset-sm-2 offset-md-2">
                             <ng-container *ngIf="password.invalid && password.touched ">
                                 <p class="caption status-danger" *ngIf="password.errors?.required">
                                     {{"error.required.field" | translate:{'field': [['user.password' | translate ]]} }}
@@ -492,7 +491,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col offset-md-2">
+                        <div class="col offset-sm-2 offset-md-2">
                             <ng-container *ngIf="rePass.invalid && rePass.touched">
                                 <p class="error-message caption status-danger" *ngIf="rePass.errors?.required">
                                     {{"error.required.field" | translate:{'field': [['user.rePassword' | translate]]} }}
@@ -524,7 +523,7 @@
             </nb-checkbox>
         </div>
         <div class="row">
-            <div class="col offset-md-2">
+            <div class="col offset-sm-2 offset-md-2">
                 <ng-container *ngIf="(form.valid === true && terms.value === false)">
                     <p class="error-message caption status-danger">
                         {{"error.required.cgu" | translate }}

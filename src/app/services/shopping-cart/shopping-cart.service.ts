@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { stringify } from 'querystring';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { CommandeProduct } from 'src/app/api/models';
 
@@ -8,7 +9,8 @@ import { CommandeProduct } from 'src/app/api/models';
 })
 export class ShoppingCartService {
 
-  commandeProductSubject : Subject<Array<Array<CommandeProduct>>> = new BehaviorSubject<Array<Array<CommandeProduct>>>(this.getCommandeProductByKeyAndCommentArrays());
+  commandeProductSubject : Subject<Array<Array<CommandeProduct>>> = 
+  new BehaviorSubject<Array<Array<CommandeProduct>>>(this.getCommandeProductByKeyAndCommentArrays(this.getShoppingCart()));
 
   constructor() {
   }
@@ -55,7 +57,7 @@ export class ShoppingCartService {
     }
     commandeProductMap.set(commandeProduct.product.libelle, commandeProductTab);
     localStorage.setItem('shoppingCart', JSON.stringify(Array.from(commandeProductMap)));
-    this.commandeProductSubject.next(this.getCommandeProductByKeyAndCommentArrays());
+    this.commandeProductSubject.next(this.getCommandeProductByKeyAndCommentArrays(commandeProductMap));
 
   }
 
@@ -68,20 +70,26 @@ export class ShoppingCartService {
     else
       commandeProductMap.delete(commandeProduct.product.libelle);
     localStorage.setItem('shoppingCart', JSON.stringify(Array.from(commandeProductMap)));
-    this.commandeProductSubject.next(this.getCommandeProductByKeyAndCommentArrays());
+    this.commandeProductSubject.next(this.getCommandeProductByKeyAndCommentArrays(commandeProductMap));
   }
 
-  private sortCommandeProductByKeyAndComment() {
-    let commandeProductMap: Map<string, Array<CommandeProduct>> = this.getShoppingCart();
+  private groupCommandeProductByKeyAndComment(objectMap : Map<string,Array<CommandeProduct>>) {
     let groupByCommentMap: Map<string, any> = new Map();
-    commandeProductMap.forEach((commandeProductArray, key) =>
+    objectMap.forEach((commandeProductArray, key) =>
       groupByCommentMap.set(key, groupBy(commandeProductArray, "comment")));
     return Array.from(groupByCommentMap.values());
   }
 
-  getCommandeProductByKeyAndCommentArrays() {
+  getGroupedCommandeProductFromList(commandeProductsArray : Array<CommandeProduct>)
+  {
+    let obj = groupByProduct(commandeProductsArray,"product","libelle");
+    let commandeProductMap: Map<string, Array<CommandeProduct>> = new Map(Object.entries(obj));
+    return commandeProductMap;
+  }
+
+  getCommandeProductByKeyAndCommentArrays(objectMap : Map<string,Array<CommandeProduct>>) {
     let arr = new Array();
-    this.sortCommandeProductByKeyAndComment().forEach(
+    this.groupCommandeProductByKeyAndComment(objectMap).forEach(
       reducedCommandeProduct =>
         arr = arr.concat(Object.values(reducedCommandeProduct))
     )
@@ -108,6 +116,17 @@ export class ShoppingCartService {
 function groupBy(tableauObjets: Array<any>, propriete: string) {
   return tableauObjets.reduce(function (acc, obj) {
     var cle = obj[propriete];
+    if (!acc[cle]) {
+      acc[cle] = [];
+    }
+    acc[cle].push(obj);
+    return acc;
+  }, {});
+}
+
+function groupByProduct(tableauObjets: Array<any>, propriete: string, propriete2: string) {
+  return tableauObjets.reduce(function (acc, obj) {
+    var cle = obj[propriete][propriete2];
     if (!acc[cle]) {
       acc[cle] = [];
     }

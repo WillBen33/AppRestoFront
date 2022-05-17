@@ -1,8 +1,8 @@
-<nb-layout>
-    <nb-layout-column>
+<nb-layout class="custom-layout">
+    <nb-layout-column class="custom-layout-column">
         <nb-card>
-            <nb-card-body>
-                <div class="row row-cols-2 mb-3">
+            <nb-card-body class="layout-card-body">
+                <div class="row row-cols-1 row-cols-sm-1 row-cols-md-1 row-cols-lg-2 mb-3">
                     <div class="col">
                         <form [formGroup]="commandeInfosForm">
                             <nb-flip-card [flipped]="flippedIdentityInfos" [showToggleButton]="false">
@@ -25,7 +25,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="row mb-2">
-                                                    <div class="col offset-md-2">
+                                                    <div class="col offset-sm-2 offset-md-2">
                                                         <ng-container *ngIf="civility?.invalid && civility?.touched">
                                                             <p class="error-message caption status-danger"
                                                                 *ngIf="civility?.errors?.required">
@@ -36,7 +36,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col offset-md-2">
+                                                    <div class="col offset-sm-2 offset-md-2">
                                                         <input nbInput formControlName="firstname" id="input-firstname"
                                                             placeholder='{{"user.firstname" | translate }}' fullWidth
                                                             [status]="firstname?.dirty ? (firstname?.invalid  ? 'danger' : 'success') : ''"
@@ -44,7 +44,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="row mb-2">
-                                                    <div class="col offset-md-2">
+                                                    <div class="col  offset-sm-2  offset-md-2">
                                                         <ng-container *ngIf="firstname?.invalid && firstname?.touched">
                                                             <p class="error-message caption status-danger"
                                                                 *ngIf="firstname?.errors?.required">
@@ -55,7 +55,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col offset-md-2">
+                                                    <div class="col  offset-sm-2  offset-md-2">
                                                         <input nbInput formControlName="lastname" id="input-lastname"
                                                             placeholder='{{"user.lastname" | translate }}' fullWidth
                                                             [status]="lastname?.dirty ? (lastname?.invalid  ? 'danger' : 'success') : ''"
@@ -63,7 +63,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col offset-md-2">
+                                                    <div class="col  offset-sm-2  offset-md-2">
                                                         <ng-container *ngIf="lastname?.invalid && lastname?.touched">
                                                             <p class="error-message caption status-danger"
                                                                 *ngIf="lastname?.errors?.required">
@@ -88,7 +88,7 @@
                                                 </div>
 
                                                 <div class="row">
-                                                    <div class="col offset-md-2">
+                                                    <div class="col  offset-sm-2  offset-md-2">
                                                         <ng-container
                                                             *ngIf="email?.invalid && email?.touched ||  email?.dirty">
                                                             <p class="caption status-danger"
@@ -118,7 +118,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col offset-md-2">
+                                                    <div class="col  offset-sm-2  offset-md-2">
                                                         <ng-container
                                                             *ngIf="phoneNumber?.invalid && phoneNumber?.touched">
                                                             <p class="error-message caption status-danger"
@@ -182,7 +182,7 @@
                                     <nb-card>
                                         <nb-card-body>
                                             <div class="form-control-group" formGroupName="deliveryAdress">
-                                                <div class="row">
+                                                <div class="row mb-2">
                                                     <div class="col-sm-2 col-form-label">
                                                         <fa-icon [icon]="['fas', 'home']"
                                                             nbTooltip="{{'user.deliveryAdress' | translate}}"
@@ -199,7 +199,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col offset-md-2">
+                                                    <div class="col  offset-sm-2  offset-md-2">
                                                         <ng-container
                                                             *ngIf="deliveryAdressStreet?.invalid && deliveryAdressStreet?.touched">
                                                             <p class="error-message caption status-danger"
@@ -211,8 +211,8 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="row">
-                                                    <div class="col offset-md-2">
+                                                <div class="row ">
+                                                    <div class="col offset-sm-2  offset-md-2">
                                                         <input nbInput formControlName="streetNumber"
                                                             id="input-deliveryAdressStreetNumber"
                                                             placeholder='{{"user.adress.streetNumber" | translate }}'
@@ -223,7 +223,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="row mb-2">
-                                                    <div class="col offset-md-2">
+                                                    <div class="col offset-sm-2  offset-md-2">
                                                         <ng-container
                                                             *ngIf="deliveryAdressStreetNumber?.invalid && deliveryAdressStreetNumber?.touched">
                                                             <p class="error-message caption status-danger"
@@ -236,7 +236,7 @@
                                                 </div>
 
                                                 <div class="row mb-2">
-                                                    <div class="col offset-md-2">
+                                                    <div class="col  offset-sm-2  offset-md-2">
                                                         <input nbInput formControlName="additionalAdress"
                                                             id="input-deliveryAdressAdditionalAdress"
                                                             placeholder='{{"user.adress.additionalAdress" | translate }}'
@@ -248,7 +248,7 @@
                                                 </div>
 
                                                 <div class="row">
-                                                    <div class="col offset-md-2">
+                                                    <div class="col  offset-sm-2  offset-md-2">
                                                         <input nbInput formControlName="zipCode"
                                                             id="input-deliveryAdressZipCode"
                                                             placeholder='{{"user.adress.zipCode" | translate }}'
@@ -259,7 +259,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="row mb-2">
-                                                    <div class="col offset-md-2">
+                                                    <div class="col offset-sm-2 offset-md-2">
                                                         <ng-container
                                                             *ngIf="deliveryAdressZipCode?.invalid && deliveryAdressZipCode?.touched">
                                                             <p class="error-message caption status-danger"
@@ -272,7 +272,7 @@
                                                 </div>
 
                                                 <div class="row mb-2">
-                                                    <div class="col offset-md-2">
+                                                    <div class="col offset-sm-2  offset-md-2">
                                                         <input nbInput formControlName="city"
                                                             id="input-deliveryAdressCity"
                                                             placeholder='{{"user.adress.city" | translate }}' fullWidth
@@ -282,7 +282,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col offset-md-2">
+                                                    <div class="col offset-sm-2  offset-md-2">
                                                         <ng-container
                                                             *ngIf="deliveryAdressCity?.invalid && deliveryAdressCity?.touched">
                                                             <p class="error-message caption status-danger"
@@ -297,17 +297,15 @@
                                             </div>
 
 
-                                            <div class="row col offset-md-2">
+                                            <div class="row col mb-2">
                                                 <nb-checkbox status="warning" (checkedChange)="setBillingAdress($event)"
                                                     [disabled]="isInValidDeliveryAdress()">{{"billingAdress.keep" |
                                                     translate}}</nb-checkbox>
                                             </div>
 
-                                            <mat-divider class="mt-2 mb-2"></mat-divider>
-
                                             <div class="form-control-group" *ngIf="!checkedBillingAdress"
                                                 formGroupName="billingAdress">
-                                                <div class="row">
+                                                <div class="row mb-2">
                                                     <div class="col-sm-2 col-form-label">
                                                         <fa-icon [icon]="['fas', 'home']"
                                                             nbTooltip="{{'user.billingAdress' | translate}}"
@@ -324,7 +322,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col offset-md-2">
+                                                    <div class="col offset-sm-2  offset-md-2">
                                                         <ng-container
                                                             *ngIf="billingAdressStreet?.invalid && billingAdressStreet?.touched">
                                                             <p class="error-message caption status-danger"
@@ -337,7 +335,7 @@
                                                 </div>
 
                                                 <div class="row">
-                                                    <div class="col offset-md-2">
+                                                    <div class="col offset-sm-2  offset-md-2">
                                                         <input nbInput formControlName="streetNumber"
                                                             id="input-billingAdressStreetNumber"
                                                             placeholder='{{"user.adress.streetNumber" | translate }}'
@@ -348,7 +346,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="row mb-2">
-                                                    <div class="col offset-md-2">
+                                                    <div class="col offset-sm-2  offset-md-2">
                                                         <ng-container
                                                             *ngIf="billingAdressStreetNumber?.invalid && billingAdressStreetNumber?.touched">
                                                             <p class="error-message caption status-danger"
@@ -361,7 +359,7 @@
                                                 </div>
 
                                                 <div class="row mb-2">
-                                                    <div class="col offset-md-2">
+                                                    <div class="col offset-sm-2  offset-md-2">
                                                         <input nbInput formControlName="additionalAdress"
                                                             id="input-billingAdressAdditionalAdress"
                                                             placeholder='{{"user.adress.additionalAdress" | translate }}'
@@ -373,7 +371,7 @@
                                                 </div>
 
                                                 <div class="row">
-                                                    <div class="col offset-md-2">
+                                                    <div class="col offset-sm-2  offset-md-2">
                                                         <input nbInput formControlName="zipCode"
                                                             id="input-billingAdressZipCode"
                                                             placeholder='{{"user.adress.zipCode" | translate }}'
@@ -384,7 +382,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="row mb-2">
-                                                    <div class="col offset-md-2">
+                                                    <div class="col offset-sm-2  offset-md-2">
                                                         <ng-container
                                                             *ngIf="billingAdressZipCode?.invalid && billingAdressZipCode?.touched">
                                                             <p class="error-message caption status-danger"
@@ -397,7 +395,7 @@
                                                 </div>
 
                                                 <div class="row mb-2">
-                                                    <div class="col offset-md-2">
+                                                    <div class="col offset-sm-2  offset-md-2">
                                                         <input nbInput formControlName="city"
                                                             id="input-billingAdressCity"
                                                             placeholder='{{"user.adress.city" | translate }}' fullWidth
@@ -407,7 +405,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col offset-md-2">
+                                                    <div class="col offset-sm-2  offset-md-2">
                                                         <ng-container
                                                             *ngIf="billingAdressCity?.invalid && billingAdressCity?.touched">
                                                             <p class="error-message caption status-danger"
@@ -470,7 +468,7 @@
                                 </nb-card-body>
                             </nb-card>
                         </div>
-                        </div>
+                    </div>
                 </div>
             </nb-card-body>
         </nb-card>

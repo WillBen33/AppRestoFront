@@ -47,8 +47,8 @@ export class HeatThePaymentCardComponent implements OnInit {
     private shoppingCartService: ShoppingCartService,
     private cookieService: CookieService,
     private toastrService: ToastrService,
-    private translateService : TranslateService,
-    private router : Router) {
+    private translateService: TranslateService,
+    private router: Router) {
     this.order.commande = this.initCommande();
   }
 
@@ -62,39 +62,45 @@ export class HeatThePaymentCardComponent implements OnInit {
     const publicKey = "67953007:testpublickey_5U33XRhlq7USngQP0hmpn6Kw1jVL29VucW1xOTicQZdsT";
     const formToken = this.formToken;
     KRGlue.loadLibrary(endpoint, publicKey) /* Load the remote library */
-    .then(({ KR }) =>
-      KR.setFormConfig({
-        /* set the minimal configuration */
-        formToken: formToken,
-        "kr-language": "fr-FR", /* to update initialization parameter */
-      })
-    ).then(({KR}) => KR.onSubmit(resp => {
-      axios
-        .post('http://localhost:8081/restaurant/checkout/validatePayment', resp,
-        { 
-          headers:{
-            'X-XSRF-TOKEN' : this.cookieService.get("XSRF-TOKEN")
-          },
-          withCredentials:true,
+      .then(({ KR }) =>
+        KR.setFormConfig({
+          /* set the minimal configuration */
+          formToken: formToken,
+          "kr-language": "fr-FR", /* to update initialization parameter */
         })
-        .then(response => {
-          if (response.status === 200)
-          {
-            this.toastrService.success(this.translateService.instant("payment.valid"), this.translateService.instant("payment.title"));
-          
-          }
-        })
-      return false
-    }))
-    .then(({ KR }) =>
-      KR.addForm("#myPaymentForm")
-    ) /* add a payment form  to myPaymentForm div*/
-    .then(({ KR, result }) =>
-      KR.showForm(result.formId)
-    ); /* show the payment form */
+      ).then(({ KR }) => KR.onSubmit(resp => {
+        axios
+          .post('http://localhost:8081/restaurant/checkout/validatePayment', resp,
+            {
+              headers: {
+                'X-XSRF-TOKEN': this.cookieService.get("XSRF-TOKEN")
+              },
+              withCredentials: true,
+            })
+          .then(response => {
+            if (response.status === 200) {
+              this.toastrService.success(this.translateService.instant("payment.valid"), this.translateService.instant("payment.title"));
 
-   
-      
+            }
+          })
+        return false
+      }))
+      .then(({ KR }) => KR.onError(err => {
+        switch (err.errorCode) {
+          case "PSP_108":
+            err.errorMessage = this.translateService.instant("payment.formTokenExpired")
+            break;
+        }
+      }))
+      .then(({ KR }) =>
+        KR.addForm("#myPaymentForm")
+      ) /* add a payment form  to myPaymentForm div*/
+      .then(({ KR, result }) =>
+        KR.showForm(result.formId)
+      ); /* show the payment form */
+
+
+
   }
 
   initOrder() {

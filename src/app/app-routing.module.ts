@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { AuthGuardService } from './services/auth/guards/auth-guard.service';
 import { LayoutComponent } from "./templates/layout/layout.component";
 
 const routes: Routes = [
@@ -43,7 +44,7 @@ const routes: Routes = [
         path: 'account',
         loadChildren: () =>
           import('./pages/account/account.module').then((m) => m.AccountModule),
-        // canActivate: [AuthGuardService]
+         canActivate: [AuthGuardService]
       },
       {
         path: 'commande',
