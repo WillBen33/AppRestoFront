@@ -1,6 +1,4 @@
-import { DOCUMENT } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
-import { Component, Inject, OnInit, Renderer2 } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import KRGlue from '@lyracom/embedded-form-glue';
 import { TranslateService } from '@ngx-translate/core';
@@ -62,42 +60,42 @@ export class HeatThePaymentCardComponent implements OnInit {
     const publicKey = "67953007:testpublickey_5U33XRhlq7USngQP0hmpn6Kw1jVL29VucW1xOTicQZdsT";
     const formToken = this.formToken;
     KRGlue.loadLibrary(endpoint, publicKey) /* Load the remote library */
-      .then(({ KR }) =>
-        KR.setFormConfig({
-          /* set the minimal configuration */
-          formToken: formToken,
-          "kr-language": "fr-FR", /* to update initialization parameter */
+    .then(({ KR }) =>
+      KR.setFormConfig({
+        /* set the minimal configuration */
+        formToken: formToken,
+        "kr-language": "fr-FR", /* to update initialization parameter */
+        "kr-clear-on-error": false, /* clear the CCV field on refused transaction */
+      })
+    ).then(({KR}) => KR.onSubmit(resp => {
+      axios
+        .post('http://localhost:8081/restaurant/checkout/validatePayment', resp,
+        {
+          headers:{
+            'X-XSRF-TOKEN' : this.cookieService.get("XSRF-TOKEN")
+          },
+          withCredentials:true,
         })
-      ).then(({ KR }) => KR.onSubmit(resp => {
-        axios
-          .post('http://localhost:8081/restaurant/checkout/validatePayment', resp,
-            {
-              headers: {
-                'X-XSRF-TOKEN': this.cookieService.get("XSRF-TOKEN")
-              },
-              withCredentials: true,
-            })
-          .then(response => {
-            if (response.status === 200) {
-              this.toastrService.success(this.translateService.instant("payment.valid"), this.translateService.instant("payment.title"));
-
-            }
-          })
-        return false
-      }))
-      .then(({ KR }) => KR.onError(err => {
-        switch (err.errorCode) {
-          case "PSP_108":
-            err.errorMessage = this.translateService.instant("payment.formTokenExpired")
-            break;
+        .then(response => {
+          if (response.status === 200)
+          {
+            this.toastrService.success(this.translateService.instant("payment.valid"), this.translateService.instant("payment.title"));
+            // this.shoppingCartService.deleteAllCartProducts();
+            // this.router.navigate(['commande/success']);
+          }
         }
-      }))
-      .then(({ KR }) =>
-        KR.addForm("#myPaymentForm")
-      ) /* add a payment form  to myPaymentForm div*/
-      .then(({ KR, result }) =>
-        KR.showForm(result.formId)
-      ); /* show the payment form */
+      )
+      return false
+    }))
+    .then(({KR}) => KR.onError(resp => {
+      this.toastrService.error(this.translateService.instant("payment.invalid"), this.translateService.instant("payment.title"));
+    }))
+    .then(({ KR }) =>
+      KR.addForm("#myPaymentForm")
+    ) /* add a payment form  to myPaymentForm div*/
+    .then(({ KR, result }) =>
+      KR.showForm(result.formId)
+    ); /* show the payment form */
 
 
 

@@ -1,29 +1,29 @@
 <div>
-    <table class="table table-borderless ">
-        <tbody>
-            <tr>
-                <th scope="row">{{'commande.value' | translate}}</th>
-                <td>{{getShoppingCartProductValue() | currency }}</td>
-            </tr>
-            <tr *ngIf="isDeliveryCommande()">
-                <th scope="row">{{'commande.type.delivery' | translate}}</th>
-                <td>{{getShoppingCartDeliveryValue() | currency }}</td>
-            </tr>
-        </tbody>
-    </table>
+  <table class="table table-borderless ">
+    <tbody>
+    <tr>
+      <th scope="row">{{'commande.value' | translate}}</th>
+      <td>{{getShoppingCartProductValue() | currency }}</td>
+    </tr>
+    <tr *ngIf="isDeliveryCommande()">
+      <th scope="row">{{'commande.type.delivery' | translate}}</th>
+      <td>{{getShoppingCartDeliveryValue() | currency }}</td>
+    </tr>
+    </tbody>
+  </table>
 </div>
 <mat-divider class="mb-3 mt-3"></mat-divider>
 <div>
-    <table class="table table-borderless">
-        <tbody>
-            <tr>
-                <th scope="row">
-                    {{'commande.total' | translate}}
-                </th>
-                <td>
-                    {{getShoppingCartTotalValue() | currency }}
-                </td>
-            </tr>
-        </tbody>
-    </table>
+  <table class="table table-borderless">
+    <tbody>
+    <tr>
+      <th scope="row">
+        {{'commande.total' | translate}}
+      </th>
+      <td>
+        {{getShoppingCartTotalValue() | currency }}
+      </td>
+    </tr>
+    </tbody>
+  </table>
 </div>

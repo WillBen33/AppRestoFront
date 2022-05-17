@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { stringify } from 'querystring';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { CommandeProduct } from 'src/app/api/models';
 
@@ -107,8 +106,12 @@ export class ShoppingCartService {
   getShoppingCartAsArray(): Array<CommandeProduct> {
     let arr: Array<CommandeProduct> = new Array();
     this.getShoppingCart().forEach(value =>
-     arr =  arr.concat(value));
+      arr = arr.concat(value));
     return arr;
+  }
+
+  deleteAllCartProducts(): void {
+    return localStorage.clear();
   }
 
 }

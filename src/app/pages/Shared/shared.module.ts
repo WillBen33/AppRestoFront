@@ -12,13 +12,13 @@ import { DialogMessageComponent } from './components/dialog-message/dialog-messa
 import { ProductSelectionDialogComponent } from './components/product-selection-dialog/product-selection-dialog.component';
 import { ShoppingCartItemComponent } from './components/shopping-cart-item/shopping-cart-item.component';
 import { CheckoutComponent } from './checkout/checkout.component';
-import { RouterModule } from "@angular/router";
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { ExistPhoneNumberDirective } from './directives/exist-phone-number/exist-phone-number.directive';
 import { ExistEmailDirective } from './directives/existEmail/exist-email.directive';
 import { ResumeCommandeComponent } from './resume-commande/resume-commande.component';
 import { ProductDetailDialogComponent } from './components/product-detail-dialog/product-detail-dialog.component';
 import { DetailCommandComponent } from './detail-command/detail-command.component';
+import { SuccessComponent } from './success/success.component';
 
 const NB_MODULES = [
   NbInputModule,
@@ -42,6 +42,7 @@ const NB_MODULES = [
     ProductDetailDialogComponent,
     CheckoutComponent,
     DetailCommandComponent,
+    SuccessComponent,
   ],
   imports: [
     CommonModule,

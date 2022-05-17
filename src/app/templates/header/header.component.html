@@ -1,92 +1,97 @@
 <header class="header_section" style="background-color:black;">
-    <div class="container-fluid">
-        <nav class="navbar navbar-expand-lg custom_nav-container ">
-            <a class="navbar-brand" routerLink="/home" routerLinkActive="active">
-                <span>
-              {{ "header.logo" | translate }}
-            </span>
-            </a>
+  <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg custom_nav-container ">
+      <a class="navbar-brand" routerLink="/home" routerLinkActive="active">
+        <span>
+          {{ "header.logo" | translate }}
+        </span>
+      </a>
 
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class=""> </span>
       </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" routerLink="/home" routerLinkActive="active">{{ "header.home" | translate }}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" routerLink="/menu" routerLinkActive="active">{{ "header.menu" | translate }}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" routerLink="/deals" routerLinkActive="active">{{ "header.deals" | translate }}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" routerLink="/approach" routerLinkActive="active">{{ "header.approach" | translate }}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" routerLink="/join" routerLinkActive="active">{{ "header.join" | translate }}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" routerLink="/contact" routerLinkActive="active">{{ "header.contact" | translate }}</a>
-                    </li>
-                </ul>
-                <ul class="navbar-nav user_option">
-                    <li class="nav-item">
-                        <div class="dropdown">
-                            <button class="btn nav_search-btn dropdown-toggle mb-1" type="button" data-toggle="dropdown" aria-expanded="false">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/home" routerLinkActive="active">{{ "header.home" | translate }}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/menu" routerLinkActive="active">{{ "header.menu" | translate }}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/deals" routerLinkActive="active">{{ "header.deals" | translate }}</a>
+          </li>
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link" routerLink="/approach" routerLinkActive="active">{{ "header.approach" | translate }}</a>-->
+<!--          </li>-->
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link" routerLink="/join" routerLinkActive="active">{{ "header.join" | translate }}</a>-->
+<!--          </li>-->
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/contact" routerLinkActive="active">{{ "header.contact" | translate }}</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav user_option">
+          <li class="nav-item">
+            <div class="dropdown">
+              <button class="btn nav_search-btn dropdown-toggle mb-1" type="button" data-toggle="dropdown"
+                      aria-expanded="false">
                 <i class="fa fa-user fa-lg" aria-hidden="true"></i>
               </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" (click)="updateProfil()" *ngIf="isAuthenticated">
-                                    <i class="fas fa-user me-auto"></i> &nbsp; {{'button.updateProfil' | translate}}
-                                </a>
-                                <a class="dropdown-item" (click)="displayCommandes()" *ngIf="isAuthenticated">
-                                    <i class="fas fa-pizza-slice"></i> &nbsp; {{'button.userCommande' | translate}}
-                                </a>
-                                <a class="dropdown-item" (click)="logout()" *ngIf="isAuthenticated">
-                                    <i class="fas fa-sign-out-alt"></i> &nbsp; {{'button.logout' | translate}}
-                                </a>
-                                <a class="dropdown-item" (click)="signUp()" *ngIf="!isAuthenticated">
-                                    <i class="fas fa-sign-in-alt"></i> &nbsp; {{'button.sign-up' | translate}}
-                                </a>
-                                <a class="dropdown-item" (click)="signIn()" *ngIf="!isAuthenticated">
-                                    <i class="fas fa-sign-in-alt"></i> &nbsp; {{'button.sign-in' | translate}}
-                                </a>
-                            </div>
-                        </div>
-                    </li>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" (click)="updateProfil()" *ngIf="isAuthenticated">
+                  <i class="fas fa-user me-auto"></i> &nbsp; {{'button.updateProfil' | translate}}
+                </a>
+                <a class="dropdown-item" (click)="displayCommandes()" *ngIf="isAuthenticated">
+                  <i class="fas fa-pizza-slice"></i> &nbsp; {{'button.userCommande' | translate}}
+                </a>
+                <a class="dropdown-item" (click)="logout()" *ngIf="isAuthenticated">
+                  <i class="fas fa-sign-out-alt"></i> &nbsp; {{'button.logout' | translate}}
+                </a>
+                <a class="dropdown-item" (click)="signUp()" *ngIf="!isAuthenticated">
+                  <i class="fas fa-sign-in-alt"></i> &nbsp; {{'button.sign-up' | translate}}
+                </a>
+                <a class="dropdown-item" (click)="signIn()" *ngIf="!isAuthenticated">
+                  <i class="fas fa-sign-in-alt"></i> &nbsp; {{'button.sign-in' | translate}}
+                </a>
+              </div>
+            </div>
+          </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" routerLink="/commande/cart" aria-expanded="false" style="position: relative;">
-                            <i class="fa-solid fa-cart-shopping fa-lg" aria-hidden="true"></i>
-                            <span class="badge badge-warning text-white ml-1">{{ getToTalProcuct() }}</span>
-                        </a>
-                    </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/commande/cart" aria-expanded="false" style="position: relative;">
+              <i class="fa-solid fa-cart-shopping fa-lg" aria-hidden="true"></i>
+              <span class="badge badge-warning text-white ml-1">{{ getToTalProcuct() }}</span>
+            </a>
+          </li>
 
-                    <li class="nav-item">
-                        <div class="dropdown">
-                            <button class="btn nav_search-btn dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+          <li class="nav-item">
+            <div class="dropdown">
+              <button class="btn nav_search-btn dropdown-toggle" type="button" data-toggle="dropdown"
+                      aria-expanded="false">
                 <i class="fa-solid fa-flag fa-lg" aria-hidden="true"></i>
               </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" (click)="setLanguage('fr')">
-                                    <img src="https://img.icons8.com/color/50/000000/france.png" class="flag-icon" /> {{ "header.lang.fr" | translate }}
-                                </a>
-                                <a class="dropdown-item" (click)="setLanguage('en')">
-                                    <img src="https://img.icons8.com/color/50/000000/england.png" class="flag-icon" /> {{ "header.lang.en" | translate }}
-                                </a>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a routerLink="/menu" class="order_online">
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" (click)="setLanguage('fr')">
+                  <img src="https://img.icons8.com/color/50/000000/france.png"
+                       class="flag-icon"/> {{ "header.lang.fr" | translate }}
+                </a>
+                <a class="dropdown-item" (click)="setLanguage('en')">
+                  <img src="https://img.icons8.com/color/50/000000/england.png"
+                       class="flag-icon"/> {{ "header.lang.en" | translate }}
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/menu" class="order_online">
               {{ "header.order" | translate }}
             </a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
 </header>

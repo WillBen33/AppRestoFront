@@ -253,7 +253,8 @@
     {
         "valid":"Votre paiment a bien été validé !",
         "title":"Status de la transaction",
-        "formTokenExpired":"Le formulaire a expiré! Veuillez réactualiser la page svp!"
+        "formTokenExpired":"Le formulaire a expiré! Veuillez réactualiser la page svp!",
+        "invalid":"Le processus de paiement a rencontré une erreur !"
     }
     ,
     "date":
