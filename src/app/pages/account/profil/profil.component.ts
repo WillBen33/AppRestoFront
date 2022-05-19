@@ -44,7 +44,7 @@ export class ProfilComponent implements OnInit {
     email: '',
     firstname: '',
     lastname: '',
-    password: '',
+    password: "",
     phoneNumber: '',
     userSecret: 'ok',
     accountNonExpired: true,

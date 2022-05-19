@@ -3,20 +3,22 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDividerModule } from '@angular/material/divider';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { NbButtonModule, NbCardModule, NbCheckboxModule, NbIconModule, NbInputModule, NbLayoutModule, NbSelectModule, NbTooltipModule } from '@nebular/theme';
+import { NbAccordionModule, NbButtonModule, NbCardModule, NbCheckboxModule, NbIconModule, NbInputModule, NbLayoutModule, NbListModule, NbSelectModule, NbTooltipModule } from '@nebular/theme';
 import { TranslateModule } from '@ngx-translate/core';
 import { SharedModule } from '../Shared/shared.module';
 import { CartComponent } from './cart/cart.component';
 import { CommandeRoutingModule } from './commande-routing.module';
 import { CommandeComponent } from './commande/commande.component';
 import { HeatThePaymentCardComponent } from './heat-the-payment-card/heat-the-payment-card.component';
+import { CommandeListComponent } from './commande-list/commande-list.component';
 
 
 @NgModule({
   declarations: [
     CommandeComponent,
     CartComponent,
-    HeatThePaymentCardComponent
+    HeatThePaymentCardComponent,
+    CommandeListComponent
   ],
   imports: [
     CommonModule,
@@ -34,7 +36,9 @@ import { HeatThePaymentCardComponent } from './heat-the-payment-card/heat-the-pa
     NbInputModule,
     NbIconModule,
     NbCheckboxModule,
-    NbTooltipModule
+    NbTooltipModule,
+    NbListModule,
+    NbAccordionModule
   ]
 })
 export class CommandeModule { }

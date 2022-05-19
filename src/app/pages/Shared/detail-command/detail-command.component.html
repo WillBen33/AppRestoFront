@@ -1,0 +1,30 @@
+<div class="table-responsive">
+   <p class="font-weight-bold" style="text-align:center">{{'commande.detail' | translate}}</p>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>{{'product.name' | translate}}</th>
+                <th>{{'comment.title' | translate}}</th>
+                <th>{{'product.quantity' | translate}}</th>
+                <th>{{'commande.s-total' | translate}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let commandeProductArray of groupedCommandesProducts">
+                <th scope="row">{{getCurrentCommandeProduct(commandeProductArray)?.product?.libelle}}</th>
+                <td>{{getCurrentCommandeProduct(commandeProductArray)?.comment}}</td>
+                <td>{{commandeProductArray.length}}</td>
+                <td>{{getCurrentCommandeProductsPrice(commandeProductArray) | currency}}</td>
+            </tr>
+            <tr>
+                <th scope="row" colspan="3" style="text-align:center ;" >
+                    {{'commande.total' | translate}}
+                </th>
+                <td>
+                    {{getTotalPrice() | currency }}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+

@@ -1,0 +1,29 @@
+<nb-layout>
+    <nb-layout-column class="custom-layout-column">
+        <nb-card >
+            <nb-card-header style="text-align:center">
+                {{'commande.commandeList.title' | translate}}
+            </nb-card-header>
+            <nb-card-body>
+                <nb-list>
+                    <nb-list-item *ngFor="let commande of commandes$ | async">
+                        <nb-accordion>
+                            <nb-accordion-item>
+                                <nb-accordion-item-header>
+                                    <div>{{'commande.number' | translate}} : {{commande.number}}</div> <div> Type : {{commande.typeCommande ===
+                                        "DELIVERY" ? [['commande.type.delivery' |translate ]] : [['commande.type.takeAway' | translate ]]}}</div>  
+                                   <div> Date : {{commande.createdAt | date : ('date.format' | translate)}} </div>
+                                </nb-accordion-item-header>
+                                <nb-accordion-item-body>
+                                    <app-detail-command [currentCommande]="commande"></app-detail-command>
+                                </nb-accordion-item-body>
+                            </nb-accordion-item>
+                        </nb-accordion>
+                    </nb-list-item>
+                </nb-list>
+            </nb-card-body>
+
+        </nb-card>
+
+    </nb-layout-column>
+</nb-layout>

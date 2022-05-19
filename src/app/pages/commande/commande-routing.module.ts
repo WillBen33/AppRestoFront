@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuardService } from 'src/app/services/auth/guards/auth-guard.service';
 import { SuccessComponent } from '../Shared/success/success.component';
 import { CartComponent } from './cart/cart.component';
+import { CommandeListComponent } from './commande-list/commande-list.component';
 import { CommandeComponent } from './commande/commande.component';
 import { HeatThePaymentCardComponent } from './heat-the-payment-card/heat-the-payment-card.component';
 
@@ -17,6 +19,11 @@ const routes: Routes = [
   {
     path: 'heatThePaymentCard',
     component: HeatThePaymentCardComponent
+  },
+  {
+    path:'commandeList',
+    component:CommandeListComponent,
+    canActivate:[AuthGuardService]
   },
   {
     path: 'success',

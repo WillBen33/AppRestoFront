@@ -17,6 +17,7 @@ import { ExistPhoneNumberDirective } from './directives/exist-phone-number/exist
 import { ExistEmailDirective } from './directives/existEmail/exist-email.directive';
 import { ResumeCommandeComponent } from './resume-commande/resume-commande.component';
 import { ProductDetailDialogComponent } from './components/product-detail-dialog/product-detail-dialog.component';
+import { DetailCommandComponent } from './detail-command/detail-command.component';
 import { SuccessComponent } from './success/success.component';
 import {RouterModule} from "@angular/router";
 
@@ -41,6 +42,7 @@ const NB_MODULES = [
     ResumeCommandeComponent,
     ProductDetailDialogComponent,
     CheckoutComponent,
+    DetailCommandComponent,
     SuccessComponent,
   ],
     imports: [
@@ -61,6 +63,7 @@ const NB_MODULES = [
     ShoppingCartComponent,
     ShoppingCartItemComponent,
     ResumeCommandeComponent,
-    CheckoutComponent]
+    CheckoutComponent,
+  DetailCommandComponent]
 })
 export class SharedModule { }

@@ -27,7 +27,6 @@ import { AuthModule } from '../auth/auth.module';
     NbIconModule,
     NbLayoutModule,
     FontAwesomeModule,
-    IgxDividerModule,
     NbCardModule,
     NbSpinnerModule,
     NbFormFieldModule,

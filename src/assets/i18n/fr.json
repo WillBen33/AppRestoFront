@@ -196,7 +196,9 @@
         "remove": "Le produit a bien été retiré !",
         "add": "Le produit a bien été ajouté au panier !",
         "description":"Description",
-        "allergen": "Allergens"
+        "allergen": "Allergens",
+        "price" :"Prix",
+        "name":"Nom du produit"
     },
     "cart": {
         "title": "Votre panier",
@@ -213,10 +215,17 @@
             "message": "Choix du type de commande"
         },
         "total": "Total de vos commandes",
+        "s-total": "Sous total",
         "confirmCommande": {
             "myInfos": "Mes Informations",
             "creditCardData":"Entrez les coordonnées de votre carte ici !"
-        }
+        },
+        "commandeList":
+        {
+            "title": "Mes commandes"
+        },
+        "detail":"Détail de la commande",
+        "number": "N° de commande"
     },
     "customer": {
         "status": {
@@ -242,8 +251,14 @@
     },
     "payment":
     {
+        "valid":"Votre paiment a bien été validé !",
         "title":"Status de la transaction",
-        "valid":"Votre paiement a bien été validé !",
+        "formTokenExpired":"Le formulaire a expiré! Veuillez réactualiser la page svp!",
         "invalid":"Le processus de paiement a rencontré une erreur !"
+    }
+    ,
+    "date":
+    {
+        "format":"dd/MM/YYYY à HH:mm"
     }
 }
