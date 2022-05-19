@@ -1,10 +1,16 @@
-<div class="container text-center">
-  <h1>Merci ! Votre commande a bien été enregistrée.</h1>
-  <p>Vous recevrez un récapitulatif de votre commande par email.</p>
+<section class="food_section layout_padding my-5">
+  <div class="container">
+    <div class="heading_container heading_center">
+      <h2>
+        Merci ! Votre commande a bien été enregistrée.
+      </h2>
+      <p class="mt-5 mb-2">Vous recevrez un récapitulatif de votre commande par email.</p>
+    </div>
 
-  <ul class="list-unstyled">
-    <li><a href="#">Menu</a></li>
-    <li><a href="#">Vos commandes</a></li>
-    <li><a href="#">Nous contacter</a></li>
-  </ul>
-</div>
+    <ul class="filters_menu">
+      <li><a [routerLink]="['/contact']" class="nav-link">Notre carte</a></li>
+      <li><a [routerLink]="['/contact']" class="nav-link">Vos commandes</a></li>
+      <li><a [routerLink]="['/contact']" class="nav-link">Nous contacter</a></li>
+    </ul>
+  </div>
+</section>

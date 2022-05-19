@@ -18,6 +18,7 @@ import { ExistEmailDirective } from './directives/existEmail/exist-email.directi
 import { ResumeCommandeComponent } from './resume-commande/resume-commande.component';
 import { ProductDetailDialogComponent } from './components/product-detail-dialog/product-detail-dialog.component';
 import { SuccessComponent } from './success/success.component';
+import {RouterModule} from "@angular/router";
 
 const NB_MODULES = [
   NbInputModule,
@@ -42,17 +43,18 @@ const NB_MODULES = [
     CheckoutComponent,
     SuccessComponent,
   ],
-  imports: [
-    CommonModule,
-    TranslateModule.forChild(),
-    FormsModule,
-    ReactiveFormsModule,
-    NgbDatepickerModule,
-    MatIconModule,
-    MatButtonModule,
-    NB_MODULES,
-    MatDividerModule
-  ],
+    imports: [
+        CommonModule,
+        TranslateModule.forChild(),
+        FormsModule,
+        ReactiveFormsModule,
+        NgbDatepickerModule,
+        MatIconModule,
+        MatButtonModule,
+        NB_MODULES,
+        MatDividerModule,
+        RouterModule
+    ],
   exports: [DialogMessageComponent,
     ExistPhoneNumberDirective,
     ExistEmailDirective,
