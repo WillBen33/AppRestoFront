@@ -1,12 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
-import { AuthGuardService } from './services/auth/guards/auth-guard.service';
+import { AdminRoleGuard } from './services/auth/guards/adminRole/admin-role.guard';
+import { AuthGuardService } from './services/auth/guards/authentication/auth-guard.service';
 import { LayoutComponent } from "./templates/layout/layout.component";
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
-  {
+    {
+      path: 'admin',
+      loadChildren: () => import('./pages/admin/admin.module').then(m => m.AdminModule),
+      canActivate:[AdminRoleGuard]
+    },
+    {
     path: '',
     component: LayoutComponent,
     children: [
@@ -44,7 +50,7 @@ const routes: Routes = [
         path: 'account',
         loadChildren: () =>
           import('./pages/account/account.module').then((m) => m.AccountModule),
-         canActivate: [AuthGuardService]
+        canActivate: [AuthGuardService]
       },
       {
         path: 'commande',
@@ -58,9 +64,10 @@ const routes: Routes = [
       {
         path: '**',
         component: NotFoundComponent
-      }
-    ]
-  }
+      },
+    ],
+  },
+ 
 ];
 
 @NgModule({

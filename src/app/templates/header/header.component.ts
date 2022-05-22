@@ -24,6 +24,7 @@ export class HeaderComponent implements OnInit {
         if (token.isValid()) {
           this.isAuthenticated = true;
           this.user = token.getPayload();
+          console.log(this.user);
         }
       });
   }
@@ -60,11 +61,11 @@ export class HeaderComponent implements OnInit {
   }
 
   signUp(): void {
-    this.router.navigate(['/auth/register']);
+    this.router.navigate(['auth/register']);
   }
 
   signIn(): void {
-    this.router.navigate(['/auth/sign-in']);
+    this.router.navigate(['auth/sign-in']);
   }
 
   getToTalProcuct() {

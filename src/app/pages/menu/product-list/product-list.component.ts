@@ -39,7 +39,7 @@ export class ProductListComponent implements OnInit {
   selectionProcess(product: Product) {
     if (this.shoppingCartService.getCommadeType() && this.shoppingCartService.getNbProductInCart() !== 0) {
       this.openProductSelectionDialog(product).pipe(filter(res => res === "submit")).subscribe(() => this.toastr.success(
-        this.translateService.instant("product.add"),
+        this.translateService.instant("product.add.cart"),
         this.translateService.instant("cart.title")
       ))
     }
@@ -49,7 +49,7 @@ export class ProductListComponent implements OnInit {
         switchMap(() => this.openProductSelectionDialog(product)),
         filter(res => res === "submit")
       ).subscribe(() => this.toastr.success(
-        this.translateService.instant("product.add"),
+        this.translateService.instant("product.add.cart"),
         this.translateService.instant("cart.title")
       ))
     }

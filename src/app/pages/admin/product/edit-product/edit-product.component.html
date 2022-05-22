@@ -1,0 +1,82 @@
+<nb-card>
+    <nb-card-body>
+        <form [formGroup]="productForm" novalidate>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="libelle">{{'product.libelle' | translate}}</label>
+                    <input nbInput fullWidth type="text" formControlName="libelle" id="libelle"
+                    [status]="libelle?.touched ? (libelle?.invalid && !oldLibelle(libelle?.value)  ? 'danger' : 'warning') : 'warning'" appExistProduct>
+                    <div class="row">
+                          <ng-container *ngIf="libelle?.invalid && (libelle?.touched || libelle?.dirty)">
+                            <p class="error-message caption status-danger" *ngIf="libelle?.errors?.required">
+                              {{"error.required.field" | translate:{'field':
+                              [['product.libelle' | translate ]]} }}
+                            </p>
+                            <p class="caption status-danger" *ngIf="libelle?.errors?.existProduct && !oldLibelle(libelle?.value)">
+                              {{"error.field.duplicate" | translate : {'name' : [['product.title' | translate]] } }}
+                          </p>
+                          </ng-container>
+                        </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="price">{{'product.price' | translate}}</label>
+                    <input nbInput fullWidth type="text" formControlName="price" id="price"
+                    [status]="price?.touched ? (price?.invalid  ? 'danger' : 'warning') : 'warning' ">
+                    <div class="row">
+                        <ng-container *ngIf="price?.invalid && (price?.touched || price?.dirty)">
+                          <p class="error-message caption status-danger" *ngIf="price?.errors?.required">
+                            {{"error.required.field" | translate:{'field':
+                            [['product.price' | translate ]]} }}
+                          </p>
+                        </ng-container>
+                      </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="description">{{'product.description' | translate}}</label>
+                <textarea nbInput fullWidth type="text" formControlName="description"
+                    id="description" [status]="description?.touched ? (description?.invalid  ? 'danger' : 'warning') : 'warning' " ></textarea>
+                    <div class="row">
+                        <ng-container *ngIf="description?.invalid && (description?.touched || description?.dirty)">
+                          <p class="error-message caption status-danger" *ngIf="description?.errors?.required">
+                            {{"error.required.field" | translate:{'field':
+                            [['product.description' | translate ]]} }}
+                          </p>
+                        </ng-container>
+                      </div>
+            </div>
+            <div class="div form-row">
+
+                <div class="form-group col-md-6">
+                    <label for="allergens">{{'product.allergen' | translate}}</label>
+                    <ng-select [items]="allergens$ | async" bindLabel="libelle"  [multiple]="true"
+                        [closeOnSelect]="false" [searchable]="false" appendTo="body" formControlName="allergens">
+                    </ng-select>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="categories">{{'category.pluralTitle' | translate}}</label>
+                    <ng-select [items]="categories$ | async" bindLabel="name"  [multiple]="true"
+                        [closeOnSelect]="false" [searchable]="false" appendTo="body" formControlName="categories">
+                    </ng-select>
+                    <div class="row">
+                        <ng-container *ngIf="categories?.invalid && (categories?.touched || categories?.dirty)">
+                          <p class="error-message caption status-danger" *ngIf="categories?.errors?.required">
+                            {{"error.required.field" | translate:{'field':
+                            [['category.title' | translate ]]} }}
+                          </p>
+                        </ng-container>
+                      </div>
+                </div>
+            </div>
+            <div class="d-inline-flex" >
+              <div>
+                <button type="button" nbButton status="warning" hero shape="semi-round" (click)="cancel()">{{'button.cancel' | translate}}</button>
+              </div>
+              <div>
+                <button type="button" class="ml-5" nbButton status="warning" hero shape="semi-round" [disabled]="productForm.invalid && !oldLibelle(libelle?.value)" (click)="addProduct()">{{'button.save' | translate}}</button>
+              </div>
+            </div>
+            
+        </form>
+    </nb-card-body>
+</nb-card>

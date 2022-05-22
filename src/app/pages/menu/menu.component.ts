@@ -28,60 +28,7 @@ export class MenuComponent implements OnInit {
   constructor(private categoryService: CategoryControllerService) { }
 
   public ngOnInit(): void {
-    /* this.getCategories();
-    this.getProducts(); */
     this.parentsCategories$ = this.categoryService.getAllParentsCategories();
   }
-
-
-  sendCategoryId()
-  {
-
-  }
  
-
- /*  public getProducts(): Product[] {
-    this.productService.getAllProducts().subscribe(data => {
-      this.products = data;
-    })
-    return this.products;
-  }
-
-  public getCategories(): Category[] {
-    this.categoryService.getAllParentsCategories().subscribe(data => {
-      this.categories = data;
-      console.log(data);
-    })
-    return this.categories;
-  }
-
-  public getFilteredProducts(categoryId: number): Product[] {
-    // Si = 1 alors on affiche tous les produits
-    if (categoryId === 1){
-      this.productService.getAllProducts().subscribe(data => {
-        this.products = data;
-      })
-      return this.products;
-    }
-    // Sinon, on affiche les produits par catégorie
-    else {
-      this.productService.getProductByCategory({id: categoryId}).subscribe(data => {
-        this.products = data;
-      })
-      return this.products;
-    }
-  }
-
-  addItem(product: Product) {
-    this.shoppingCart.push(product);
-    sessionStorage.setItem("shoppingCart", JSON.stringify(this.shoppingCart));
-    this.toastrService.success(
-      this.translateService.instant("menu.add-item"),
-      this.translateService.instant("menu.add-item"),
-      {
-        duration: 4000,
-      }
-    )
-    return this.shoppingCart;
-  } */
 }

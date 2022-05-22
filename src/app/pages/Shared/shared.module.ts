@@ -19,6 +19,9 @@ import { ResumeCommandeComponent } from './resume-commande/resume-commande.compo
 import { ProductDetailDialogComponent } from './components/product-detail-dialog/product-detail-dialog.component';
 import { DetailCommandComponent } from './detail-command/detail-command.component';
 import { SuccessComponent } from './success/success.component';
+import { ExistAllergenDirective } from './directives/existAllergen/exist-allergen.directive';
+import { ExistProductDirective } from './directives/existProduct/exist-product.directive';
+import { ExistCategoryDirective } from './directives/existCategory/exist-category.directive';
 
 const NB_MODULES = [
   NbInputModule,
@@ -43,6 +46,9 @@ const NB_MODULES = [
     CheckoutComponent,
     DetailCommandComponent,
     SuccessComponent,
+    ExistAllergenDirective,
+    ExistProductDirective,
+    ExistCategoryDirective
   ],
   imports: [
     CommonModule,
@@ -62,6 +68,9 @@ const NB_MODULES = [
     ShoppingCartItemComponent,
     ResumeCommandeComponent,
     CheckoutComponent,
-  DetailCommandComponent]
+    DetailCommandComponent,
+    ExistAllergenDirective,
+    ExistProductDirective,
+    ExistCategoryDirective]
 })
 export class SharedModule { }

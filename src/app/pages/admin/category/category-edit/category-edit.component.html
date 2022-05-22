@@ -1,0 +1,43 @@
+<nb-card>
+    <nb-card-body>
+        <form [formGroup]="categoryForm" novalidate>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="name">{{'category.name' | translate}}</label>
+                    <input nbInput fullWidth type="text" formControlName="name" id="name"
+                    [status]="name?.touched ? (name?.invalid && !oldName(name?.value)  ? 'danger' : 'warning') : 'warning'" appExistCategory>
+                    <div class="row">
+                          <ng-container *ngIf="name?.invalid && (name?.touched || name?.dirty)">
+                            <p class="error-message caption status-danger" *ngIf="name?.errors?.required">
+                              {{"error.required.field" | translate:{'field':
+                              [['category.name' | translate ]]} }}
+                            </p>
+                            <p class="caption status-danger" *ngIf="name?.errors?.existCategory && !oldName(name?.value)">
+                              {{"error.field.duplicate" | translate : {'name' : [['category.title' | translate]] } }}
+                          </p>
+                          </ng-container>
+                        </div>
+                </div>
+            </div>
+            <div class="div form-row">
+                <div class="form-group col-md-6">
+                    <label for="parentCategory">{{'category.parentCategory' | translate}}</label>
+                    <ng-select [items]="parentCategories$ | async" bindLabel="name" 
+                        [closeOnSelect]="false" [searchable]="false" appendTo="body" formControlName="parentCategory">
+                    </ng-select>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="subCategories">{{'category.subcategories' | translate}}</label>
+                    <ng-select [items]="subCategories$ | async" bindLabel="name"  [multiple]="true"
+                        [closeOnSelect]="false" [searchable]="false" appendTo="body" formControlName="subCategories">
+                    </ng-select>
+                </div>
+            </div>
+            <div class="div form-row">
+                <button type="button" nbButton status="warning" hero shape="semi-round" (click)="cancel()">{{'button.cancel' | translate}}</button>
+                <button type="button" class="ml-5" nbButton status="warning" hero shape="semi-round" [disabled]="categoryForm.invalid && !oldName(name?.value)" (click)="addCategory()">{{'button.save' | translate}}</button>
+            </div>
+            
+        </form>
+    </nb-card-body>
+</nb-card>

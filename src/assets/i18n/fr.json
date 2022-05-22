@@ -44,8 +44,8 @@
         "contact-us-title": "Nous contacter",
         "contact-us-text": "Vous souhaitez nous contacter ? Vous pouvez  nous écrire en remplissant le formulaire ci-dessous.",
         "recaptcha-error": "Vous devez valider le captcha",
-    "contact-send-email": "Envoyer",
-    "required": "* Ces champs sont obligatoires"
+        "contact-send-email": "Envoyer",
+        "required": "* Ces champs sont obligatoires"
     },
     "About": "A propos",
     "Login": {
@@ -150,7 +150,10 @@
             "duplicatePhoneNumber": " Un compte est déjà associé à ce numéro de téléphone. Veuillez renseigner un autre svp !",
             "title": "Numéro de téléphone existant"
         },
-        "clientSide": "Une erreur est survenue; Veuillez rééssayer svp !"
+        "clientSide": "Une erreur est survenue; Veuillez rééssayer svp !",
+        "field": {
+            "duplicate": "Un {{name}} existe déjà avec ce nom ! Veuillez en saisir un autre !"
+        }
     },
     "terms": {
         "title": "les conditions d'utilisations",
@@ -180,7 +183,8 @@
         "validShopping": "Valider l'achat",
         "valid": "Valider",
         "registerAndValid": "S'enregistrer et finaliser",
-        "productDetail":"Détail du produit"
+        "productDetail": "Détail du produit",
+        "add": "Ajouter"
     },
     "404Notfound": {
         "title": "Erreur 404 ! Page non trouvé !",
@@ -192,13 +196,17 @@
     "product": {
         "addComment": "Ajouter un commentaire utile à la préparation de votre produit",
         "quantity": "Quantité",
-        "update": "Le produit a bien été modifié !",
-        "remove": "Le produit a bien été retiré !",
-        "add": "Le produit a bien été ajouté au panier !",
-        "description":"Description",
+        "update": "Le produit \"{{name}}\" a bien été modifié !",
+        "remove": "Le produit \"{{name}}\" a bien été retiré !",
+        "add": {
+            "cart": "Le produit a bien été ajouté au panier !",
+            "database": "Le produit a \"{{name}}\" bien été ajouté à la base de données !"
+        },
+        "description": "Description",
         "allergen": "Allergens",
-        "price" :"Prix",
-        "name":"Nom du produit"
+        "price": "Prix",
+        "libelle": "Nom du produit",
+        "title": "produit"
     },
     "cart": {
         "title": "Votre panier",
@@ -218,13 +226,12 @@
         "s-total": "Sous total",
         "confirmCommande": {
             "myInfos": "Mes Informations",
-            "creditCardData":"Entrez les coordonnées de votre carte ici !"
+            "creditCardData": "Entrez les coordonnées de votre carte ici !"
         },
-        "commandeList":
-        {
+        "commandeList": {
             "title": "Mes commandes"
         },
-        "detail":"Détail de la commande",
+        "detail": "Détail de la commande",
         "number": "N° de commande"
     },
     "customer": {
@@ -249,16 +256,42 @@
             }
         }
     },
-    "payment":
+    "payment": {
+        "valid": "Votre paiment a bien été validé !",
+        "title": "Status de la transaction",
+        "formTokenExpired": "Le formulaire a expiré! Veuillez réactualiser la page svp!",
+        "invalid": "Le processus de paiement a rencontré une erreur !"
+    },
+    "date": {
+        "format": "dd/MM/YYYY à HH:mm"
+    },
+    "admin": {
+        "cartManagement": "Gestion de la carte",
+        "productList": "Liste des produits",
+        "categoryList": "Liste des catégories",
+        "allergenList": "Liste des allergens"
+    },
+    "category": {
+        "title": "catégorie",
+        "pluralTitle": "Catégories",
+        "name": "Nom de la catégorie",
+        "subcategories": "Sous-catégories",
+        "parentCategory": "Catégorie parent",
+        "add": "La catégorie \"{{name}}\" a bien été ajouté !",
+        "update": "La catégorie \"{{name}}\" a bien été modifiée !",
+        "remove": "La catégorie \"{{name}}\" a bien été retiré !"
+    },
+    "allergen": {
+        "title": "allergen",
+        "pluralTitle": "Allergens",
+        "libelle": "Nom de l'allergen",
+        "update": "L'allergen a bien été modifié !",
+        "add": "L'allergen a bien été ajouté à la base de données !",
+        "remove": "L'allergen \"{{name}}\" a bien été supprimé !"
+    },
+    "table":
     {
-        "valid":"Votre paiment a bien été validé !",
-        "title":"Status de la transaction",
-        "formTokenExpired":"Le formulaire a expiré! Veuillez réactualiser la page svp!",
-        "invalid":"Le processus de paiement a rencontré une erreur !"
-    }
-    ,
-    "date":
-    {
-        "format":"dd/MM/YYYY à HH:mm"
+        "currentPageReportTemplate":"Vous consultez les lignes {first} à {last} d'un total de {totalRecords} lignes.",
+        "emptyMessage": "Il n'y a aucune données à consulter !"
     }
 }

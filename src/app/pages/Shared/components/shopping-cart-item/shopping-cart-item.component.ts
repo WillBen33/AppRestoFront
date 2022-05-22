@@ -50,7 +50,7 @@ export class ShoppingCartItemComponent implements OnInit {
           update: true
         }
       }).onClose.pipe(filter(res => res === "submit")).subscribe(() =>this.toastr.success(
-        this.translateService.instant("product.update"),
+        this.translateService.instant("product.update",{name:this.currentCommandeProduct.product.libelle}),
         this.translateService.instant("cart.title")
       ))
   }

@@ -12,7 +12,7 @@
           </div>
           <nb-tabset class="custom-tabset">
             <nb-tab *ngFor="let parentCategory of parentsCategories$ | async; let i = index" [active]="i === 0" tabTitle='{{parentCategory.name}}'>
-              <app-subcategory-list [parentCategoryName]="parentCategory.name" [parentCategoryId]="parentCategory.id">
+              <app-subcategory-list [parentCategoryName]="parentCategory.name" [parentCategoryId]="parentCategory.id!">
               </app-subcategory-list>
             </nb-tab>
           </nb-tabset>

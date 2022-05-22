@@ -1,0 +1,26 @@
+<nb-card>
+    <nb-card-body>
+        <form [formGroup]="allergenForm" novalidate>
+            <div class="form-row">
+                    <label for="libelle">{{'allergen.libelle' | translate}}</label>
+                    <input nbInput fullWidth type="text" formControlName="libelle" id="libelle"
+                    [status]="libelle?.touched ? (libelle?.invalid && !oldLibelle(libelle?.value)  ? 'danger' : 'warning') : 'warning' " appExistAllergen>
+                    <div class="row mt-2">
+                          <ng-container *ngIf="libelle?.invalid && (libelle?.touched || libelle?.dirty)">
+                            <p class="error-message caption status-danger" *ngIf="libelle?.errors?.required">
+                              {{"error.required.field" | translate:{'field':
+                              [['allergen.libelle' | translate ]]} }}
+                            </p>
+                            <p class="caption status-danger" *ngIf="libelle?.errors?.existAllergen && !oldLibelle(libelle?.value)">
+                              {{"error.field.duplicate" | translate:{'name': [['allergen.title' | translate]]} }}
+                          </p>
+                          </ng-container>
+                        </div>
+            </div> 
+            <div class="div form-row mt-3">
+                <button type="button" nbButton status="warning" hero shape="semi-round" (click)="cancel()">{{'button.cancel' | translate}}</button>
+                <button type="button" class="ml-5" nbButton status="warning" [disabled]="allergenForm.invalid && !oldLibelle(libelle?.value)" hero shape="semi-round" (click)="addAllergen()">{{'button.save' | translate}}</button>
+            </div>
+        </form>
+    </nb-card-body>
+</nb-card>

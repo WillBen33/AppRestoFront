@@ -9,7 +9,7 @@ import { far } from '@fortawesome/free-regular-svg-icons';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { NbAuthJWTToken, NbAuthModule, NbPasswordAuthStrategy, NB_AUTH_TOKEN_INTERCEPTOR_FILTER } from '@nebular/auth';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
-import { NbDialogModule, NbLayoutModule, NbThemeModule, NbToastrModule } from '@nebular/theme';
+import { NbDialogModule, NbLayoutModule, NbMenuModule, NbSidebarModule, NbThemeModule, NbToastrModule } from '@nebular/theme';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
@@ -20,6 +20,8 @@ import { AppComponent } from "./app.component";
 import { httpInterceptorProviders } from './services/auth/http-interceptors';
 import { TemplatesModule } from "./templates/templates.module";
 import localeFr from "@angular/common/locales/fr";
+import { NbRoleProvider, NbSecurityModule } from "@nebular/security";
+import { RoleProvider } from "./pages/Shared/classes/roleProvider/role-provider";
 
 export function createTranslateLoader(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient, './assets/i18n/', '.json');
@@ -58,8 +60,22 @@ const socialLinks: NbAuthSocialLink[] = [];
     NbLayoutModule,
     NbThemeModule.forRoot({ name: 'default' }),
     NbEvaIconsModule,
+    NbSidebarModule.forRoot(),
+    NbMenuModule.forRoot(),
     NbToastrModule.forRoot(),
     NbDialogModule.forRoot(),
+    NbSecurityModule.forRoot({
+      accessControl: {
+        guest: {},
+        ROLE_CUSTOMER: {parent : 'guest'},
+        ROLE_ADMIN: {
+          parent:'ROLE_CUSTOMER',
+          view:'*',
+          create:'*',
+          remove:'*'
+        }
+      },
+    }),
     NbAuthModule.forRoot({
       strategies: [
         NbPasswordAuthStrategy.setup({
@@ -182,6 +198,7 @@ const socialLinks: NbAuthSocialLink[] = [];
     },
     { provide: LOCALE_ID, useValue: "fr-FR" },
     {provide: DEFAULT_CURRENCY_CODE, useValue: 'EUR'},
+    { provide: NbRoleProvider, useClass: RoleProvider },
     httpInterceptorProviders,
     CookieService
   ],

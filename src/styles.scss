@@ -60,3 +60,5 @@ $AppRestoFront-theme: mat.define-light-theme((
 };
 
 @import 'assets/feane';
+
+@import "~@ng-select/ng-select/themes/default.theme.css";

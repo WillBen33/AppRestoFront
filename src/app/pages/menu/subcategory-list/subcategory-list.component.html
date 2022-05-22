@@ -3,9 +3,9 @@
         <app-product-list [categoryId]="parentCategoryId"></app-product-list>
     </nb-tab>
     <nb-tab *ngFor="let subCategory of subCategories" tabTitle='{{subCategory.name}}'>
-        <app-product-list *ngIf="subCategories.length === 0" [categoryId]="subCategory.id">
+        <app-product-list *ngIf="subCategories.length === 0" [categoryId]="subCategory.id!">
         </app-product-list>
-        <app-subcategory-list [parentCategoryName]="subCategory.name" [parentCategoryId]="subCategory.id">
+        <app-subcategory-list [parentCategoryName]="subCategory.name" [parentCategoryId]="subCategory.id!">
         </app-subcategory-list>
     </nb-tab>
 </nb-tabset>

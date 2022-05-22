@@ -1,7 +1,7 @@
 import { Directive, forwardRef } from '@angular/core';
 import { AbstractControl, AsyncValidator, NG_ASYNC_VALIDATORS, NG_VALIDATORS, ValidationErrors, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { ExistPhoneNumberValidator } from '../../classes/exist-phone-number-validator';
+import { ExistPhoneNumberValidator } from '../../classes/phone-validator/exist-phone-number-validator';
 
 @Directive({
   selector: '[appExistPhoneNumber]',
