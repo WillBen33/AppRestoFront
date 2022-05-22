@@ -22,6 +22,7 @@ import { SuccessComponent } from './success/success.component';
 import { ExistAllergenDirective } from './directives/existAllergen/exist-allergen.directive';
 import { ExistProductDirective } from './directives/existProduct/exist-product.directive';
 import { ExistCategoryDirective } from './directives/existCategory/exist-category.directive';
+import {RouterModule} from "@angular/router";
 
 const NB_MODULES = [
   NbInputModule,
@@ -50,17 +51,18 @@ const NB_MODULES = [
     ExistProductDirective,
     ExistCategoryDirective
   ],
-  imports: [
-    CommonModule,
-    TranslateModule.forChild(),
-    FormsModule,
-    ReactiveFormsModule,
-    NgbDatepickerModule,
-    MatIconModule,
-    MatButtonModule,
-    NB_MODULES,
-    MatDividerModule
-  ],
+    imports: [
+        CommonModule,
+        TranslateModule.forChild(),
+        FormsModule,
+        ReactiveFormsModule,
+        NgbDatepickerModule,
+        MatIconModule,
+        MatButtonModule,
+        NB_MODULES,
+        MatDividerModule,
+        RouterModule
+    ],
   exports: [DialogMessageComponent,
     ExistPhoneNumberDirective,
     ExistEmailDirective,
