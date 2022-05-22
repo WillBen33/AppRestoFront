@@ -72,7 +72,7 @@ export class HeatThePaymentCardComponent implements OnInit {
             .then(response => {
               if (response.status === 200) {
                 this.toastrService.success(this.translateService.instant("payment.valid"), this.translateService.instant("payment.title"));
-                this.shoppingCartService.deleteAllCartProducts();
+                // this.shoppingCartService.deleteAllCartProducts();
                 KR.hideForm("#myPaymentForm").then(r => KR.hideForm("#myPaymentForm"));
                 location.href = 'commande/success';
               }
