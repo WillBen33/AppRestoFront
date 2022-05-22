@@ -111,7 +111,8 @@ export class ShoppingCartService {
   }
 
   deleteAllCartProducts(): void {
-    return localStorage.clear();
+    localStorage.removeItem("commandeType");
+    localStorage.removeItem("shoppingCart");
   }
 
 }

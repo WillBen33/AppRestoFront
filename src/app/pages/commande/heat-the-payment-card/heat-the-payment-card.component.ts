@@ -1,13 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
 import KRGlue from '@lyracom/embedded-form-glue';
 import {TranslateService} from '@ngx-translate/core';
 import axios from 'axios';
-import {CookieService} from 'ngx-cookie-service';
 import {ToastrService} from 'ngx-toastr';
 import {tap} from 'rxjs/operators';
-import {Adress, CommandeProduct, Contact, Order} from 'src/app/api/models';
-import {CheckoutControllerService, ContactControllerService} from 'src/app/api/services';
+import {Adress, CommandeProduct, Order} from 'src/app/api/models';
+import {CheckoutControllerService} from 'src/app/api/services';
 import {ShoppingCartService} from 'src/app/services/shopping-cart/shopping-cart.service';
 
 @Component({
@@ -23,8 +21,8 @@ export class HeatThePaymentCardComponent implements OnInit {
 
   order: Order = {
     payzenOrderInfos: {
-      "amount": 50000,
-      "currency": "EUR",
+      amount: 50000,
+      currency: "EUR",
     },
     commande:
       {
@@ -42,7 +40,6 @@ export class HeatThePaymentCardComponent implements OnInit {
 
   constructor(private checkoutControllerService: CheckoutControllerService,
               private shoppingCartService: ShoppingCartService,
-              private cookieService: CookieService,
               private toastrService: ToastrService,
               private translateService: TranslateService) {
     this.order.commande = this.initCommande();
@@ -72,7 +69,7 @@ export class HeatThePaymentCardComponent implements OnInit {
             .then(response => {
               if (response.status === 200) {
                 this.toastrService.success(this.translateService.instant("payment.valid"), this.translateService.instant("payment.title"));
-                // this.shoppingCartService.deleteAllCartProducts();
+                 this.shoppingCartService.deleteAllCartProducts();
                 KR.hideForm("#myPaymentForm").then(r => KR.hideForm("#myPaymentForm"));
                 location.href = 'commande/success';
               }

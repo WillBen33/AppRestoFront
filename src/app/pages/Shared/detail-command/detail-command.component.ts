@@ -12,16 +12,17 @@ export class DetailCommandComponent implements OnInit {
 
   @Input()
   currentCommande : Commande = {} as Commande;
+  
   groupedCommandesProducts : Array<Array<CommandeProduct>> = new Array();
   constructor(private shoppingCartService : ShoppingCartService,
      private commandeProductService : CommandeProductControllerService) {
-       this.commandeProductService.getCommandeProductsByCommand({commandeId:this.currentCommande.id!})
-       .subscribe(commandeProducts => this.groupedCommandesProducts = 
-        this.shoppingCartService.getCommandeProductByKeyAndCommentArrays(this.shoppingCartService.getGroupedCommandeProductFromList(commandeProducts)))
+     
       }
 
   ngOnInit(): void {
-    
+    this.commandeProductService.getCommandeProductsByCommand({commandeId:this.currentCommande.id!})
+    .subscribe(commandeProducts => this.groupedCommandesProducts = 
+     this.shoppingCartService.getCommandeProductByKeyAndCommentArrays(this.shoppingCartService.getGroupedCommandeProductFromList(commandeProducts)))
   }
 
   getCurrentCommandeProduct(commandesProducts : Array<CommandeProduct>)
