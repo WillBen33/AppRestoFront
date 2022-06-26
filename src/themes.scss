@@ -4,7 +4,7 @@
 
 $nb-enable-css-custom-properties: true;
 
-$tabset-tab-active-text-color: #be33ff;
+//$tabset-tab-active-text-color: #be33ff;
 $nb-themes: nb-register-theme((
 
   // add your variables here like:
@@ -21,6 +21,33 @@ $nb-themes: nb-register-theme((
 
   color-primary-500: #ffbe33,
   text-primary-hover-color : #ffbe33,
-  $tabset-tab-active-text-color : #be33ff
+  //$tabset-tab-active-text-color : #be33ff
 
 ), default, default);
+
+// Custom tabset style
+nb-tabset li {
+  cursor: pointer;
+  border-radius: 25px;
+}
+
+nb-tabset li.tab.active {
+  background-color: #222831;
+  color: #ffffff!important;
+}
+
+nb-tabset .tab.active .tab-link::before {
+  background-color: transparent!important;
+}
+
+nb-tabset .tab a::before {
+  display: none;
+}
+
+nb-tabset .tab-link.active {
+  color: #000000!important;
+}
+
+nb-tabset .tabset{
+  justify-content: center;
+}
