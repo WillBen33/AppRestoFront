@@ -28,7 +28,7 @@
         "delivery": "En livraison ?",
         "order": "Commandez !",
         "about-title": "A propos de M&W",
-        "about-message": "M&W est une jeune entreprise créée en 2020 par deux passionnés de cuisine que sont Messan et Wilfrid. Ils vous feront découvrir leurs spécialités culinaires à travers une carte de plats riches et variés, préparés essentiellement avec des produits frais,",
+        "about-message": "M&W est une jeune entreprise créée en 2020 par deux passionnés de cuisine que sont Messan et Wilfrid. Ils vous feront découvrir leurs spécialités culinaires à travers une carte de plats riches et variés, préparés essentiellement avec des produits frais.",
         "about-read-more": "En savoir plus",
         "customer-notice-title": "Ce que nos clients pensent de nous"
     },
@@ -54,7 +54,7 @@
         "error": {
             "invalidPasswordOrEmail": "L'adresse email ou le mot de passe est incorrecte! Réessayez à nouveau !"
         },
-        "success": "Bravo ! Vous êtes connecté!"
+        "success": "Bravo ! Vous êtes connecté !"
     },
     "account": {
         "added": "Votre compte a bien été crée !",
@@ -188,7 +188,7 @@
     },
     "404Notfound": {
         "title": "Erreur 404 ! Page non trouvé !",
-        "message": "La page que vous cherchez n'exsite pas !"
+        "message": "La page que vous cherchez n'existe pas !"
     },
     "confirm": {
         "delete": "Voulez-vous vraiment supprimer votre compte ?"
