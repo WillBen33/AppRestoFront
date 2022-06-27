@@ -45,7 +45,13 @@
     "contact-us-text": "Would you like to contact us? You can write to us by filling in the form below.",
     "recaptcha-error": "You must validate the captcha",
     "contact-send-email": "Submit",
-    "required": "* These fields are required"
+    "required": "* These fields are required",
+    "subject-placeholder": "Subject *",
+    "firstname-placeholder": "First name *",
+    "lastname-placeholder": "Last name *",
+    "phone-placeholder": "Mobile phone *",
+    "email-placeholder": "Email *",
+    "message-placeholder": "Message *"
   },
   "About": "About",
   "Login": {
