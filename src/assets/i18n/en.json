@@ -244,7 +244,13 @@
     "status": {
       "new": {
         "title": "New customer",
-        "message": "Become a member of the fabulous M&W community! It’s quick and easy"
+        "message": "Become a member of the fabulous M&W community! It’s quick and easy",
+        "advantage": {
+          "promo": "Exceptional specials for you !",
+          "deliveryPass": "Free deliveries at specific times ! The famous Hot Hours !",
+          "faithfull": "Loyalty points that make you smile !",
+          "birthdate": "Privatize the room for your birthdays, isn’t that magical ?"
+        }
       },
       "guess": {
         "title": "Order as a guest",
