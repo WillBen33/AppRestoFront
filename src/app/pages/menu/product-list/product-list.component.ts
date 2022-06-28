@@ -28,7 +28,8 @@ export class ProductListComponent implements OnInit {
     private toastr: ToastrService,
     private translateService: TranslateService,
     private dialogService: NbDialogService,
-    private shoppingCartService: ShoppingCartService) { }
+    private shoppingCartService: ShoppingCartService,
+    public toastController: AbortController) { }
 
   ngOnInit(): void {
     this.products$ = this.productService.getProductByCategory({ id: this.categoryId });

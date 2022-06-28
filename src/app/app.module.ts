@@ -22,6 +22,7 @@ import { TemplatesModule } from "./templates/templates.module";
 import localeFr from "@angular/common/locales/fr";
 import { NbRoleProvider, NbSecurityModule } from "@nebular/security";
 import { RoleProvider } from "./pages/Shared/classes/roleProvider/role-provider";
+import { environment } from "../environments/environment";
 
 export function createTranslateLoader(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient, './assets/i18n/', '.json');
@@ -67,12 +68,14 @@ const socialLinks: NbAuthSocialLink[] = [];
     NbSecurityModule.forRoot({
       accessControl: {
         guest: {},
-        ROLE_CUSTOMER: {parent : 'guest'},
+        ROLE_CUSTOMER: {
+          parent: 'guest'
+        },
         ROLE_ADMIN: {
-          parent:'ROLE_CUSTOMER',
-          view:'*',
-          create:'*',
-          remove:'*'
+          parent: 'ROLE_ADMIN',
+          view: '*',
+          create: '*',
+          remove: '*'
         }
       },
     }),
@@ -80,19 +83,19 @@ const socialLinks: NbAuthSocialLink[] = [];
       strategies: [
         NbPasswordAuthStrategy.setup({
           name: 'email',
-          baseEndpoint: 'http://localhost:8081/restaurant',
+          baseEndpoint: environment.backendUrl,
           token: {
             class: NbAuthJWTToken,
             key: 'accessToken',
           },
           refreshToken:
           {
-            endpoint: '/auth/refresh',
+            endpoint: environment.refreshTokenUri,
             method: 'post',
             requireValidToken: true,
           },
           login: {
-            endpoint: '/auth/sign-in',
+            endpoint: environment.signInUri,
             method: 'post',
             redirect: {
               success: '/home',
@@ -100,27 +103,27 @@ const socialLinks: NbAuthSocialLink[] = [];
             },
           },
           register: {
-            endpoint: '/auth/sign-up',
+            endpoint: environment.signUpUri,
             method: 'post',
             requireValidToken: false,
             redirect: {
-              success: '/auth/register-success',
+              success: environment.registerRedirect,
               failure: null
             },
           },
           logout: {
-            endpoint: '/auth/logout',
+            endpoint: environment.logoutUri,
             method: 'get',
             redirect: {
-              success: '/menu'
+              success: environment.logoutRedirect
             }
           },
           requestPass: {
-            endpoint: '/auth/request-password',
+            endpoint: environment.requestPasswordUri,
             method: 'post',
           },
           resetPass: {
-            endpoint: '/auth/reset-password',
+            endpoint: environment.resetPasswordUri,
             method: 'post',
           }
         }),
@@ -190,14 +193,11 @@ const socialLinks: NbAuthSocialLink[] = [];
     {
       provide: NB_AUTH_TOKEN_INTERCEPTOR_FILTER,
       useValue: function (req: HttpRequest<any>) {
-        if (req.url === 'http://localhost:8081/restaurant/auth/refresh') {
-          return true;
-        }
-        return false;
+        return req.url === `${environment.backendUrl}${environment.refreshTokenUri}`;
       },
     },
     { provide: LOCALE_ID, useValue: "fr-FR" },
-    {provide: DEFAULT_CURRENCY_CODE, useValue: 'EUR'},
+    { provide: DEFAULT_CURRENCY_CODE, useValue: 'EUR' },
     { provide: NbRoleProvider, useClass: RoleProvider },
     httpInterceptorProviders,
     CookieService

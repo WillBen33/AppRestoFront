@@ -7,7 +7,6 @@ import { MenuComponent } from './menu.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { SubcategoryListComponent } from './subcategory-list/subcategory-list.component';
 import { ProductListComponent } from './product-list/product-list.component';
-import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -15,10 +14,10 @@ import { MatIconModule } from '@angular/material/icon';
   imports: [
     CommonModule,
     MenuRoutingModule,
-    NbTabsetModule,
     TranslateModule,
-    NbCardModule,
     NbDialogModule.forChild(),
+    NbCardModule,
+    NbTabsetModule,
     NbLayoutModule,
     NbButtonModule,
     NbAccordionModule

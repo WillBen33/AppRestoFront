@@ -47,11 +47,14 @@
                 <a class="dropdown-item" (click)="displayCommandes()" *ngIf="isAuthenticated">
                   <i class="fas fa-pizza-slice"></i> &nbsp; {{'button.userCommande' | translate}}
                 </a>
-                <a class="dropdown-item" (click)="logout()" *ngIf="isAuthenticated">
-                  <i class="fas fa-sign-out-alt"></i> &nbsp; {{'button.logout' | translate}}
-                </a>
                 <a class="dropdown-item" (click)="signUp()" *ngIf="!isAuthenticated">
                   <i class="fas fa-sign-in-alt"></i> &nbsp; {{'button.sign-up' | translate}}
+                </a>
+                <a class="dropdown-item" (click)="setting()" *ngIf="isAuthenticated">
+                  <i class="fa-solid fa-gears"></i> &nbsp; {{'button.setting' | translate}}
+                </a>
+                <a class="dropdown-item" (click)="logout()" *ngIf="isAuthenticated">
+                  <i class="fas fa-sign-out-alt"></i> &nbsp; {{'button.logout' | translate}}
                 </a>
                 <a class="dropdown-item" (click)="signIn()" *ngIf="!isAuthenticated">
                   <i class="fas fa-sign-in-alt"></i> &nbsp; {{'button.sign-in' | translate}}

@@ -7,6 +7,7 @@ import {tap} from 'rxjs/operators';
 import {Adress, CommandeProduct, Order} from 'src/app/api/models';
 import {CheckoutControllerService} from 'src/app/api/services';
 import {ShoppingCartService} from 'src/app/services/shopping-cart/shopping-cart.service';
+import {environment} from "../../../../environments/environment";
 
 @Component({
   selector: 'app-heat-the-payment-card',
@@ -23,6 +24,7 @@ export class HeatThePaymentCardComponent implements OnInit {
     payzenOrderInfos: {
       amount: 50000,
       currency: "EUR",
+      ipnTargetUrl:`${environment.backendUrl}${environment.ipnTargetUrl}`
     },
     commande:
       {
@@ -49,9 +51,17 @@ export class HeatThePaymentCardComponent implements OnInit {
     this.initOrder();
   }
 
+  initOrder() {
+    this.order.commande.commandeProducts = this.shoppingCartService.getShoppingCartAsArray();
+    this.order.commande.typeCommande = this.shoppingCartService.getCommadeType();
+    this.order.payzenOrderInfos.amount = this.shoppingCartService.getShoppingCartTotalValue() * 100;
+    this.checkoutControllerService.generateFormToken({body: this.order}).pipe(
+      tap(data => this.formToken = data?.answer.formToken)).subscribe(() => this.onCheckout());
+  }
+
   public onCheckout() {
-    const endpoint = "https://static.payzen.eu/";
-    const publicKey = "67953007:testpublickey_5U33XRhlq7USngQP0hmpn6Kw1jVL29VucW1xOTicQZdsT";
+    const endpoint = environment.payzenUrl;
+    const publicKey = environment.payzenPublicKey;
     const formToken = this.formToken;
     KRGlue.loadLibrary(endpoint, publicKey) /* Load the remote library */
       .then(({KR}) =>
@@ -65,7 +75,7 @@ export class HeatThePaymentCardComponent implements OnInit {
       .then(({KR}) => {
         return KR.onSubmit(resp => {
           axios
-            .post('http://localhost:8081/restaurant/checkout/validatePayment', resp) //TODO: variable d'environnement
+            .post( environment.backendUrl+environment.checkoutUri, resp)
             .then(response => {
               if (response.status === 200) {
                 this.toastrService.success(this.translateService.instant("payment.valid"), this.translateService.instant("payment.title"));
@@ -78,7 +88,12 @@ export class HeatThePaymentCardComponent implements OnInit {
         });
       })
       .then(({KR}) => KR.onError(resp => {
-        this.toastrService.error(this.translateService.instant("payment.invalid"), this.translateService.instant("payment.title"));
+        if (resp.errorCode === "CLIENT_100")
+        {
+          this.toastrService.error(this.translateService.instant("payment.formTokenExpired"), this.translateService.instant("payment.title"), { timeOut:100000, easeTime:1});
+        }else{
+        this.toastrService.error(this.translateService.instant("payment.invalid"), this.translateService.instant("payment.title"), { timeOut:100000, easeTime:1});
+        }
       })
       .then(({KR}) =>
         KR.addForm("#myPaymentForm")
@@ -89,13 +104,7 @@ export class HeatThePaymentCardComponent implements OnInit {
     );
   }
 
-  initOrder() {
-    this.order.commande.commandeProducts = this.shoppingCartService.getShoppingCartAsArray();
-    this.order.commande.typeCommande = this.shoppingCartService.getCommadeType();
-    this.order.payzenOrderInfos.amount = this.shoppingCartService.getShoppingCartTotalValue() * 100;
-    this.checkoutControllerService.generateFormToken({body: this.order}).pipe(
-      tap(data => this.formToken = data?.answer.formToken)).subscribe(() => this.onCheckout());
-  }
+
 
   initCommande() {
     let commande = localStorage.getItem('readyTopay');

@@ -24,7 +24,6 @@ export class HeaderComponent implements OnInit {
         if (token.isValid()) {
           this.isAuthenticated = true;
           this.user = token.getPayload();
-          console.log(this.user);
         }
       });
   }
@@ -68,6 +67,10 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['auth/sign-in']);
   }
 
+  setting()
+  {
+    this.router.navigate(['admin']);
+  }
   getToTalProcuct() {
     return this.shoppingCartService.getNbProductInCart();
   }

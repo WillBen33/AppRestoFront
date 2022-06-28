@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { AdminRoleGuard } from './services/auth/guards/adminRole/admin-role.guard';
-import { AuthGuardService } from './services/auth/guards/authentication/auth-guard.service';
-import { LayoutComponent } from "./templates/layout/layout.component";
+import { AuthGuardService } from './services/auth/guards/authentication/auth-guard.service';import { LayoutComponent } from './templates/layout/layout.component';
+;
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
