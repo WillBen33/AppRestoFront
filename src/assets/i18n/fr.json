@@ -211,7 +211,8 @@
     "valid": "Valider",
     "registerAndValid": "S'enregistrer et finaliser",
     "productDetail": "Détail du produit",
-    "add": "Ajouter"
+    "add": "Ajouter",
+    "setting":"Paramétrage"
   },
   "404Notfound": {
     "title": "Erreur 404 ! Page non trouvé !",

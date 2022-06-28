@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  backendUrl : "http://localhost:5000",
+  backendUrl : "http://mw-env.eba-mmm26p2e.eu-west-3.elasticbeanstalk.com",
   checkoutUri: "/api/checkout/validatePayment",
   payzenUrl : "https://static.payzen.eu/",
   payzenPublicKey:"67953007:testpublickey_5U33XRhlq7USngQP0hmpn6Kw1jVL29VucW1xOTicQZdsT",
@@ -17,7 +17,7 @@ export const environment = {
   loginRedirect:"/home",
   logoutRedirect:"/menu",
   registerRedirect:"/auth/register-success",
-  ipnTargetUrl:"http://91.168.93.70:8081/checkout/ipn"
+  ipnTargetUrl:"/api/checkout/ipn"
 };
 
 /*

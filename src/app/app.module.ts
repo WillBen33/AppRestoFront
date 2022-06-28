@@ -72,7 +72,7 @@ const socialLinks: NbAuthSocialLink[] = [];
           parent: 'guest'
         },
         ROLE_ADMIN: {
-          parent: 'ROLE_ADMIN',
+          parent: 'ROLE_CUSTOMER',
           view: '*',
           create: '*',
           remove: '*'
