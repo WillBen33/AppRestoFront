@@ -1,0 +1,303 @@
+{
+  "header": {
+    "logo": "M&W",
+    "home": "Home",
+    "menu": "Menu",
+    "deals": "Offers",
+    "approach": "Approach",
+    "join": "Join",
+    "contact": "Contact",
+    "order": "Order now",
+    "lang.fr": "Français",
+    "lang.en": "English"
+  },
+  "footer": {
+    "contact-us": "Contact us",
+    "google-map": "Join us",
+    "phone-number": "+33 1234567890",
+    "email": "wmpferestaurant@gmail.com",
+    "logo": "M&W",
+    "message": "Come and have a good time with us !",
+    "opening-title": "Hours",
+    "opening-days": "Open every days",
+    "opening-hours": "From 11am to midnight"
+  },
+  "home": {
+    "takeaway": "Takeaway ?",
+    "book": "Book !",
+    "delivery": "Delivery ?",
+    "order": "Order !",
+    "about-title": "About M&W",
+    "about-message": "M&W is a young company created in 2020 by two passionate cooks, Messan and Wilfrid. They will make you discover their culinary specialities through a menu of rich and varied dishes, prepared mainly with fresh products.",
+    "about-read-more": "Read more",
+    "customer-notice-title": "What our customers think of us"
+  },
+  "menu": {
+    "page-title": "Menu",
+    "page-description": "Discover our menu and compose your meal.",
+    "cleanCart-success": "Your cart is empty",
+    "cart-is-empty": "Your cart is empty",
+    "add-item": "Product added to cart",
+    "remove-item": "Product removed from cart"
+  },
+  "contact": {
+    "contact-us-title": "Contact us",
+    "contact-us-text": "Would you like to contact us? You can write to us by filling in the form below.",
+    "recaptcha-error": "You must validate the captcha",
+    "contact-send-email": "Submit",
+    "required": "* These fields are required",
+    "subject-placeholder": "Subject *",
+    "firstname-placeholder": "First name *",
+    "lastname-placeholder": "Last name *",
+    "phone-placeholder": "Mobile phone *",
+    "email-placeholder": "Email *",
+    "message-placeholder": "Message *"
+  },
+  "About": "About",
+  "Login": {
+    "sign-in": "Connect",
+    "withEmail": "Log in to your account using your email to access your profile !",
+    "error": {
+      "invalidPasswordOrEmail": "The email address or password is incorrect ! Try again !"
+    },
+    "success": "Congratulations ! You are connected !"
+  },
+  "account": {
+    "added": "Your account has been created !",
+    "missing": "You don’t have an account ?",
+    "present": "You already have an account ?",
+    "register": {
+      "create": "Create a new account",
+      "success": "Congratulations, your registration is successful !",
+      "validate": "We have sent you a confirmation email to the address indicated in the registration form. Please click on the link contained in this email to validate your registration. Thank you, we look forward to seeing you again !",
+      "verifyEmail": "Email verification",
+      "emailValidating": "Please wait. Your email is being validated !"
+    },
+    "validRegistration": "Validate your registration",
+    "isActivated": {
+      "title": "Successful activation !",
+      "message": "Your account is now activated, you can now log in !"
+    },
+    "request-password": {
+      "instruction": "Please fill in your email and we will send you a link to renew your password !",
+      "title": "Forgotten password"
+    },
+    "reset-password": {
+      "instruction": "Enter your new password !",
+      "title": "Renew your password"
+    },
+    "profil": {
+      "title": "My profile",
+      "msgTitle": "Profile modification",
+      "edit": "Edit your profile",
+      "delete": "Delete your profile",
+      "updated": "Your profile has been updated !"
+    },
+    "delete": {
+      "title": "Account deletion",
+      "message": "Your profile has been deleted !"
+    },
+    "user": {
+      "identity": "Identity",
+      "firstname": "First name",
+      "lastname": "Last name",
+      "password": "Password",
+      "renewPassword": "Nex password",
+      "email": "Email address",
+      "deliveryAdress": "Delivery address",
+      "billingAdress": "Billing address",
+      "adress": {
+        "streetNumber": "Number",
+        "street": "Street",
+        "zipCode": "ZipCode",
+        "department": "Departement",
+        "country": "Country",
+        "additionalAdress": "Additional address",
+        "city": "City"
+      },
+      "phoneNumber": "Phone number",
+      "rePassword": "Password confirmation",
+      "civility": "Civility"
+    }
+  },
+  "error": {
+    "required": {
+      "field": "The filed {{field}} is required !",
+      "length": "The field {{field}} dmust contain between {{minLength}} and {{maxLength}} character !",
+      "exactLength": "The field {{field}} must exactly contain {{length}} character !",
+      "cgu": "You must agree to the terms and conditions of use of the software before creating your account !",
+      "numberPattern": "The field {{field}} should only contain numbers and should be {{length}} long !"
+    },
+    "password": {
+      "confirm": "Passwords are differents",
+      "pattern": {
+        "title": "Attention! The password must contain at least :",
+        "lowercase": "A lower case letter",
+        "uppercase": "An upper case letter",
+        "digit": "A number",
+        "symbol": "A special character among the following : *. ! @ # $ % ^ & ( ) { } [ ] : ; < > , . ? ~ _ + - = \\ |"
+      }
+    },
+    "email": {
+      "valid": "This email is not valid !",
+      "title": "Validation error",
+      "message": "Your validation link is no longer valid ! Please renew it by filling in your email address in the form below !",
+      "clientSide": "An error has occurred ! Please click on the link in the validation email !",
+      "duplicateEmailDlg": "An account is already associated with this email ! Do you want to log in ? Otherwise please fill in another one.",
+      "duplicateEmailMsg": "An account is already associated with this email ! Please fill in another one !"
+    },
+    "reset-password": {
+      "title": "Validation error",
+      "message": "Your renewal link is no longer valid ! Please renew it by filling in your email address in the form below !",
+      "clientSide": "An error has occurre d  Please click on the link in the renewal email !"
+    },
+    "lost": "Oops ! Maybe you got lost !",
+    "phoneNumber": {
+      "duplicatePhoneNumber": "An account is already associated with this phone number. Please fill in another one !",
+      "title": "Existing phone number"
+    },
+    "clientSide": "An error has occurred ! Please try again !",
+    "field": {
+      "duplicate": "A {{name}} already exists with this name ! Please enter another one !"
+    }
+  },
+  "terms": {
+    "title": "The terms of use",
+    "agree": "Accept"
+  },
+  "billingAdress": {
+    "keep": "Keep the same address for billing ?"
+  },
+  "button": {
+    "send": "Send",
+    "password-request": "Password renew",
+    "forgotten-password": "Forgotten password ?",
+    "home": "Back to home",
+    "cancel": "Cancel",
+    "continue": "Continue",
+    "save": "Save",
+    "updateProfil": "Edit your profile",
+    "changePassword": "Modify yout password",
+    "userCommande": "My orders",
+    "logout": "Log out",
+    "sign-in": "Log in",
+    "sign-up": "Registry",
+    "addToShoppingCard": "Add to cart",
+    "update": "Edit",
+    "navigateToCart": "Back to the menu",
+    "completeCommande": "Finalizing the order",
+    "validShopping": "Validate the purchase",
+    "valid": "Validate",
+    "registerAndValid": "Registry and checkout",
+    "productDetail": "Product detail",
+    "add": "Add"
+  },
+  "404Notfound": {
+    "title": "404 Error ! Page not found !",
+    "message": "The page you are looking for does not exist !"
+  },
+  "confirm": {
+    "delete": "Do you really want to delete your account ?"
+  },
+  "product": {
+    "addComment": "Add a useful comment to the preparation of your product",
+    "quantity": "Quantity",
+    "update": "The product \"{{name}}\" has been succesfully updated !",
+    "remove": "The product \"{{name}}\" has been succesfully removed !",
+    "add": {
+      "cart": "The product has been succesfully added to your cart !",
+      "database": "The product \"{{name}}\" has been succesfully added to your database !"
+    },
+    "description": "Description",
+    "allergen": "Allergens",
+    "price": "Price",
+    "libelle": "Product name",
+    "title": "product"
+  },
+  "cart": {
+    "title": "Your cart",
+    "empty": "Your cart is empty !"
+  },
+  "comment": {
+    "title": "Comment"
+  },
+  "commande": {
+    "value": "Final price",
+    "type": {
+      "delivery": "Delivery",
+      "takeAway": "Click & Collect",
+      "message": "Order type"
+    },
+    "total": "Total price",
+    "s-total": "Subtotal",
+    "confirmCommande": {
+      "myInfos": "My informations",
+      "creditCardData": "Enter your card details here !"
+    },
+    "commandeList": {
+      "title": "My orders"
+    },
+    "detail": "Order detail",
+    "number": "Order number"
+  },
+  "customer": {
+    "status": {
+      "new": {
+        "title": "New customer",
+        "message": "Become a member of the fabulous M&W community! It’s quick and easy",
+        "advantage": {
+          "promo": "Exceptional specials for you !",
+          "deliveryPass": "Free deliveries at specific times ! The famous Hot Hours !",
+          "faithfull": "Loyalty points that make you smile !",
+          "birthdate": "Privatize the room for your birthdays, isn’t that magical ?"
+        }
+      },
+      "guess": {
+        "title": "Order as a guest",
+        "message": "You prefer to miss all that ? No problem !"
+      },
+      "registered": {
+        "title": "Already a member",
+        "message": "Have you joined the team yet ?"
+      }
+    }
+  },
+  "payment": {
+    "valid": "Your payment has been validated",
+    "title": "Transaction status",
+    "formTokenExpired": "The form has expired ! Please update the page !",
+    "invalid": "An error occured in the payment process !"
+  },
+  "date": {
+    "format": "dd/MM/YYYY at HH:mm"
+  },
+  "admin": {
+    "cartManagement": "Menu manager",
+    "productList": "Products list",
+    "categoryList": "Categories list",
+    "allergenList": "Allergens list"
+  },
+  "category": {
+    "title": "Category",
+    "pluralTitle": "Categories",
+    "name": "Category's name",
+    "subcategories": "Subcategory",
+    "parentCategory": "Parent category",
+    "add": "The category \"{{name}}\" has been succesfully added to your database !",
+    "update": "The category \"{{name}}\" has been succesfully edited !",
+    "remove": "The category \"{{name}}\" has been succesfully removed !"
+  },
+  "allergen": {
+    "title": "Allergen",
+    "pluralTitle": "Allergens",
+    "libelle": "Allergen's name",
+    "add": "The allergen \"{{name}}\" has been succesfully added to your database !",
+    "update": "The allergen \"{{name}}\" has been succesfully edited !",
+    "remove": "The allergen \"{{name}}\" has been succesfully removed !"
+  },
+  "table":
+  {
+    "currentPageReportTemplate":"Vous consultez les lignes {first} à {last} d'un total de {totalRecords} lignes.",
+    "emptyMessage": "Il n'y a aucune données à consulter !"
+  }
+}

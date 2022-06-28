@@ -1,36 +1,36 @@
 <section class="food_section layout_padding-bottom">
-        <div class="filters-content">
-            <div class="row grid">
-                <div class="col-sm-6 col-lg-4" *ngFor="let product of products$ | async">
-                    <div class="box">
-                        <div>
-                            <div class="img-box">
-                                <img src="https://static.750g.com/images/600-600/fa94d52dd749d587b7fd75e4a918174b/pizza.png" alt="">
-                            </div>
-                            <div class="detail-box">
-                                <h5>
-                                    {{product.libelle}}
-                                </h5>
-                                <p>
-                                    {{product.description}}
-                                </p>
-                             <div>
-                                <button nbButton status="warning" size="tiny" hero shape="round" (click)="productDetails(product)">
-                                    {{'button.productDetail' | translate}}
-                                  </button>
-                             </div>
-                                <div class="options">
-                                    <h6>
-                                        {{product.price | currency }} 
-                                    </h6>
-                                    <button nbButton status="warning" hero shape="round" (click)="selectionProcess(product)">
-                      <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
-                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+  <div class="filters-content">
+    <div class="row grid">
+      <div class="col-sm-6 col-lg-4" *ngFor="let product of products$ | async">
+        <div class="box">
+          <div>
+            <div class="img-box">
+              <img src="./assets/images/products/{{product.libelle}}.png" alt="">
             </div>
+            <div class="detail-box">
+              <h5>
+                {{product.libelle}}
+              </h5>
+              <p>
+                {{product.description}}
+              </p>
+              <div>
+                <button nbButton status="warning" size="tiny" hero shape="round" (click)="productDetails(product)">
+                  {{'button.productDetail' | translate}}
+                </button>
+              </div>
+              <div class="options">
+                <h6>
+                  {{product.price | currency }}
+                </h6>
+                <button nbButton status="warning" hero shape="round" (click)="selectionProcess(product)">
+                  <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+    </div>
+  </div>
 </section>

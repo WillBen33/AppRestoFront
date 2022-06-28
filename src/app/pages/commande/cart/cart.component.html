@@ -33,20 +33,19 @@
                                 <nb-card-body class="p-2">
                                     <div class="row no-gutters mb-2">
                                         <nb-select class="mx-auto" [formControl]="selectedItemFormControl">
-                                            <nb-option value="TAKE_AWAY">{{'commande.type.takeAway' | translate }}
+                                            <nb-option value="TAKE_AWAY">
+                                              {{'commande.type.takeAway' | translate }}
                                             </nb-option>
-                                            <nb-option value="DELIVERY">{{'commande.type.delivery' | translate}}
+                                            <nb-option value="DELIVERY">
+                                              {{'commande.type.delivery' | translate}}
                                             </nb-option>
                                         </nb-select>
                                     </div>
                                     <mat-divider class="mb-3 mt-3"></mat-divider>
                                     <app-resume-commande></app-resume-commande>
                                     <div class="row no-gutters">
-
                                         <button class="mx-auto" nbButton shape="semi-round" status="warning" size="medium" hero type="button"
-                                            (click)="completeCommande()">{{'button.completeCommande'
-                                            |
-                                            translate}}  </button>
+                                            (click)="completeCommande()">{{'button.completeCommande' | translate}}  </button>
                                     </div>
                                 </nb-card-body>
                             </nb-card>

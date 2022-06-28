@@ -11,33 +11,41 @@
           <form action="" class="form-group" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
             <div>
               <input type="text" class="form-control"
-                     placeholder="Sujet *"
+                     placeholder="{{'contact.subject-placeholder' | translate}}"
                      formControlName="subject"
                      required/>
             </div>
             <div class="row">
               <div class="col">
                 <input type="text" class="form-control"
-                       placeholder="Prénom *"
+                       placeholder="{{'contact.firstname-placeholder' | translate}}"
                        formControlName="firstName"
                        required/>
               </div>
               <div class="col">
-                <input type="text" class="form-control" placeholder="Nom *" formControlName="lastName"/>
+                <input type="text" class="form-control"
+                       placeholder="{{'contact.lastname-placeholder' | translate}}"
+                       formControlName="lastName"/>
               </div>
             </div>
             <div class="row">
               <div class="col">
                 <div>
-                  <input type="text" class="form-control" placeholder="Téléphone *" formControlName="phone"/>
+                  <input type="text" class="form-control"
+                         placeholder="{{'contact.phone-placeholder' | translate}}"
+                         formControlName="phone"/>
                 </div>
               </div>
               <div class="col">
-                <input type="email" class="form-control" placeholder="Email *" formControlName="email"/>
+                <input type="email" class="form-control"
+                       placeholder="{{'contact.email-placeholder' | translate}}"
+                       formControlName="email"/>
               </div>
             </div>
             <div>
-              <textarea class="form-control" rows="4" placeholder="Message *" formControlName="message"></textarea>
+              <textarea class="form-control" rows="4"
+                        placeholder="{{'contact.message-placeholder' | translate}}"
+                        formControlName="message"></textarea>
             </div>
             <div class="btn_box">
               <button type="submit">

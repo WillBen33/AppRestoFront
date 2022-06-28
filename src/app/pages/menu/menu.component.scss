@@ -1,28 +1,21 @@
 @media (max-width: 575.98px) {
-    .custom-tabset ::ng-deep ul.tabset {
-        flex-direction: column;
-    }
+  .custom-tabset ::ng-deep ul.tabset {
+    flex-direction: column;
+  }
 
-   
+  :host .custom-layout {
+    padding: 0;
+  }
 
-    :host .custom-layout {
-        padding: 0;
-    }
+  :host .custom-layout .custom-layout-column {
+    padding: 0;
+  }
 
-    :host .custom-layout .custom-layout-column {
-        padding: 0;
-    }
+  :host .custom-layout .custom-layout-column .custom-nb-card {
+    margin-bottom: 0;
+  }
 
-    :host .custom-layout .custom-layout-column .custom-nb-card {
-        margin-bottom: 0;
-    }
-
-    :host .custom-layout .custom-layout-column .custom-nb-card-body {
-        padding: 0;
-    }
-
-   /*  .container {
-        padding: 0;
-    } */
-
+  :host .custom-layout .custom-layout-column .custom-nb-card-body {
+    padding: 0;
+  }
 }
